@@ -1,0 +1,109 @@
+{
+  "openai": {
+    "api_key": "your_openai_api_key_here",
+    "base_url": "https://api.openai.com/v1",
+    "model": "gpt-3.5-turbo",
+    "timeout": 90,
+    "max_tokens": 6000,
+    "max_retries": 3,
+    "temperature": 0.2,
+    "top_p": 0.9,
+    "frequency_penalty": 0,
+    "presence_penalty": 0.1,
+    "retry_delay": 2
+  },
+  "quality_filter": {
+    "min_quality_score": 80,
+    "enable_quality_filter": false,
+    "weights": {
+      "content_length": 0.3,
+      "keyword_relevance": 0.4,
+      "language_ratio": 0.2,
+      "structure_completeness": 0.1
+    }
+  },
+  "qa_generator": {
+    "qa_per_chunk": 3,
+    "batch_size": 5,
+    "max_workers": 3,
+    "enable_threading": true,
+    "answer_language": "chinese",
+    "question_types": [
+      "factual",
+      "analytical",
+      "inferential"
+    ],
+    "min_content_length": 50,
+    "max_question_length": 200,
+    "min_answer_length": 20
+  },
+  "knowledge_extractor": {
+    "batch_size": 5,
+    "max_workers": 3,
+    "enable_threading": true,
+    "filter_isolated_nodes": true,
+    "entity_types": {},
+    "relationship_types": {}
+  },
+  "pdf_converter": {
+    "artifacts_path": "./docling-models",
+    "do_ocr": false
+  },
+  "html_converter": {
+    "extract_images": false,
+    "timeout": 30,
+    "max_image_size": 5242880
+  },
+  "chunk_splitter": {
+    "max_chunk_size": 1024,
+    "chunk_overlap": 100,
+    "document_title": "None",
+    "separators": [
+      "\n\n",
+      "\n",
+      "。",
+      "！",
+      "？"
+    ]
+  },
+  "graph_processor": {
+    "enable_entity_alignment": true,
+    "entity_alignment": {
+      "similarity_threshold": 0.75,
+      "enable_acronym_match": true,
+      "enable_contains_match": true
+    },
+    "quality_filters": {
+      "min_entity_name_length": 2,
+      "min_relationship_confidence": 0.6
+    }
+  },
+  "graph_enhancer": {
+    "elasticsearch": {
+      "hosts": [
+        "https://localhost:9200"
+      ],
+      "auth": [
+        "elastic",
+        "your_elastic_password"
+      ],
+      "index_name": "test_ttp_embedding_index"
+    },
+    "embedding_model": "text-embedding-v2",
+    "top_k": 5,
+    "similarity_threshold": 0.6,
+    "max_enhance_per_procedure": 2,
+    "enable_deduplication": true
+  },
+  "output": {
+    "save_intermediate": true,
+    "create_timestamp_dirs": false,
+    "compression": false
+  },
+  "logging": {
+    "level": "INFO",
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    "file_output": true,
+    "filename": "main.log"
+  }
+}

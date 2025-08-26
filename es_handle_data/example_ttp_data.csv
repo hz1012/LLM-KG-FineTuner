@@ -1,0 +1,11 @@
+tactics,techniques,procedure
+Initial Access,T1566.001,Spearphishing attachment with malicious PDF
+Execution,T1059.001,Command shell execution through PowerShell
+Persistence,T1543.003,Creation of new Windows service for persistence
+Privilege Escalation,T1055.001,Process injection using reflective loading techniques
+Defense Evasion,T1027.002,Obfuscation of malicious PowerShell scripts
+Credential Access,T1003.001,LSASS memory dump using built-in tools
+Discovery,T1082,System information discovery through WMI queries
+Lateral Movement,T1021.002,SMB/Windows Admin Shares for lateral movement
+Collection,T1114.001,Email collection from local Outlook storage
+Exfiltration,T1041,Exfiltration Over C2 Channel

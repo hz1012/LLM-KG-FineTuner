@@ -1,0 +1,65 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Log files
+*.log
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Configuration files with sensitive data
+config.json
+
+# Output directories that can be regenerated
+pdf_output/
+html_output/
+html_output_2/
+
+# Model files (usually large)
+docling-models/
+
+# Fine-tune outputs
+fine_tune_demo/fine_tune_output/
+
+# Logs directory
+logs/
+
+# Test directory
+test/
+
+# IDE specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Elasticsearch handle data sensitive files
+es_handle_data/ttp_detailed_results.csv
+es_handle_data/ttp_test_data.csv
+es_handle_data/ttp_train_data.csv
+es_handle_data/attck_procedures/
+es_handle_data/*.csv
+
+# Keep only safe example files
+!es_handle_data/*_example.py
+!es_handle_data/example_*.csv
+!es_handle_data/es_handle_data_sensitive_info.md
+
+# Fine-tune sensitive data files
+fine_tune_demo/fine_tune_input/raw_graph_chinese.json
+fine_tune_demo/fine_tune_input/raw_graph_english.json
+fine_tune_demo/fine_tune_input/training_data.json
+fine_tune_demo/fine_tune_output/

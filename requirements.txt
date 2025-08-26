@@ -1,0 +1,20 @@
+# 核心依赖
+langchain>=0.1.0
+openai>=1.0.0
+elasticsearch>=8.0.0
+
+# 文档处理依赖
+docling>=2.0.0
+markdownify>=0.11.0
+beautifulsoup4>=4.12.0
+requests>=2.31.0
+
+# 数据处理和工具依赖
+numpy>=1.24.0
+pandas>=2.0.0
+
+# 日志和工具
+logging>=0.4.9.6
+
+# 并发处理
+concurrent-log-handler>=0.9.20

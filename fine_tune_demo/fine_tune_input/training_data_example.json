@@ -1,0 +1,10 @@
+[
+  {
+    "input": "示例文本段落，用于演示如何从文本中提取威胁情报信息。示例组织可能会使用各种工具和技术来实施攻击。",
+    "output": "{\"entities\":[{\"labels\":\"ThreatOrganization\",\"id\":\"threat-org--example\",\"name\":\"Example Organization\",\"description\":\"示例威胁组织，用于演示数据格式\"},{\"labels\":\"Tool\",\"id\":\"tool--example\",\"name\":\"Example Tool\",\"description\":\"示例工具，用于演示数据格式\"}],\"relationships\":[{\"type\":\"USE\",\"source\":\"threat-org--example\",\"target\":\"tool--example\",\"confidence\":0.95,\"evidence\":\"示例组织使用示例工具进行攻击活动\"}]}"
+  },
+  {
+    "input": "另一个示例文本段落，展示不同的威胁情报信息。在这个示例中，我们将看到攻击事件和目标之间的关系。",
+    "output": "{\"entities\":[{\"labels\":\"AttackEvent\",\"id\":\"attack-event--example\",\"name\":\"Example Attack\",\"description\":\"示例攻击事件\"},{\"labels\":\"Target\",\"id\":\"target--example\",\"name\":\"Example Target\",\"description\":\"示例攻击目标\"}],\"relationships\":[{\"type\":\"ATTACK\",\"source\":\"attack-event--example\",\"target\":\"target--example\",\"confidence\":0.85,\"evidence\":\"示例攻击事件针对示例目标\"}]}"
+  }
+]

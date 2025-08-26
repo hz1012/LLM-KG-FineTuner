@@ -1,0 +1,69 @@
+{
+  "entities": [
+    {
+      "name": "Example Organization",
+      "type": "ThreatOrganization",
+      "id": "threat-org--example",
+      "description": "示例威胁组织，用于演示数据格式",
+      "labels": "ThreatOrganization",
+      "chunks_info": [
+        {
+          "chunk_index": 0,
+          "chunk_type": "text",
+          "chunk_content": "这是一个示例文本段落，用于演示如何从文本中提取威胁情报信息。示例组织可能会使用各种工具和技术来实施攻击。",
+          "chunk_length": 100,
+          "source_metadata": {
+            "content_type": "text",
+            "document_title": "示例威胁情报报告",
+            "chunk_id": 1,
+            "total_chunks": 5
+          }
+        }
+      ]
+    },
+    {
+      "name": "Example Tool",
+      "type": "Tool",
+      "id": "tool--example",
+      "description": "示例工具，用于演示数据格式",
+      "labels": "Tool",
+      "chunks_info": [
+        {
+          "chunk_index": 1,
+          "chunk_type": "text",
+          "chunk_content": "示例工具被示例组织用于实施网络攻击。该工具具有多种功能，可以帮助攻击者实现其目标。",
+          "chunk_length": 80,
+          "source_metadata": {
+            "content_type": "text",
+            "document_title": "示例威胁情报报告",
+            "chunk_id": 2,
+            "total_chunks": 5
+          }
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "type": "USE",
+      "source": "threat-org--example",
+      "target": "tool--example",
+      "confidence": 0.95,
+      "evidence": "示例组织使用示例工具进行攻击活动",
+      "chunks_info": [
+        {
+          "chunk_index": 2,
+          "chunk_type": "text",
+          "chunk_content": "示例组织使用示例工具进行攻击活动，这种组合在当前威胁环境中很常见。",
+          "chunk_length": 70,
+          "source_metadata": {
+            "content_type": "text",
+            "document_title": "示例威胁情报报告",
+            "chunk_id": 3,
+            "total_chunks": 5
+          }
+        }
+      ]
+    }
+  ]
+}
