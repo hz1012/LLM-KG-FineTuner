@@ -42,8 +42,24 @@
     "max_workers": 3,
     "enable_threading": true,
     "filter_isolated_nodes": true,
-    "entity_types": {},
-    "relationship_types": {}
+    "entity_types": {
+      "ThreatOrganization": "A hacker group with clear motives (e.g., espionage, sabotage, intellectual property theft, financial crime), sustained attack capabilities, and typically backed by nation-states or criminal organizations.",
+      "Target": "The specific entity targeted and attacked by the threat actor.",
+      "Report": "Publish official documents or authoritative research analyzing, reporting, and attributing the APT activity.",
+      "AttackEvent": "A specific instance of malicious activity initiated by a threat actor against a defined target, involving a complete attack chain (e.g., initial access, persistence, lateral movement, objective achievement) or its key phases.",
+      "Tactic": "The high-level, abstract objective that an attacker aims to achieve during the attack lifecycle. It describes 'why' the attacker performs certain actions.",
+      "Technique": "The general methods and common approaches attackers use to achieve specific tactical objectives. Describes 'how' attackers accomplish tactical goals at a conceptual level.",
+      "Procedure": "The unique, specific operational steps, methods, or combinations of tools used by a particular threat actor in a specific attack campaign to achieve a technical or tactical objective. This serves as the threat group's 'signature' or 'fingerprint.'",
+      "Tool": "Software, scripts, or code snippets actually used by attackers during an attack to perform malicious operations.",
+      "Asset": "Abstract infrastructure, systems, data, or accounts involved in the current attack activity."
+    },
+    "relationship_types": {
+      "BELONG": "Report belongs to AttackEvent - indicates that a specific report documents, analyzes, or provides intelligence about a particular attack event or campaign",
+      "LAUNCH": "ThreatOrganization launches AttackEvent - describes the initiation of a malicious campaign by a threat actor group against specific targets; Technique launches Procedure - indicates how a general attack method triggers or initiates specific operational implementation steps",
+      "ATTACK": "AttackEvent attacks Target - describes the victim entity being targeted in a specific attack instance; AttackEvent attacks using Tactic - indicates the high-level strategic approach employed during the attack; AttackEvent attacks through Procedure - shows the specific operational methods used to carry out the attack",
+      "HAS": "Tactic has Technique - represents the hierarchical relationship where a strategic objective encompasses multiple technical approaches to achieve that tactical goal",
+      "USE": "Procedure uses Tool - indicates the specific software, scripts, or utilities employed during the execution of attack procedures; Asset uses Procedure - describes how infrastructure, systems, or accounts are leveraged to carry out specific attack operations"
+    }
   },
   "pdf_converter": {
     "artifacts_path": "./docling-models",
