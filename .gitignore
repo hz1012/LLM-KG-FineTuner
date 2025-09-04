@@ -46,13 +46,6 @@ test/
 ehthumbs.db
 Thumbs.db
 
-# Elasticsearch handle data sensitive files
-es_handle_data/ttp_detailed_results.csv
-es_handle_data/ttp_test_data.csv
-es_handle_data/ttp_train_data.csv
-es_handle_data/attck_procedures/
-es_handle_data/*.csv
-
 # Fine-tune sensitive data files
 fine_tune_demo/fine_tune_input/raw_graph_chinese.json
 fine_tune_demo/fine_tune_input/raw_graph_english.json

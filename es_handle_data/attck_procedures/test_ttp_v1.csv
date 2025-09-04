@@ -1,0 +1,1349 @@
+tactics,techniques,procedure
+Persistence,T1543.003,"During the 2016 Ukraine Electric Power Attack, Sandworm Team used an arbitrary system service to load at system boot for persistence for Industroyer. They also replaced the ImagePath registry value of a Windows service with a new backdoor binary."
+Privilege Escalation,T1543.003,"During the 2016 Ukraine Electric Power Attack, Sandworm Team used an arbitrary system service to load at system boot for persistence for Industroyer. They also replaced the ImagePath registry value of a Windows service with a new backdoor binary."
+Persistence,T1543.003,Agrius has deployed IPsec Helper malware post-exploitation and registered it as a service for persistence.
+Privilege Escalation,T1543.003,Agrius has deployed IPsec Helper malware post-exploitation and registered it as a service for persistence.
+Persistence,T1543.003,Anchor can establish persistence by creating a service.
+Privilege Escalation,T1543.003,Anchor can establish persistence by creating a service.
+Persistence,T1543.003,AppleJeus can install itself as a service.
+Privilege Escalation,T1543.003,AppleJeus can install itself as a service.
+Persistence,T1543.003,An APT19 Port 22 malware variant registers itself as a service.
+Privilege Escalation,T1543.003,An APT19 Port 22 malware variant registers itself as a service.
+Persistence,T1543.003,APT3 has a tool that creates a new service for persistence.
+Privilege Escalation,T1543.003,APT3 has a tool that creates a new service for persistence.
+Persistence,T1543.003,APT32 modified Windows Services to ensure PowerShell scripts were loaded on the system. APT32 also creates a Windows service to establish persistence.
+Privilege Escalation,T1543.003,APT32 modified Windows Services to ensure PowerShell scripts were loaded on the system. APT32 also creates a Windows service to establish persistence.
+Persistence,T1543.003,APT38 has installed a new Windows service to establish persistence.
+Privilege Escalation,T1543.003,APT38 has installed a new Windows service to establish persistence.
+Persistence,T1543.003,APT41 modified legitimate Windows services to install malware backdoors. APT41 created the StorSyncSvc service to provide persistence for Cobalt Strike.
+Privilege Escalation,T1543.003,APT41 modified legitimate Windows services to install malware backdoors. APT41 created the StorSyncSvc service to provide persistence for Cobalt Strike.
+Persistence,T1543.003,APT41 DUST used Windows Services with names such as Windows Defend for persistence of DUSTPAN.
+Privilege Escalation,T1543.003,APT41 DUST used Windows Services with names such as Windows Defend for persistence of DUSTPAN.
+Persistence,T1543.003,Aquatic Panda created new Windows services for persistence that masqueraded as legitimate Windows services via name change.
+Privilege Escalation,T1543.003,Aquatic Panda created new Windows services for persistence that masqueraded as legitimate Windows services via name change.
+Persistence,T1543.003,Attor's dispatcher can establish persistence by registering a new service.
+Privilege Escalation,T1543.003,Attor's dispatcher can establish persistence by registering a new service.
+Persistence,T1543.003,AuditCred is installed as a new service on the system.
+Privilege Escalation,T1543.003,AuditCred is installed as a new service on the system.
+Persistence,T1543.003,Bankshot can terminate a specific process by its process id.
+Privilege Escalation,T1543.003,Bankshot can terminate a specific process by its process id.
+Persistence,T1543.003,BBSRAT can modify service configurations.
+Privilege Escalation,T1543.003,BBSRAT can modify service configurations.
+Persistence,T1543.003,Bisonal has been modified to be used as a Windows service.
+Privilege Escalation,T1543.003,Bisonal has been modified to be used as a Windows service.
+Persistence,T1543.003,BitPaymer has attempted to install itself as a service to maintain persistence.
+Privilege Escalation,T1543.003,BitPaymer has attempted to install itself as a service to maintain persistence.
+Persistence,T1543.003,Black Basta can create a new service to establish persistence.
+Privilege Escalation,T1543.003,Black Basta can create a new service to establish persistence.
+Persistence,T1543.003,BlackByte modified multiple services on victim machines to enable encryption operations. BlackByte has installed tools such as AnyDesk as a service on victim machines.
+Privilege Escalation,T1543.003,BlackByte modified multiple services on victim machines to enable encryption operations. BlackByte has installed tools such as AnyDesk as a service on victim machines.
+Persistence,T1543.003,One variant of BlackEnergy creates a new service using either a hard-coded or randomly generated name.
+Privilege Escalation,T1543.003,One variant of BlackEnergy creates a new service using either a hard-coded or randomly generated name.
+Persistence,T1543.003,Blue Mockingbird has made their XMRIG payloads persistent as a Windows Service.
+Privilege Escalation,T1543.003,Blue Mockingbird has made their XMRIG payloads persistent as a Windows Service.
+Persistence,T1543.003,Briba installs a service pointing to a malicious DLL dropped to disk.
+Privilege Escalation,T1543.003,Briba installs a service pointing to a malicious DLL dropped to disk.
+Persistence,T1543.003,Carbanak malware installs itself as a service to provide persistence and SYSTEM privileges.
+Privilege Escalation,T1543.003,Carbanak malware installs itself as a service to provide persistence and SYSTEM privileges.
+Persistence,T1543.003,Carbon establishes persistence by creating a service and naming it based off the operating system version running on the current machine.
+Privilege Escalation,T1543.003,Carbon establishes persistence by creating a service and naming it based off the operating system version running on the current machine.
+Persistence,T1543.003,Catchamas adds a new service named NetAdapter to establish persistence.
+Privilege Escalation,T1543.003,Catchamas adds a new service named NetAdapter to establish persistence.
+Persistence,T1543.003,Cinnamon Tempest has created system services to establish persistence for deployed tooling.
+Privilege Escalation,T1543.003,Cinnamon Tempest has created system services to establish persistence for deployed tooling.
+Persistence,T1543.003,Clambling can register itself as a system service to gain persistence.
+Privilege Escalation,T1543.003,Clambling can register itself as a system service to gain persistence.
+Persistence,T1543.003,Cobalt Group has created new services to establish persistence.
+Privilege Escalation,T1543.003,Cobalt Group has created new services to establish persistence.
+Persistence,T1543.003,Cobalt Strike can install a new service.
+Privilege Escalation,T1543.003,Cobalt Strike can install a new service.
+Persistence,T1543.003,Conficker copies itself into the %systemroot%\system32 directory and registers as a service.
+Privilege Escalation,T1543.003,Conficker copies itself into the %systemroot%\system32 directory and registers as a service.
+Persistence,T1543.003,"CosmicDuke uses Windows services typically named ""javamtsup"" for persistence."
+Privilege Escalation,T1543.003,"CosmicDuke uses Windows services typically named ""javamtsup"" for persistence."
+Persistence,T1543.003,One persistence mechanism used by CozyCar is to register itself as a Windows service.
+Privilege Escalation,T1543.003,One persistence mechanism used by CozyCar is to register itself as a Windows service.
+Persistence,T1543.003,Cuba can modify services by using the OpenService and ChangeServiceConfig functions.
+Privilege Escalation,T1543.003,Cuba can modify services by using the OpenService and ChangeServiceConfig functions.
+Persistence,T1543.003,DarkVishnya created new services for shellcode loaders distribution.
+Privilege Escalation,T1543.003,DarkVishnya created new services for shellcode loaders distribution.
+Persistence,T1543.003,DCSrv has created new services for persistence by modifying the Registry.
+Privilege Escalation,T1543.003,DCSrv has created new services for persistence by modifying the Registry.
+Persistence,T1543.003,Dtrack can add a service called WBService to establish persistence.
+Privilege Escalation,T1543.003,Dtrack can add a service called WBService to establish persistence.
+Persistence,T1543.003,"Duqu creates a new service that loads a malicious driver when the system starts. When Duqu is active, the operating system believes that the driver is legitimate, as it has been signed with a valid private key."
+Privilege Escalation,T1543.003,"Duqu creates a new service that loads a malicious driver when the system starts. When Duqu is active, the operating system believes that the driver is legitimate, as it has been signed with a valid private key."
+Persistence,T1543.003,DUSTPAN can persist as a Windows Service in operations.
+Privilege Escalation,T1543.003,DUSTPAN can persist as a Windows Service in operations.
+Persistence,T1543.003,Dyre registers itself as a service by adding several Registry keys.
+Privilege Escalation,T1543.003,Dyre registers itself as a service by adding several Registry keys.
+Persistence,T1543.003,"Earth Lusca created a service using the command sc create ""SysUpdate"" binpath= ""cmd /c start ""[file path]""""&&sc config ""SysUpdate"" start= auto&&netstart SysUpdate for persistence."
+Privilege Escalation,T1543.003,"Earth Lusca created a service using the command sc create ""SysUpdate"" binpath= ""cmd /c start ""[file path]""""&&sc config ""SysUpdate"" start= auto&&netstart SysUpdate for persistence."
+Persistence,T1543.003,Elise configures itself as a service.
+Privilege Escalation,T1543.003,Elise configures itself as a service.
+Persistence,T1543.003,Emissary is capable of configuring itself as a service.
+Privilege Escalation,T1543.003,Emissary is capable of configuring itself as a service.
+Persistence,T1543.003,Emotet has been observed creating new services to maintain persistence.
+Privilege Escalation,T1543.003,Emotet has been observed creating new services to maintain persistence.
+Persistence,T1543.003,Empire can utilize built-in modules to modify service binaries and restore them to their original state.
+Privilege Escalation,T1543.003,Empire can utilize built-in modules to modify service binaries and restore them to their original state.
+Persistence,T1543.003,"The Exaramel for Windows dropper creates and starts a Windows service named wsmprovav with the description ""Windows Check AV."""
+Privilege Escalation,T1543.003,"The Exaramel for Windows dropper creates and starts a Windows service named wsmprovav with the description ""Windows Check AV."""
+Persistence,T1543.003,FALLCHILL has been installed as a Windows service.
+Privilege Escalation,T1543.003,FALLCHILL has been installed as a Windows service.
+Persistence,T1543.003,FIN7 created new Windows services and added them to the startup directories for persistence.
+Privilege Escalation,T1543.003,FIN7 created new Windows services and added them to the startup directories for persistence.
+Persistence,T1543.003,FinFisher creates a new Windows service with the malicious executable for persistence.
+Privilege Escalation,T1543.003,FinFisher creates a new Windows service with the malicious executable for persistence.
+Persistence,T1543.003,FunnyDream has established persistence by running sc.exe and by setting the WSearch service to run automatically.
+Privilege Escalation,T1543.003,FunnyDream has established persistence by running sc.exe and by setting the WSearch service to run automatically.
+Persistence,T1543.003,Gelsemium can drop itself in C:\Windows\System32\spool\prtprocs\x64\winprint.dll as an alternative Print Processor to be loaded automatically when the spoolsv Windows service starts.
+Privilege Escalation,T1543.003,Gelsemium can drop itself in C:\Windows\System32\spool\prtprocs\x64\winprint.dll as an alternative Print Processor to be loaded automatically when the spoolsv Windows service starts.
+Persistence,T1543.003,gh0st RAT can create a new service to establish persistence.
+Privilege Escalation,T1543.003,gh0st RAT can create a new service to establish persistence.
+Persistence,T1543.003,GoldenSpy has established persistence by running in the background as an autostart service.
+Privilege Escalation,T1543.003,GoldenSpy has established persistence by running in the background as an autostart service.
+Persistence,T1543.003,"GreyEnergy chooses a service, drops a DLL file, and writes it to that serviceDLL Registry key."
+Privilege Escalation,T1543.003,"GreyEnergy chooses a service, drops a DLL file, and writes it to that serviceDLL Registry key."
+Persistence,T1543.003,Hannotog creates a new service for persistence.
+Privilege Escalation,T1543.003,Hannotog creates a new service for persistence.
+Persistence,T1543.003,hcdLoader installs itself as a service for persistence.
+Privilege Escalation,T1543.003,hcdLoader installs itself as a service for persistence.
+Persistence,T1543.003,HermeticWiper can load drivers by creating a new service using the CreateServiceW API.
+Privilege Escalation,T1543.003,HermeticWiper can load drivers by creating a new service using the CreateServiceW API.
+Persistence,T1543.003,Hydraq creates new services to establish persistence.
+Privilege Escalation,T1543.003,Hydraq creates new services to establish persistence.
+Persistence,T1543.003,Industroyer can use an arbitrary system service to load at system boot for persistence and replaces the ImagePath registry value of a Windows service with a new backdoor binary.
+Privilege Escalation,T1543.003,Industroyer can use an arbitrary system service to load at system boot for persistence and replaces the ImagePath registry value of a Windows service with a new backdoor binary.
+Persistence,T1543.003,Some InnaputRAT variants create a new Windows service to establish persistence.
+Privilege Escalation,T1543.003,Some InnaputRAT variants create a new Windows service to establish persistence.
+Persistence,T1543.003,"InvisiMole can register a Windows service named CsPower as part of its execution chain, and a Windows service named clr_optimization_v2.0.51527_X86 to achieve persistence."
+Privilege Escalation,T1543.003,"InvisiMole can register a Windows service named CsPower as part of its execution chain, and a Windows service named clr_optimization_v2.0.51527_X86 to achieve persistence."
+Persistence,T1543.003,JHUHUGIT has registered itself as a service to establish persistence.
+Privilege Escalation,T1543.003,JHUHUGIT has registered itself as a service to establish persistence.
+Persistence,T1543.003,Kazuar can install itself as a new service.
+Privilege Escalation,T1543.003,Kazuar can install itself as a new service.
+Persistence,T1543.003,Ke3chang backdoor RoyalDNS established persistence through adding a service called Nwsapagent.
+Privilege Escalation,T1543.003,Ke3chang backdoor RoyalDNS established persistence through adding a service called Nwsapagent.
+Persistence,T1543.003,KeyBoy installs a service pointing to a malicious DLL dropped to disk.
+Privilege Escalation,T1543.003,KeyBoy installs a service pointing to a malicious DLL dropped to disk.
+Persistence,T1543.003,Kimsuky has created new services for persistence.
+Privilege Escalation,T1543.003,Kimsuky has created new services for persistence.
+Persistence,T1543.003,KONNI has registered itself as a service using its export function.
+Privilege Escalation,T1543.003,KONNI has registered itself as a service using its export function.
+Persistence,T1543.003,Kwampirs creates a new service named WmiApSrvEx to establish persistence.
+Privilege Escalation,T1543.003,Kwampirs creates a new service named WmiApSrvEx to establish persistence.
+Persistence,T1543.003,Several Lazarus Group malware families install themselves as new services.
+Privilege Escalation,T1543.003,Several Lazarus Group malware families install themselves as new services.
+Persistence,T1543.003,LockBit 3.0 can install system services for persistence.
+Privilege Escalation,T1543.003,LockBit 3.0 can install system services for persistence.
+Persistence,T1543.003,Lotus Blossom has configured tools such as Sagerunex to run as Windows services.
+Privilege Escalation,T1543.003,Lotus Blossom has configured tools such as Sagerunex to run as Windows services.
+Persistence,T1543.003,LoudMiner can automatically launch a Linux virtual machine as a service at startup if the AutoStart option is enabled in the VBoxVmService configuration file.
+Privilege Escalation,T1543.003,LoudMiner can automatically launch a Linux virtual machine as a service at startup if the AutoStart option is enabled in the VBoxVmService configuration file.
+Persistence,T1543.003,"MoonWind installs itself as a new service with automatic startup to establish persistence. The service checks every 60 seconds to determine if the malware is running; if not, it will spawn a new instance."
+Privilege Escalation,T1543.003,"MoonWind installs itself as a new service with automatic startup to establish persistence. The service checks every 60 seconds to determine if the malware is running; if not, it will spawn a new instance."
+Persistence,T1543.003,Naid creates a new service to establish.
+Privilege Escalation,T1543.003,Naid creates a new service to establish.
+Persistence,T1543.003,Nebulae can create a service to establish persistence.
+Privilege Escalation,T1543.003,Nebulae can create a service to establish persistence.
+Persistence,T1543.003,Nerex creates a Registry subkey that registers a new service.
+Privilege Escalation,T1543.003,Nerex creates a Registry subkey that registers a new service.
+Persistence,T1543.003,Nidiran can create a new service named msamger (Microsoft Security Accounts Manager).
+Privilege Escalation,T1543.003,Nidiran can create a new service named msamger (Microsoft Security Accounts Manager).
+Persistence,T1543.003,NightClub has created a Windows service named WmdmPmSp to establish persistence.
+Privilege Escalation,T1543.003,NightClub has created a Windows service named WmdmPmSp to establish persistence.
+Persistence,T1543.003,Ninja can create the services httpsvc and w3esvc for persistence .
+Privilege Escalation,T1543.003,Ninja can create the services httpsvc and w3esvc for persistence .
+Persistence,T1543.003,OilRig has used a compromised Domain Controller to create a service on a remote host.
+Privilege Escalation,T1543.003,OilRig has used a compromised Domain Controller to create a service on a remote host.
+Persistence,T1543.003,"To establish persistence, Okrum can install itself as a new service named NtmSsvc."
+Privilege Escalation,T1543.003,"To establish persistence, Okrum can install itself as a new service named NtmSsvc."
+Persistence,T1543.003,"During Operation CuckooBees, the threat actors modified the IKEEXT and PrintNotify Windows services for persistence."
+Privilege Escalation,T1543.003,"During Operation CuckooBees, the threat actors modified the IKEEXT and PrintNotify Windows services for persistence."
+Persistence,T1543.003,"During Operation Honeybee, threat actors installed DLLs and backdoors as Windows services."
+Privilege Escalation,T1543.003,"During Operation Honeybee, threat actors installed DLLs and backdoors as Windows services."
+Persistence,T1543.003,Pandora has the ability to gain system privileges through Windows services.
+Privilege Escalation,T1543.003,Pandora has the ability to gain system privileges through Windows services.
+Persistence,T1543.003,PingPull has the ability to install itself as a service.
+Privilege Escalation,T1543.003,PingPull has the ability to install itself as a service.
+Persistence,T1543.003,PipeMon can establish persistence by registering a malicious DLL as an alternative Print Processor which is loaded when the print spooler service starts.
+Privilege Escalation,T1543.003,PipeMon can establish persistence by registering a malicious DLL as an alternative Print Processor which is loaded when the print spooler service starts.
+Persistence,T1543.003,"PlugX can be added as a service to establish persistence. PlugX also has a module to change service configurations as well as start, control, and delete services."
+Privilege Escalation,T1543.003,"PlugX can be added as a service to establish persistence. PlugX also has a module to change service configurations as well as start, control, and delete services."
+Persistence,T1543.003,PoisonIvy creates a Registry subkey that registers a new service. PoisonIvy also creates a Registry entry modifying the Logical Disk Manager service to point to a malicious DLL dropped to disk.
+Privilege Escalation,T1543.003,PoisonIvy creates a Registry subkey that registers a new service. PoisonIvy also creates a Registry entry modifying the Logical Disk Manager service to point to a malicious DLL dropped to disk.
+Persistence,T1543.003,"PowerSploit contains a collection of Privesc-PowerUp modules that can discover and replace/modify service binaries, paths, and configs."
+Privilege Escalation,T1543.003,"PowerSploit contains a collection of Privesc-PowerUp modules that can discover and replace/modify service binaries, paths, and configs."
+Persistence,T1543.003,PROMETHIUM has created new services and modified existing services for persistence.
+Privilege Escalation,T1543.003,PROMETHIUM has created new services and modified existing services for persistence.
+Persistence,T1543.003,PsExec can leverage Windows services to escalate privileges from administrator to SYSTEM with the -s argument.
+Privilege Escalation,T1543.003,PsExec can leverage Windows services to escalate privileges from administrator to SYSTEM with the -s argument.
+Persistence,T1543.003,QakBot can remotely create a temporary service on a target host.
+Privilege Escalation,T1543.003,QakBot can remotely create a temporary service on a target host.
+Persistence,T1543.003,Ragnar Locker has used sc.exe to create a new service for the VirtualBox driver.
+Privilege Escalation,T1543.003,Ragnar Locker has used sc.exe to create a new service for the VirtualBox driver.
+Persistence,T1543.003,RainyDay can use services to establish persistence.
+Privilege Escalation,T1543.003,RainyDay can use services to establish persistence.
+Persistence,T1543.003,RawPOS installs itself as a service to maintain persistence.
+Privilege Escalation,T1543.003,RawPOS installs itself as a service to maintain persistence.
+Persistence,T1543.003,RDAT has created a service when it is installed on the victim machine.
+Privilege Escalation,T1543.003,RDAT has created a service when it is installed on the victim machine.
+Persistence,T1543.003,Reaver installs itself as a new service.
+Privilege Escalation,T1543.003,Reaver installs itself as a new service.
+Persistence,T1543.003,Some Sakula samples install themselves as services for persistence by calling WinExec with the net start argument.
+Privilege Escalation,T1543.003,Some Sakula samples install themselves as services for persistence by calling WinExec with the net start argument.
+Persistence,T1543.003,Samurai can create a service at HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SvcHost to trigger execution and maintain persistence.
+Privilege Escalation,T1543.003,Samurai can create a service at HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SvcHost to trigger execution and maintain persistence.
+Persistence,T1543.003,Seasalt is capable of installing itself as a service.
+Privilege Escalation,T1543.003,Seasalt is capable of installing itself as a service.
+Persistence,T1543.003,"Shamoon creates a new service named ""ntssrv"" to execute the payload. Newer versions create the ""MaintenaceSrv"" and ""hdv_725x"" services."
+Privilege Escalation,T1543.003,"Shamoon creates a new service named ""ntssrv"" to execute the payload. Newer versions create the ""MaintenaceSrv"" and ""hdv_725x"" services."
+Persistence,T1543.003,ShimRat has installed a Windows service to maintain persistence on victim machines.
+Privilege Escalation,T1543.003,ShimRat has installed a Windows service to maintain persistence on victim machines.
+Persistence,T1543.003,SILENTTRINITY can establish persistence by creating a new service.
+Privilege Escalation,T1543.003,SILENTTRINITY can establish persistence by creating a new service.
+Persistence,T1543.003,"SLOTHFULMEDIA has created a service on victim machines named ""TaskFrame"" to establish persistence."
+Privilege Escalation,T1543.003,"SLOTHFULMEDIA has created a service on victim machines named ""TaskFrame"" to establish persistence."
+Persistence,T1543.003,"STARWHALE has the ability to create the following Windows service to establish persistence on an infected host: sc create Windowscarpstss binpath= ""cmd.exe /c cscript.exe c:\\windows\\system32\\w7_1.wsf humpback_whale"" start= ""auto"" obj= ""LocalSystem""."
+Privilege Escalation,T1543.003,"STARWHALE has the ability to create the following Windows service to establish persistence on an infected host: sc create Windowscarpstss binpath= ""cmd.exe /c cscript.exe c:\\windows\\system32\\w7_1.wsf humpback_whale"" start= ""auto"" obj= ""LocalSystem""."
+Persistence,T1543.003,StreamEx establishes persistence by installing a new service pointing to its DLL and setting the service to auto-start.
+Privilege Escalation,T1543.003,StreamEx establishes persistence by installing a new service pointing to its DLL and setting the service to auto-start.
+Persistence,T1543.003,StrongPity has created new services and modified existing services for persistence.
+Privilege Escalation,T1543.003,StrongPity has created new services and modified existing services for persistence.
+Persistence,T1543.003,Stuxnet uses a driver registered as a boot start service as the main load-point.
+Privilege Escalation,T1543.003,Stuxnet uses a driver registered as a boot start service as the main load-point.
+Persistence,T1543.003,SUGARUSH has created a service named Service1 for persistence.
+Privilege Escalation,T1543.003,SUGARUSH has created a service named Service1 for persistence.
+Persistence,T1543.003,SysUpdate can create a service to establish persistence.
+Privilege Escalation,T1543.003,SysUpdate can create a service to establish persistence.
+Persistence,T1543.003,"If running as administrator, TDTESS installs itself as a new service named bmwappushservice to establish persistence."
+Privilege Escalation,T1543.003,"If running as administrator, TDTESS installs itself as a new service named bmwappushservice to establish persistence."
+Persistence,T1543.003,TeamTNT has used malware that adds cryptocurrency miners as a service.
+Privilege Escalation,T1543.003,TeamTNT has used malware that adds cryptocurrency miners as a service.
+Persistence,T1543.003,TEARDROP ran as a Windows service from the c:\windows\syswow64 folder.
+Privilege Escalation,T1543.003,TEARDROP ran as a Windows service from the c:\windows\syswow64 folder.
+Persistence,T1543.003,"Threat Group-3390's malware can create a new service, sometimes naming it after the config information, to gain persistence."
+Privilege Escalation,T1543.003,"Threat Group-3390's malware can create a new service, sometimes naming it after the config information, to gain persistence."
+Persistence,T1543.003,ThreatNeedle can run in memory and register its payload as a Windows service.
+Privilege Escalation,T1543.003,ThreatNeedle can run in memory and register its payload as a Windows service.
+Persistence,T1543.003,TinyZBot can install as a Windows service for persistence.
+Privilege Escalation,T1543.003,TinyZBot can install as a Windows service for persistence.
+Persistence,T1543.003,TrickBot establishes persistence by creating an autostart service that allows it to run whenever the machine boots.
+Privilege Escalation,T1543.003,TrickBot establishes persistence by creating an autostart service that allows it to run whenever the machine boots.
+Persistence,T1543.003,Tropic Trooper has installed a service pointing to a malicious DLL dropped to disk.
+Privilege Escalation,T1543.003,Tropic Trooper has installed a service pointing to a malicious DLL dropped to disk.
+Persistence,T1543.003,TYPEFRAME variants can add malicious DLL modules as new services.TYPEFRAME can also delete services from the victim’s machine.
+Privilege Escalation,T1543.003,TYPEFRAME variants can add malicious DLL modules as new services.TYPEFRAME can also delete services from the victim’s machine.
+Persistence,T1543.003,"Uroburos has registered a service, typically named WerFaultSvc, to decrypt and find a kernel driver and kernel driver loader to maintain persistence."
+Privilege Escalation,T1543.003,"Uroburos has registered a service, typically named WerFaultSvc, to decrypt and find a kernel driver and kernel driver loader to maintain persistence."
+Persistence,T1543.003,Ursnif has registered itself as a system service in the Registry for automatic execution at system startup.
+Privilege Escalation,T1543.003,Ursnif has registered itself as a system service in the Registry for automatic execution at system startup.
+Persistence,T1543.003,"Volgmer installs a copy of itself in a randomly selected service, then overwrites the ServiceDLL entry in the service's Registry entry. Some Volgmer variants also install .dll files as services with names generated by a list of hard-coded strings."
+Privilege Escalation,T1543.003,"Volgmer installs a copy of itself in a randomly selected service, then overwrites the ServiceDLL entry in the service's Registry entry. Some Volgmer variants also install .dll files as services with names generated by a list of hard-coded strings."
+Persistence,T1543.003,"WannaCry creates the service ""mssecsvc2.0"" with the display name ""Microsoft Security Center (2.0) Service."""
+Privilege Escalation,T1543.003,"WannaCry creates the service ""mssecsvc2.0"" with the display name ""Microsoft Security Center (2.0) Service."""
+Persistence,T1543.003,WastedLocker created and established a service that runs until the encryption process is complete.
+Privilege Escalation,T1543.003,WastedLocker created and established a service that runs until the encryption process is complete.
+Persistence,T1543.003,Wiarp creates a backdoor through which remote attackers can create a service.
+Privilege Escalation,T1543.003,Wiarp creates a backdoor through which remote attackers can create a service.
+Persistence,T1543.003,"Wingbird uses services.exe to register a new autostart service named ""Audit Service"" using a copy of the local lsass.exe file."
+Privilege Escalation,T1543.003,"Wingbird uses services.exe to register a new autostart service named ""Audit Service"" using a copy of the local lsass.exe file."
+Persistence,T1543.003,Winnti for Windows sets its DLL file as a new service in the Registry to establish persistence.
+Privilege Escalation,T1543.003,Winnti for Windows sets its DLL file as a new service in the Registry to establish persistence.
+Persistence,T1543.003,Wizard Spider has installed TrickBot as a service named ControlServiceA in order to establish persistence.
+Privilege Escalation,T1543.003,Wizard Spider has installed TrickBot as a service named ControlServiceA in order to establish persistence.
+Persistence,T1543.003,ZeroT can add a new service to ensure PlugX persists on the system when delivered as another payload onto the system.
+Privilege Escalation,T1543.003,ZeroT can add a new service to ensure PlugX persists on the system when delivered as another payload onto the system.
+Persistence,T1543.003,ZLib creates Registry keys to allow itself to run as various services.
+Privilege Escalation,T1543.003,ZLib creates Registry keys to allow itself to run as various services.
+Persistence,T1543.003,zwShell has established persistence by adding itself as a new service.
+Privilege Escalation,T1543.003,zwShell has established persistence by adding itself as a new service.
+Persistence,T1543.003,ZxShell can create a new service using the service parser function ProcessScCommand.
+Privilege Escalation,T1543.003,ZxShell can create a new service using the service parser function ProcessScCommand.
+Defense Evasion,T1055.001,Aria-body has the ability to inject itself into another process such as rundll32.exe and dllhost.exe.
+Privilege Escalation,T1055.001,Aria-body has the ability to inject itself into another process such as rundll32.exe and dllhost.exe.
+Defense Evasion,T1055.001,BackdoorDiplomacy has dropped legitimate software onto a compromised host and used it to execute malicious DLLs.
+Privilege Escalation,T1055.001,BackdoorDiplomacy has dropped legitimate software onto a compromised host and used it to execute malicious DLLs.
+Defense Evasion,T1055.001,BADHATCH has the ability to execute a malicious DLL by injecting into explorer.exe on a compromised machine.
+Privilege Escalation,T1055.001,BADHATCH has the ability to execute a malicious DLL by injecting into explorer.exe on a compromised machine.
+Defense Evasion,T1055.001,BlackEnergy injects its DLL component into svchost.exe.
+Privilege Escalation,T1055.001,BlackEnergy injects its DLL component into svchost.exe.
+Defense Evasion,T1055.001,The Bumblebee loader can support the Dij command which gives it the ability to inject DLLs into the memory of other processes.
+Privilege Escalation,T1055.001,The Bumblebee loader can support the Dij command which gives it the ability to inject DLLs into the memory of other processes.
+Defense Evasion,T1055.001,"During C0015, the threat actors used a DLL named D8B3.dll that was injected into the Winlogon process."
+Privilege Escalation,T1055.001,"During C0015, the threat actors used a DLL named D8B3.dll that was injected into the Winlogon process."
+Defense Evasion,T1055.001,Carberp's bootkit can inject a malicious DLL into the address space of running processes.
+Privilege Escalation,T1055.001,Carberp's bootkit can inject a malicious DLL into the address space of running processes.
+Defense Evasion,T1055.001,Carbon has a command to inject code into a process.
+Privilege Escalation,T1055.001,Carbon has a command to inject code into a process.
+Defense Evasion,T1055.001,Cobalt Strike has the ability to load DLLs via reflective injection.
+Privilege Escalation,T1055.001,Cobalt Strike has the ability to load DLLs via reflective injection.
+Defense Evasion,T1055.001,ComRAT has injected its orchestrator DLL into explorer.exe. ComRAT has also injected its communications module into the victim's default browser to make C2 connections appear less suspicious as all network connections will be initiated by the browser process.
+Privilege Escalation,T1055.001,ComRAT has injected its orchestrator DLL into explorer.exe. ComRAT has also injected its communications module into the victim's default browser to make C2 connections appear less suspicious as all network connections will be initiated by the browser process.
+Defense Evasion,T1055.001,Conti has loaded an encrypted DLL into memory and then executes it.
+Privilege Escalation,T1055.001,Conti has loaded an encrypted DLL into memory and then executes it.
+Defense Evasion,T1055.001,DarkTortilla can use a .NET-based DLL named RunPe6 for process injection.
+Privilege Escalation,T1055.001,DarkTortilla can use a .NET-based DLL named RunPe6 for process injection.
+Defense Evasion,T1055.001,Derusbi injects itself into the secure shell (SSH) process.
+Privilege Escalation,T1055.001,Derusbi injects itself into the secure shell (SSH) process.
+Defense Evasion,T1055.001,Duqu will inject itself into different processes to evade detection. The selection of the target process is influenced by the security software that is installed on the system (Duqu will inject into different processes depending on which security suite is installed on the infected host).
+Privilege Escalation,T1055.001,Duqu will inject itself into different processes to evade detection. The selection of the target process is influenced by the security software that is installed on the system (Duqu will inject into different processes depending on which security suite is installed on the infected host).
+Defense Evasion,T1055.001,Dyre injects into other processes to load modules.
+Privilege Escalation,T1055.001,Dyre injects into other processes to load modules.
+Defense Evasion,T1055.001,Elise injects DLL files into iexplore.exe.
+Privilege Escalation,T1055.001,Elise injects DLL files into iexplore.exe.
+Defense Evasion,T1055.001,Emissary injects its DLL file into a newly spawned Internet Explorer process.
+Privilege Escalation,T1055.001,Emissary injects its DLL file into a newly spawned Internet Explorer process.
+Defense Evasion,T1055.001,Emotet has been observed injecting in to Explorer.exe and other processes.
+Privilege Escalation,T1055.001,Emotet has been observed injecting in to Explorer.exe and other processes.
+Defense Evasion,T1055.001,FinFisher injects itself into various processes depending on whether it is low integrity or high integrity.
+Privilege Escalation,T1055.001,FinFisher injects itself into various processes depending on whether it is low integrity or high integrity.
+Defense Evasion,T1055.001,"The FunnyDream FilepakMonitor component can inject into the Bka.exe process using the VirtualAllocEx, WriteProcessMemory and CreateRemoteThread APIs to load the DLL component."
+Privilege Escalation,T1055.001,"The FunnyDream FilepakMonitor component can inject into the Bka.exe process using the VirtualAllocEx, WriteProcessMemory and CreateRemoteThread APIs to load the DLL component."
+Defense Evasion,T1055.001,Gelsemium has the ability to inject DLLs into specific processes.
+Privilege Escalation,T1055.001,Gelsemium has the ability to inject DLLs into specific processes.
+Defense Evasion,T1055.001,Get2 has the ability to inject DLLs into processes.
+Privilege Escalation,T1055.001,Get2 has the ability to inject DLLs into processes.
+Defense Evasion,T1055.001,Heyoka Backdoor can inject a DLL into rundll32.exe for execution.
+Privilege Escalation,T1055.001,Heyoka Backdoor can inject a DLL into rundll32.exe for execution.
+Defense Evasion,T1055.001,HIDEDRV injects a DLL for Downdelph into the explorer.exe process.
+Privilege Escalation,T1055.001,HIDEDRV injects a DLL for Downdelph into the explorer.exe process.
+Defense Evasion,T1055.001,"IronNetInjector has the ability to inject a DLL into running processes, including the IronNetInjector DLL into explorer.exe."
+Privilege Escalation,T1055.001,"IronNetInjector has the ability to inject a DLL into running processes, including the IronNetInjector DLL into explorer.exe."
+Defense Evasion,T1055.001,"If running in a Windows environment, Kazuar saves a DLL to disk that is injected into the explorer.exe process to execute the payload. Kazuar can also be configured to inject and execute within specific processes."
+Privilege Escalation,T1055.001,"If running in a Windows environment, Kazuar saves a DLL to disk that is injected into the explorer.exe process to execute the payload. Kazuar can also be configured to inject and execute within specific processes."
+Defense Evasion,T1055.001,Koadic can perform process injection by using a reflective DLL.
+Privilege Escalation,T1055.001,Koadic can perform process injection by using a reflective DLL.
+Defense Evasion,T1055.001,A Lazarus Group malware sample performs reflective DLL injection.
+Privilege Escalation,T1055.001,A Lazarus Group malware sample performs reflective DLL injection.
+Defense Evasion,T1055.001,Leviathan has utilized techniques like reflective DLL loading to write a DLL into memory and load a shell that provides backdoor access to the victim.
+Privilege Escalation,T1055.001,Leviathan has utilized techniques like reflective DLL loading to write a DLL into memory and load a shell that provides backdoor access to the victim.
+Defense Evasion,T1055.001,Lizar has used the PowerKatz plugin that can be loaded into the address space of a PowerShell process through reflective DLL loading.
+Privilege Escalation,T1055.001,Lizar has used the PowerKatz plugin that can be loaded into the address space of a PowerShell process through reflective DLL loading.
+Defense Evasion,T1055.001,Malteiro has injected Mispadu’s DLL into a process.
+Privilege Escalation,T1055.001,Malteiro has injected Mispadu’s DLL into a process.
+Defense Evasion,T1055.001,Matryoshka uses reflective DLL injection to inject the malicious library and execute the RAT.
+Privilege Escalation,T1055.001,Matryoshka uses reflective DLL injection to inject the malicious library and execute the RAT.
+Defense Evasion,T1055.001,Maze has injected the malware DLL into a target process.
+Privilege Escalation,T1055.001,Maze has injected the malware DLL into a target process.
+Defense Evasion,T1055.001,MegaCortex loads injecthelper.dll into a newly created rundll32.exe process.
+Privilege Escalation,T1055.001,MegaCortex loads injecthelper.dll into a newly created rundll32.exe process.
+Defense Evasion,T1055.001,Metamorfo has injected a malicious DLL into the Windows Media Player process (wmplayer.exe).
+Privilege Escalation,T1055.001,Metamorfo has injected a malicious DLL into the Windows Media Player process (wmplayer.exe).
+Defense Evasion,T1055.001,Mongall can inject a DLL into rundll32.exe for execution.
+Privilege Escalation,T1055.001,Mongall can inject a DLL into rundll32.exe for execution.
+Defense Evasion,T1055.001,The Netwalker DLL has been injected reflectively into the memory of a legitimate running process.
+Privilege Escalation,T1055.001,The Netwalker DLL has been injected reflectively into the memory of a legitimate running process.
+Defense Evasion,T1055.001,PipeMon can inject its modules into various processes using reflective DLL loading.
+Privilege Escalation,T1055.001,PipeMon can inject its modules into various processes using reflective DLL loading.
+Defense Evasion,T1055.001,PoisonIvy can inject a malicious DLL into a process.
+Privilege Escalation,T1055.001,PoisonIvy can inject a malicious DLL into a process.
+Defense Evasion,T1055.001,"PowerSploit contains a collection of CodeExecution modules that inject code (DLL, shellcode) into a process."
+Privilege Escalation,T1055.001,"PowerSploit contains a collection of CodeExecution modules that inject code (DLL, shellcode) into a process."
+Defense Evasion,T1055.001,PS1 can inject its payload DLL Into memory.
+Privilege Escalation,T1055.001,PS1 can inject its payload DLL Into memory.
+Defense Evasion,T1055.001,Pupy can migrate into another process using reflective DLL injection.
+Privilege Escalation,T1055.001,Pupy can migrate into another process using reflective DLL injection.
+Defense Evasion,T1055.001,"An executable dropped onto victims by Putter Panda aims to inject the specified DLL into a process that would normally be accessing the network, including Outlook Express (msinm.exe), Outlook (outlook.exe), Internet Explorer (iexplore.exe), and Firefox (firefox.exe)."
+Privilege Escalation,T1055.001,"An executable dropped onto victims by Putter Panda aims to inject the specified DLL into a process that would normally be accessing the network, including Outlook Express (msinm.exe), Outlook (outlook.exe), Internet Explorer (iexplore.exe), and Firefox (firefox.exe)."
+Defense Evasion,T1055.001,Ramsay can use ImprovedReflectiveDLLInjection to deploy components.
+Privilege Escalation,T1055.001,Ramsay can use ImprovedReflectiveDLLInjection to deploy components.
+Defense Evasion,T1055.001,"After decrypting itself in memory, RARSTONE downloads a DLL file from its C2 server and loads it in the memory space of a hidden Internet Explorer process. This ""downloaded"" file is actually not dropped onto the system."
+Privilege Escalation,T1055.001,"After decrypting itself in memory, RARSTONE downloads a DLL file from its C2 server and loads it in the memory space of a hidden Internet Explorer process. This ""downloaded"" file is actually not dropped onto the system."
+Defense Evasion,T1055.001,RATANKBA performs a reflective DLL injection using a given pid.
+Privilege Escalation,T1055.001,RATANKBA performs a reflective DLL injection using a given pid.
+Defense Evasion,T1055.001,Remsec can perform DLL injection.
+Privilege Escalation,T1055.001,Remsec can perform DLL injection.
+Defense Evasion,T1055.001,Sagerunex is designed to be dynamic link library (DLL) injected into an infected endpoint and executed directly in memory.
+Privilege Escalation,T1055.001,Sagerunex is designed to be dynamic link library (DLL) injected into an infected endpoint and executed directly in memory.
+Defense Evasion,T1055.001,Saint Bot has injected its DLL component into EhStorAurhn.exe.
+Privilege Escalation,T1055.001,Saint Bot has injected its DLL component into EhStorAurhn.exe.
+Defense Evasion,T1055.001,SDBbot has the ability to inject a downloaded DLL into a newly created rundll32.exe process.
+Privilege Escalation,T1055.001,SDBbot has the ability to inject a downloaded DLL into a newly created rundll32.exe process.
+Defense Evasion,T1055.001,ShadowPad has injected a DLL into svchost.exe.
+Privilege Escalation,T1055.001,ShadowPad has injected a DLL into svchost.exe.
+Defense Evasion,T1055.001,Socksbot creates a suspended svchost process and injects its DLL into it.
+Privilege Escalation,T1055.001,Socksbot creates a suspended svchost process and injects its DLL into it.
+Defense Evasion,T1055.001,"SombRAT can execute loadfromfile, loadfromstorage, and loadfrommem to inject a DLL from disk, storage, or memory respectively."
+Privilege Escalation,T1055.001,"SombRAT can execute loadfromfile, loadfromstorage, and loadfrommem to inject a DLL from disk, storage, or memory respectively."
+Defense Evasion,T1055.001,"Stuxnet injects an entire DLL into an existing, newly created, or preselected trusted process."
+Privilege Escalation,T1055.001,"Stuxnet injects an entire DLL into an existing, newly created, or preselected trusted process."
+Defense Evasion,T1055.001,"Sykipot injects itself into running instances of outlook.exe, iexplore.exe, or firefox.exe."
+Privilege Escalation,T1055.001,"Sykipot injects itself into running instances of outlook.exe, iexplore.exe, or firefox.exe."
+Defense Evasion,T1055.001,TA505 has been seen injecting a DLL into winword.exe.
+Privilege Escalation,T1055.001,TA505 has been seen injecting a DLL into winword.exe.
+Defense Evasion,T1055.001,Taidoor can perform DLL loading.
+Privilege Escalation,T1055.001,Taidoor can perform DLL loading.
+Defense Evasion,T1055.001,TajMahal has the ability to inject DLLs for malicious plugins into running processes.
+Privilege Escalation,T1055.001,TajMahal has the ability to inject DLLs for malicious plugins into running processes.
+Defense Evasion,T1055.001,Tropic Trooper has injected a DLL backdoor into dllhost.exe and svchost.exe.
+Privilege Escalation,T1055.001,Tropic Trooper has injected a DLL backdoor into dllhost.exe and svchost.exe.
+Defense Evasion,T1055.001,Turla has used Metasploit to perform reflective DLL injection in order to escalate privileges.
+Privilege Escalation,T1055.001,Turla has used Metasploit to perform reflective DLL injection in order to escalate privileges.
+Defense Evasion,T1055.001,Uroburos can use DLL injection to load embedded files and modules.
+Privilege Escalation,T1055.001,Uroburos can use DLL injection to load embedded files and modules.
+Defense Evasion,T1055.001,"Wizard Spider has injected malicious DLLs into memory with read, write, and execute permissions."
+Privilege Escalation,T1055.001,"Wizard Spider has injected malicious DLLs into memory with read, write, and execute permissions."
+Defense Evasion,T1055.001,ZxShell is injected into a shared SVCHOST process.
+Privilege Escalation,T1055.001,ZxShell is injected into a shared SVCHOST process.
+Defense Evasion,T1055.004,Attor performs the injection by attaching its code into the APC queue using NtQueueApcThread API.
+Privilege Escalation,T1055.004,Attor performs the injection by attaching its code into the APC queue using NtQueueApcThread API.
+Defense Evasion,T1055.004,BADHATCH can inject itself into a new svchost.exe -k netsvcs process using the asynchronous procedure call (APC) queue.
+Privilege Escalation,T1055.004,BADHATCH can inject itself into a new svchost.exe -k netsvcs process using the asynchronous procedure call (APC) queue.
+Defense Evasion,T1055.004,Bumblebee can use asynchronous procedure call (APC) injection to execute commands received from C2.
+Privilege Escalation,T1055.004,Bumblebee can use asynchronous procedure call (APC) injection to execute commands received from C2.
+Defense Evasion,T1055.004,Carberp has queued an APC routine to explorer.exe by calling ZwQueueApcThread.
+Privilege Escalation,T1055.004,Carberp has queued an APC routine to explorer.exe by calling ZwQueueApcThread.
+Defense Evasion,T1055.004,FIN8 has injected malicious code into a new svchost.exe process.
+Privilege Escalation,T1055.004,FIN8 has injected malicious code into a new svchost.exe process.
+Defense Evasion,T1055.004,IcedID has used ZwQueueApcThread to inject itself into remote processes.
+Privilege Escalation,T1055.004,IcedID has used ZwQueueApcThread to inject itself into remote processes.
+Defense Evasion,T1055.004,InvisiMole can inject its code into a trusted process via the APC queue.
+Privilege Escalation,T1055.004,InvisiMole can inject its code into a trusted process via the APC queue.
+Defense Evasion,T1055.004,Pillowmint has used the NtQueueApcThread syscall to inject code into svchost.exe.
+Privilege Escalation,T1055.004,Pillowmint has used the NtQueueApcThread syscall to inject code into svchost.exe.
+Defense Evasion,T1055.004,Saint Bot has written its payload into a newly-created EhStorAuthn.exe process using ZwWriteVirtualMemory and executed it using NtQueueApcThread and ZwAlertResumeThread.
+Privilege Escalation,T1055.004,Saint Bot has written its payload into a newly-created EhStorAuthn.exe process using ZwWriteVirtualMemory and executed it using NtQueueApcThread and ZwAlertResumeThread.
+Defense Evasion,T1055.004,Sardonic can use the QueueUserAPC API to execute shellcode on a compromised machine.
+Privilege Escalation,T1055.004,Sardonic can use the QueueUserAPC API to execute shellcode on a compromised machine.
+Defense Evasion,T1055.004,"TURNEDUP is capable of injecting code into the APC queue of a created Rundll32 process as part of an ""Early Bird injection."""
+Privilege Escalation,T1055.004,"TURNEDUP is capable of injecting code into the APC queue of a created Rundll32 process as part of an ""Early Bird injection."""
+Defense Evasion,T1055.004,XLoader injects code into the APC queue using NtQueueApcThread API.
+Privilege Escalation,T1055.004,XLoader injects code into the APC queue using NtQueueApcThread API.
+Execution,T1053.005,"During the 2022 Ukraine Electric Power Attack, Sandworm Team leveraged Scheduled Tasks through a Group Policy Object (GPO) to execute CaddyWiper at a predetermined time."
+Persistence,T1053.005,"During the 2022 Ukraine Electric Power Attack, Sandworm Team leveraged Scheduled Tasks through a Group Policy Object (GPO) to execute CaddyWiper at a predetermined time."
+Privilege Escalation,T1053.005,"During the 2022 Ukraine Electric Power Attack, Sandworm Team leveraged Scheduled Tasks through a Group Policy Object (GPO) to execute CaddyWiper at a predetermined time."
+Execution,T1053.005,Agent Tesla has achieved persistence via scheduled tasks.
+Persistence,T1053.005,Agent Tesla has achieved persistence via scheduled tasks.
+Privilege Escalation,T1053.005,Agent Tesla has achieved persistence via scheduled tasks.
+Execution,T1053.005,Anchor can create a scheduled task for persistence.
+Persistence,T1053.005,Anchor can create a scheduled task for persistence.
+Privilege Escalation,T1053.005,Anchor can create a scheduled task for persistence.
+Execution,T1053.005,"Apostle achieves persistence by creating a scheduled task, such as MicrosoftCrashHandlerUAC."
+Persistence,T1053.005,"Apostle achieves persistence by creating a scheduled task, such as MicrosoftCrashHandlerUAC."
+Privilege Escalation,T1053.005,"Apostle achieves persistence by creating a scheduled task, such as MicrosoftCrashHandlerUAC."
+Execution,T1053.005,AppleJeus has created a scheduled SYSTEM task that runs when a user logs in.
+Persistence,T1053.005,AppleJeus has created a scheduled SYSTEM task that runs when a user logs in.
+Privilege Escalation,T1053.005,AppleJeus has created a scheduled SYSTEM task that runs when a user logs in.
+Execution,T1053.005,"APT-C-36 has used a macro function to set scheduled tasks, disguised as those used by Google."
+Persistence,T1053.005,"APT-C-36 has used a macro function to set scheduled tasks, disguised as those used by Google."
+Privilege Escalation,T1053.005,"APT-C-36 has used a macro function to set scheduled tasks, disguised as those used by Google."
+Execution,T1053.005,APT29 has used named and hijacked scheduled tasks to establish persistence.
+Persistence,T1053.005,APT29 has used named and hijacked scheduled tasks to establish persistence.
+Privilege Escalation,T1053.005,APT29 has used named and hijacked scheduled tasks to establish persistence.
+Execution,T1053.005,"An APT3 downloader creates persistence by creating the following scheduled task: schtasks /create /tn ""mysc"" /tr C:\Users\Public\test.exe /sc ONLOGON /ru ""System""."
+Persistence,T1053.005,"An APT3 downloader creates persistence by creating the following scheduled task: schtasks /create /tn ""mysc"" /tr C:\Users\Public\test.exe /sc ONLOGON /ru ""System""."
+Privilege Escalation,T1053.005,"An APT3 downloader creates persistence by creating the following scheduled task: schtasks /create /tn ""mysc"" /tr C:\Users\Public\test.exe /sc ONLOGON /ru ""System""."
+Execution,T1053.005,APT32 has used scheduled tasks to persist on victim systems.
+Persistence,T1053.005,APT32 has used scheduled tasks to persist on victim systems.
+Privilege Escalation,T1053.005,APT32 has used scheduled tasks to persist on victim systems.
+Execution,T1053.005,APT33 has created a scheduled task to execute a .vbe file multiple times a day.
+Persistence,T1053.005,APT33 has created a scheduled task to execute a .vbe file multiple times a day.
+Privilege Escalation,T1053.005,APT33 has created a scheduled task to execute a .vbe file multiple times a day.
+Execution,T1053.005,APT37 has created scheduled tasks to run malicious scripts on a compromised host.
+Persistence,T1053.005,APT37 has created scheduled tasks to run malicious scripts on a compromised host.
+Privilege Escalation,T1053.005,APT37 has created scheduled tasks to run malicious scripts on a compromised host.
+Execution,T1053.005,"APT38 has used Task Scheduler to run programs at system startup or on a scheduled basis for persistence. Additionally, APT38 has used living-off-the-land scripts to execute a malicious script via a scheduled task."
+Persistence,T1053.005,"APT38 has used Task Scheduler to run programs at system startup or on a scheduled basis for persistence. Additionally, APT38 has used living-off-the-land scripts to execute a malicious script via a scheduled task."
+Privilege Escalation,T1053.005,"APT38 has used Task Scheduler to run programs at system startup or on a scheduled basis for persistence. Additionally, APT38 has used living-off-the-land scripts to execute a malicious script via a scheduled task."
+Execution,T1053.005,APT39 has created scheduled tasks for persistence.
+Persistence,T1053.005,APT39 has created scheduled tasks for persistence.
+Privilege Escalation,T1053.005,APT39 has created scheduled tasks for persistence.
+Execution,T1053.005,APT41 used a compromised account to create a scheduled task on a system.
+Persistence,T1053.005,APT41 used a compromised account to create a scheduled task on a system.
+Privilege Escalation,T1053.005,APT41 used a compromised account to create a scheduled task on a system.
+Execution,T1053.005,APT42 has used scheduled tasks for persistence.
+Persistence,T1053.005,APT42 has used scheduled tasks for persistence.
+Privilege Escalation,T1053.005,APT42 has used scheduled tasks for persistence.
+Execution,T1053.005,AsyncRAT can create a scheduled task to maintain persistence on system start-up.
+Persistence,T1053.005,AsyncRAT can create a scheduled task to maintain persistence on system start-up.
+Privilege Escalation,T1053.005,AsyncRAT can create a scheduled task to maintain persistence on system start-up.
+Execution,T1053.005,Attor's installer plugin can schedule a new task that loads the dispatcher on boot/logon.
+Persistence,T1053.005,Attor's installer plugin can schedule a new task that loads the dispatcher on boot/logon.
+Privilege Escalation,T1053.005,Attor's installer plugin can schedule a new task that loads the dispatcher on boot/logon.
+Execution,T1053.005,BabyShark has used scheduled tasks to maintain persistence.
+Persistence,T1053.005,BabyShark has used scheduled tasks to maintain persistence.
+Privilege Escalation,T1053.005,BabyShark has used scheduled tasks to maintain persistence.
+Execution,T1053.005,BackConfig has the ability to use scheduled tasks to repeatedly execute malicious payloads on a compromised host.
+Persistence,T1053.005,BackConfig has the ability to use scheduled tasks to repeatedly execute malicious payloads on a compromised host.
+Privilege Escalation,T1053.005,BackConfig has the ability to use scheduled tasks to repeatedly execute malicious payloads on a compromised host.
+Execution,T1053.005,Bad Rabbit’s infpub.dat file creates a scheduled task to launch a malicious executable.
+Persistence,T1053.005,Bad Rabbit’s infpub.dat file creates a scheduled task to launch a malicious executable.
+Privilege Escalation,T1053.005,Bad Rabbit’s infpub.dat file creates a scheduled task to launch a malicious executable.
+Execution,T1053.005,BADHATCH can use schtasks.exe to gain persistence.
+Persistence,T1053.005,BADHATCH can use schtasks.exe to gain persistence.
+Privilege Escalation,T1053.005,BADHATCH can use schtasks.exe to gain persistence.
+Execution,T1053.005,BADNEWS creates a scheduled task to establish by executing a malicious payload every subsequent minute.
+Persistence,T1053.005,BADNEWS creates a scheduled task to establish by executing a malicious payload every subsequent minute.
+Privilege Escalation,T1053.005,BADNEWS creates a scheduled task to establish by executing a malicious payload every subsequent minute.
+Execution,T1053.005,Bazar can create a scheduled task for persistence.
+Persistence,T1053.005,Bazar can create a scheduled task for persistence.
+Privilege Escalation,T1053.005,Bazar can create a scheduled task for persistence.
+Execution,T1053.005,BITTER has used scheduled tasks for persistence and execution.
+Persistence,T1053.005,BITTER has used scheduled tasks for persistence and execution.
+Privilege Escalation,T1053.005,BITTER has used scheduled tasks for persistence and execution.
+Execution,T1053.005,BlackByte created scheduled tasks for payload execution.
+Persistence,T1053.005,BlackByte created scheduled tasks for payload execution.
+Privilege Escalation,T1053.005,BlackByte created scheduled tasks for payload execution.
+Execution,T1053.005,BlackByte Ransomware creates a schedule task to execute remotely deployed ransomware payloads.
+Persistence,T1053.005,BlackByte Ransomware creates a schedule task to execute remotely deployed ransomware payloads.
+Privilege Escalation,T1053.005,BlackByte Ransomware creates a schedule task to execute remotely deployed ransomware payloads.
+Execution,T1053.005,Blue Mockingbird has used Windows Scheduled Tasks to establish persistence on local and remote hosts.
+Persistence,T1053.005,Blue Mockingbird has used Windows Scheduled Tasks to establish persistence on local and remote hosts.
+Privilege Escalation,T1053.005,Blue Mockingbird has used Windows Scheduled Tasks to establish persistence on local and remote hosts.
+Execution,T1053.005,BONDUPDATER persists using a scheduled task that executes every minute.
+Persistence,T1053.005,BONDUPDATER persists using a scheduled task that executes every minute.
+Privilege Escalation,T1053.005,BONDUPDATER persists using a scheduled task that executes every minute.
+Execution,T1053.005,BRONZE BUTLER has used schtasks to register a scheduled task to execute malware during lateral movement.
+Persistence,T1053.005,BRONZE BUTLER has used schtasks to register a scheduled task to execute malware during lateral movement.
+Privilege Escalation,T1053.005,BRONZE BUTLER has used schtasks to register a scheduled task to execute malware during lateral movement.
+Execution,T1053.005,Bumblebee can achieve persistence by copying its DLL to a subdirectory of %APPDATA% and creating a Visual Basic Script that will load the DLL via a scheduled task.
+Persistence,T1053.005,Bumblebee can achieve persistence by copying its DLL to a subdirectory of %APPDATA% and creating a Visual Basic Script that will load the DLL via a scheduled task.
+Privilege Escalation,T1053.005,Bumblebee can achieve persistence by copying its DLL to a subdirectory of %APPDATA% and creating a Visual Basic Script that will load the DLL via a scheduled task.
+Execution,T1053.005,"During C0017, APT41 used the following Windows scheduled tasks for DEADEYE dropper persistence on US state government networks: \Microsoft\Windows\PLA\Server Manager Performance Monitor, \Microsoft\Windows\Ras\ManagerMobility, \Microsoft\Windows\WDI\SrvSetupResults, and \Microsoft\Windows\WDI\USOShared."
+Persistence,T1053.005,"During C0017, APT41 used the following Windows scheduled tasks for DEADEYE dropper persistence on US state government networks: \Microsoft\Windows\PLA\Server Manager Performance Monitor, \Microsoft\Windows\Ras\ManagerMobility, \Microsoft\Windows\WDI\SrvSetupResults, and \Microsoft\Windows\WDI\USOShared."
+Privilege Escalation,T1053.005,"During C0017, APT41 used the following Windows scheduled tasks for DEADEYE dropper persistence on US state government networks: \Microsoft\Windows\PLA\Server Manager Performance Monitor, \Microsoft\Windows\Ras\ManagerMobility, \Microsoft\Windows\WDI\SrvSetupResults, and \Microsoft\Windows\WDI\USOShared."
+Execution,T1053.005,"During the C0032 campaign, TEMP.Veles used scheduled task XML triggers."
+Persistence,T1053.005,"During the C0032 campaign, TEMP.Veles used scheduled task XML triggers."
+Privilege Escalation,T1053.005,"During the C0032 campaign, TEMP.Veles used scheduled task XML triggers."
+Execution,T1053.005,Carbon creates several tasks for later execution to continue persistence on the victim’s machine.
+Persistence,T1053.005,Carbon creates several tasks for later execution to continue persistence on the victim’s machine.
+Privilege Escalation,T1053.005,Carbon creates several tasks for later execution to continue persistence on the victim’s machine.
+Execution,T1053.005,ccf32 can run on a daily basis using a scheduled task.
+Persistence,T1053.005,ccf32 can run on a daily basis using a scheduled task.
+Privilege Escalation,T1053.005,ccf32 can run on a daily basis using a scheduled task.
+Execution,T1053.005,"Chimera has used scheduled tasks to invoke Cobalt Strike including through batch script schtasks /create /ru ""SYSTEM"" /tn ""update"" /tr ""cmd /c c:\windows\temp\update.bat"" /sc once /f /st and to maintain persistence."
+Persistence,T1053.005,"Chimera has used scheduled tasks to invoke Cobalt Strike including through batch script schtasks /create /ru ""SYSTEM"" /tn ""update"" /tr ""cmd /c c:\windows\temp\update.bat"" /sc once /f /st and to maintain persistence."
+Privilege Escalation,T1053.005,"Chimera has used scheduled tasks to invoke Cobalt Strike including through batch script schtasks /create /ru ""SYSTEM"" /tn ""update"" /tr ""cmd /c c:\windows\temp\update.bat"" /sc once /f /st and to maintain persistence."
+Execution,T1053.005,CHIMNEYSWEEP can use the Windows SilentCleanup scheduled task to enable payload execution.
+Persistence,T1053.005,CHIMNEYSWEEP can use the Windows SilentCleanup scheduled task to enable payload execution.
+Privilege Escalation,T1053.005,CHIMNEYSWEEP can use the Windows SilentCleanup scheduled task to enable payload execution.
+Execution,T1053.005,Cobalt Group has created Windows tasks to establish persistence.
+Persistence,T1053.005,Cobalt Group has created Windows tasks to establish persistence.
+Privilege Escalation,T1053.005,Cobalt Group has created Windows tasks to establish persistence.
+Execution,T1053.005,ComRAT has used a scheduled task to launch its PowerShell loader.
+Persistence,T1053.005,ComRAT has used a scheduled task to launch its PowerShell loader.
+Privilege Escalation,T1053.005,ComRAT has used a scheduled task to launch its PowerShell loader.
+Execution,T1053.005,Confucius has created scheduled tasks to maintain persistence on a compromised host.
+Persistence,T1053.005,Confucius has created scheduled tasks to maintain persistence on a compromised host.
+Privilege Escalation,T1053.005,Confucius has created scheduled tasks to maintain persistence on a compromised host.
+Execution,T1053.005,"CosmicDuke uses scheduled tasks typically named ""Watchmon Service"" for persistence."
+Persistence,T1053.005,"CosmicDuke uses scheduled tasks typically named ""Watchmon Service"" for persistence."
+Privilege Escalation,T1053.005,"CosmicDuke uses scheduled tasks typically named ""Watchmon Service"" for persistence."
+Execution,T1053.005,"During CostaRicto, the threat actors used scheduled tasks to download backdoor tools."
+Persistence,T1053.005,"During CostaRicto, the threat actors used scheduled tasks to download backdoor tools."
+Privilege Escalation,T1053.005,"During CostaRicto, the threat actors used scheduled tasks to download backdoor tools."
+Execution,T1053.005,One persistence mechanism used by CozyCar is to register itself as a scheduled task.
+Persistence,T1053.005,One persistence mechanism used by CozyCar is to register itself as a scheduled task.
+Privilege Escalation,T1053.005,One persistence mechanism used by CozyCar is to register itself as a scheduled task.
+Execution,T1053.005,Crutch has the ability to persist using scheduled tasks.
+Persistence,T1053.005,Crutch has the ability to persist using scheduled tasks.
+Privilege Escalation,T1053.005,Crutch has the ability to persist using scheduled tasks.
+Execution,T1053.005,CSPY Downloader can use the schtasks utility to bypass UAC.
+Persistence,T1053.005,CSPY Downloader can use the schtasks utility to bypass UAC.
+Privilege Escalation,T1053.005,CSPY Downloader can use the schtasks utility to bypass UAC.
+Execution,T1053.005,Daggerfly has attempted to use scheduled tasks for persistence in victim environments.
+Persistence,T1053.005,Daggerfly has attempted to use scheduled tasks for persistence in victim environments.
+Privilege Escalation,T1053.005,Daggerfly has attempted to use scheduled tasks for persistence in victim environments.
+Execution,T1053.005,DanBot can use a scheduled task for installation.
+Persistence,T1053.005,DanBot can use a scheduled task for installation.
+Privilege Escalation,T1053.005,DanBot can use a scheduled task for installation.
+Execution,T1053.005,DarkWatchman has created a scheduled task for persistence.
+Persistence,T1053.005,DarkWatchman has created a scheduled task for persistence.
+Privilege Escalation,T1053.005,DarkWatchman has created a scheduled task for persistence.
+Execution,T1053.005,Disco can create a scheduled task to run every minute for persistence.
+Persistence,T1053.005,Disco can create a scheduled task to run every minute for persistence.
+Privilege Escalation,T1053.005,Disco can create a scheduled task to run every minute for persistence.
+Execution,T1053.005,Dragonfly has used scheduled tasks to automatically log out of created accounts every 8 hours as well as to execute malicious files.
+Persistence,T1053.005,Dragonfly has used scheduled tasks to automatically log out of created accounts every 8 hours as well as to execute malicious files.
+Privilege Escalation,T1053.005,Dragonfly has used scheduled tasks to automatically log out of created accounts every 8 hours as well as to execute malicious files.
+Execution,T1053.005,"Dridex can maintain persistence via the creation of scheduled tasks within system directories such as windows\system32\, windows\syswow64, winnt\system32, and winnt\syswow64."
+Persistence,T1053.005,"Dridex can maintain persistence via the creation of scheduled tasks within system directories such as windows\system32\, windows\syswow64, winnt\system32, and winnt\syswow64."
+Privilege Escalation,T1053.005,"Dridex can maintain persistence via the creation of scheduled tasks within system directories such as windows\system32\, windows\syswow64, winnt\system32, and winnt\syswow64."
+Execution,T1053.005,Adversaries can instruct Duqu to spread laterally by copying itself to shares it has enumerated and for which it has obtained legitimate credentials (via keylogging or other means). The remote host is then infected by using the compromised credentials to schedule a task on remote machines that executes the malware.
+Persistence,T1053.005,Adversaries can instruct Duqu to spread laterally by copying itself to shares it has enumerated and for which it has obtained legitimate credentials (via keylogging or other means). The remote host is then infected by using the compromised credentials to schedule a task on remote machines that executes the malware.
+Privilege Escalation,T1053.005,Adversaries can instruct Duqu to spread laterally by copying itself to shares it has enumerated and for which it has obtained legitimate credentials (via keylogging or other means). The remote host is then infected by using the compromised credentials to schedule a task on remote machines that executes the malware.
+Execution,T1053.005,Dyre has the ability to achieve persistence by adding a new task in the task scheduler to run every minute.
+Persistence,T1053.005,Dyre has the ability to achieve persistence by adding a new task in the task scheduler to run every minute.
+Privilege Escalation,T1053.005,Dyre has the ability to achieve persistence by adding a new task in the task scheduler to run every minute.
+Execution,T1053.005,Ember Bear uses remotely scheduled tasks to facilitate remote command execution on victim machines.
+Persistence,T1053.005,Ember Bear uses remotely scheduled tasks to facilitate remote command execution on victim machines.
+Privilege Escalation,T1053.005,Ember Bear uses remotely scheduled tasks to facilitate remote command execution on victim machines.
+Execution,T1053.005,"Emotet has maintained persistence through a scheduled task, e.g. though a .dll file in the Registry."
+Persistence,T1053.005,"Emotet has maintained persistence through a scheduled task, e.g. though a .dll file in the Registry."
+Privilege Escalation,T1053.005,"Emotet has maintained persistence through a scheduled task, e.g. though a .dll file in the Registry."
+Execution,T1053.005,Empire has modules to interact with the Windows task scheduler.
+Persistence,T1053.005,Empire has modules to interact with the Windows task scheduler.
+Privilege Escalation,T1053.005,Empire has modules to interact with the Windows task scheduler.
+Execution,T1053.005,EvilBunny has executed commands via scheduled tasks.
+Persistence,T1053.005,EvilBunny has executed commands via scheduled tasks.
+Privilege Escalation,T1053.005,EvilBunny has executed commands via scheduled tasks.
+Execution,T1053.005,FIN10 has established persistence by using S4U tasks as well as the Scheduled Task option in PowerShell Empire.
+Persistence,T1053.005,FIN10 has established persistence by using S4U tasks as well as the Scheduled Task option in PowerShell Empire.
+Privilege Escalation,T1053.005,FIN10 has established persistence by using S4U tasks as well as the Scheduled Task option in PowerShell Empire.
+Execution,T1053.005,FIN13 has created scheduled tasks in the C:\Windows directory of the compromised network.
+Persistence,T1053.005,FIN13 has created scheduled tasks in the C:\Windows directory of the compromised network.
+Privilege Escalation,T1053.005,FIN13 has created scheduled tasks in the C:\Windows directory of the compromised network.
+Execution,T1053.005,"FIN6 has used scheduled tasks to establish persistence for various malware it uses, including downloaders known as HARDTACK and SHIPBREAD and FrameworkPOS."
+Persistence,T1053.005,"FIN6 has used scheduled tasks to establish persistence for various malware it uses, including downloaders known as HARDTACK and SHIPBREAD and FrameworkPOS."
+Privilege Escalation,T1053.005,"FIN6 has used scheduled tasks to establish persistence for various malware it uses, including downloaders known as HARDTACK and SHIPBREAD and FrameworkPOS."
+Execution,T1053.005,FIN7 malware has created scheduled tasks to establish persistence.
+Persistence,T1053.005,FIN7 malware has created scheduled tasks to establish persistence.
+Privilege Escalation,T1053.005,FIN7 malware has created scheduled tasks to establish persistence.
+Execution,T1053.005,FIN8 has used scheduled tasks to maintain RDP backdoors.
+Persistence,T1053.005,FIN8 has used scheduled tasks to maintain RDP backdoors.
+Privilege Escalation,T1053.005,FIN8 has used scheduled tasks to maintain RDP backdoors.
+Execution,T1053.005,Fox Kitten has used Scheduled Tasks for persistence and to load and execute a reverse proxy binary.
+Persistence,T1053.005,Fox Kitten has used Scheduled Tasks for persistence and to load and execute a reverse proxy binary.
+Privilege Escalation,T1053.005,Fox Kitten has used Scheduled Tasks for persistence and to load and execute a reverse proxy binary.
+Execution,T1053.005,"During Frankenstein, the threat actors established persistence through a scheduled task using the command: /Create /F /SC DAILY /ST 09:00 /TN WinUpdate /TR, named ""WinUpdate"""
+Persistence,T1053.005,"During Frankenstein, the threat actors established persistence through a scheduled task using the command: /Create /F /SC DAILY /ST 09:00 /TN WinUpdate /TR, named ""WinUpdate"""
+Privilege Escalation,T1053.005,"During Frankenstein, the threat actors established persistence through a scheduled task using the command: /Create /F /SC DAILY /ST 09:00 /TN WinUpdate /TR, named ""WinUpdate"""
+Execution,T1053.005,GALLIUM established persistence for PoisonIvy by created a scheduled task.
+Persistence,T1053.005,GALLIUM established persistence for PoisonIvy by created a scheduled task.
+Privilege Escalation,T1053.005,GALLIUM established persistence for PoisonIvy by created a scheduled task.
+Execution,T1053.005,Gamaredon Group has created scheduled tasks to launch executables after a designated number of minutes have passed.
+Persistence,T1053.005,Gamaredon Group has created scheduled tasks to launch executables after a designated number of minutes have passed.
+Privilege Escalation,T1053.005,Gamaredon Group has created scheduled tasks to launch executables after a designated number of minutes have passed.
+Execution,T1053.005,Gazer can establish persistence by creating a scheduled task.
+Persistence,T1053.005,Gazer can establish persistence by creating a scheduled task.
+Privilege Escalation,T1053.005,Gazer can establish persistence by creating a scheduled task.
+Execution,T1053.005,GoldMax has used scheduled tasks to maintain persistence.
+Persistence,T1053.005,GoldMax has used scheduled tasks to maintain persistence.
+Privilege Escalation,T1053.005,GoldMax has used scheduled tasks to maintain persistence.
+Execution,T1053.005,Goopy has the ability to maintain persistence by creating scheduled tasks set to run every hour.
+Persistence,T1053.005,Goopy has the ability to maintain persistence by creating scheduled tasks set to run every hour.
+Privilege Escalation,T1053.005,Goopy has the ability to maintain persistence by creating scheduled tasks set to run every hour.
+Execution,T1053.005,GravityRAT creates a scheduled task to ensure it is re-executed everyday.
+Persistence,T1053.005,GravityRAT creates a scheduled task to ensure it is re-executed everyday.
+Privilege Escalation,T1053.005,GravityRAT creates a scheduled task to ensure it is re-executed everyday.
+Execution,T1053.005,GRIFFON has used sctasks for persistence.
+Persistence,T1053.005,GRIFFON has used sctasks for persistence.
+Privilege Escalation,T1053.005,GRIFFON has used sctasks for persistence.
+Execution,T1053.005,GrimAgent has the ability to set persistence using the Task Scheduler.
+Persistence,T1053.005,GrimAgent has the ability to set persistence using the Task Scheduler.
+Privilege Escalation,T1053.005,GrimAgent has the ability to set persistence using the Task Scheduler.
+Execution,T1053.005,Helminth has used a scheduled task for persistence.
+Persistence,T1053.005,Helminth has used a scheduled task for persistence.
+Privilege Escalation,T1053.005,Helminth has used a scheduled task for persistence.
+Execution,T1053.005,HermeticWiper has the ability to use scheduled tasks for execution.
+Persistence,T1053.005,HermeticWiper has the ability to use scheduled tasks for execution.
+Privilege Escalation,T1053.005,HermeticWiper has the ability to use scheduled tasks for execution.
+Execution,T1053.005,HEXANE has used a scheduled task to establish persistence for a keylogger.
+Persistence,T1053.005,HEXANE has used a scheduled task to establish persistence for a keylogger.
+Privilege Escalation,T1053.005,HEXANE has used a scheduled task to establish persistence for a keylogger.
+Execution,T1053.005,Higaisa dropped and added officeupdate.exe to scheduled tasks.
+Persistence,T1053.005,Higaisa dropped and added officeupdate.exe to scheduled tasks.
+Privilege Escalation,T1053.005,Higaisa dropped and added officeupdate.exe to scheduled tasks.
+Execution,T1053.005,"HotCroissant has attempted to install a scheduled task named ""Java Maintenance64"" on startup to establish persistence."
+Persistence,T1053.005,"HotCroissant has attempted to install a scheduled task named ""Java Maintenance64"" on startup to establish persistence."
+Privilege Escalation,T1053.005,"HotCroissant has attempted to install a scheduled task named ""Java Maintenance64"" on startup to establish persistence."
+Execution,T1053.005,IcedID has created a scheduled task to establish persistence.
+Persistence,T1053.005,IcedID has created a scheduled task to establish persistence.
+Privilege Escalation,T1053.005,IcedID has created a scheduled task to establish persistence.
+Execution,T1053.005,IMAPLoader creates scheduled tasks for persistence based on the operating system version of the victim machine.
+Persistence,T1053.005,IMAPLoader creates scheduled tasks for persistence based on the operating system version of the victim machine.
+Privilege Escalation,T1053.005,IMAPLoader creates scheduled tasks for persistence based on the operating system version of the victim machine.
+Execution,T1053.005,InvisiMole has used scheduled tasks named MSST and \Microsoft\Windows\Autochk\Scheduled to establish persistence.
+Persistence,T1053.005,InvisiMole has used scheduled tasks named MSST and \Microsoft\Windows\Autochk\Scheduled to establish persistence.
+Privilege Escalation,T1053.005,InvisiMole has used scheduled tasks named MSST and \Microsoft\Windows\Autochk\Scheduled to establish persistence.
+Execution,T1053.005,IronNetInjector has used a task XML file named mssch.xml to run an IronPython script when a user logs in or when specific system events are created.
+Persistence,T1053.005,IronNetInjector has used a task XML file named mssch.xml to run an IronPython script when a user logs in or when specific system events are created.
+Privilege Escalation,T1053.005,IronNetInjector has used a task XML file named mssch.xml to run an IronPython script when a user logs in or when specific system events are created.
+Execution,T1053.005,ISMInjector creates scheduled tasks to establish persistence.
+Persistence,T1053.005,ISMInjector creates scheduled tasks to establish persistence.
+Privilege Escalation,T1053.005,ISMInjector creates scheduled tasks to establish persistence.
+Execution,T1053.005,JHUHUGIT has registered itself as a scheduled task to run each time the current user logs in.
+Persistence,T1053.005,JHUHUGIT has registered itself as a scheduled task to run each time the current user logs in.
+Privilege Escalation,T1053.005,JHUHUGIT has registered itself as a scheduled task to run each time the current user logs in.
+Execution,T1053.005,JSS Loader has the ability to launch scheduled tasks to establish persistence.
+Persistence,T1053.005,JSS Loader has the ability to launch scheduled tasks to establish persistence.
+Privilege Escalation,T1053.005,JSS Loader has the ability to launch scheduled tasks to establish persistence.
+Execution,T1053.005,"During Juicy Mix, OilRig used VBS droppers to schedule tasks for persistence."
+Persistence,T1053.005,"During Juicy Mix, OilRig used VBS droppers to schedule tasks for persistence."
+Privilege Escalation,T1053.005,"During Juicy Mix, OilRig used VBS droppers to schedule tasks for persistence."
+Execution,T1053.005,Kapeka persists via scheduled tasks.
+Persistence,T1053.005,Kapeka persists via scheduled tasks.
+Privilege Escalation,T1053.005,Kapeka persists via scheduled tasks.
+Execution,T1053.005,Kimsuky has downloaded additional malware with scheduled tasks.
+Persistence,T1053.005,Kimsuky has downloaded additional malware with scheduled tasks.
+Privilege Escalation,T1053.005,Kimsuky has downloaded additional malware with scheduled tasks.
+Execution,T1053.005,Koadic has used scheduled tasks to add persistence.
+Persistence,T1053.005,Koadic has used scheduled tasks to add persistence.
+Privilege Escalation,T1053.005,Koadic has used scheduled tasks to add persistence.
+Execution,T1053.005,Latrodectus can create scheduled tasks for persistence.
+Persistence,T1053.005,Latrodectus can create scheduled tasks for persistence.
+Privilege Escalation,T1053.005,Latrodectus can create scheduled tasks for persistence.
+Execution,T1053.005,Lazarus Group has used schtasks for persistence including through the periodic execution of a remote XSL script or a dropped VBS payload.
+Persistence,T1053.005,Lazarus Group has used schtasks for persistence including through the periodic execution of a remote XSL script or a dropped VBS payload.
+Privilege Escalation,T1053.005,Lazarus Group has used schtasks for persistence including through the periodic execution of a remote XSL script or a dropped VBS payload.
+Execution,T1053.005,LitePower can create a scheduled task to enable persistence mechanisms.
+Persistence,T1053.005,LitePower can create a scheduled task to enable persistence mechanisms.
+Privilege Escalation,T1053.005,LitePower can create a scheduled task to enable persistence mechanisms.
+Execution,T1053.005,LockBit 2.0 can be executed via scheduled task.
+Persistence,T1053.005,LockBit 2.0 can be executed via scheduled task.
+Privilege Escalation,T1053.005,LockBit 2.0 can be executed via scheduled task.
+Execution,T1053.005,Lokibot embedded the commands schtasks /Run /TN \Microsoft\Windows\DiskCleanup\SilentCleanup /I inside a batch script.
+Persistence,T1053.005,Lokibot embedded the commands schtasks /Run /TN \Microsoft\Windows\DiskCleanup\SilentCleanup /I inside a batch script.
+Privilege Escalation,T1053.005,Lokibot embedded the commands schtasks /Run /TN \Microsoft\Windows\DiskCleanup\SilentCleanup /I inside a batch script.
+Execution,T1053.005,Lucifer has established persistence by creating the following scheduled task schtasks /create /sc minute /mo 1 /tn QQMusic ^ /tr C:Users\%USERPROFILE%\Downloads\spread.exe /F.
+Persistence,T1053.005,Lucifer has established persistence by creating the following scheduled task schtasks /create /sc minute /mo 1 /tn QQMusic ^ /tr C:Users\%USERPROFILE%\Downloads\spread.exe /F.
+Privilege Escalation,T1053.005,Lucifer has established persistence by creating the following scheduled task schtasks /create /sc minute /mo 1 /tn QQMusic ^ /tr C:Users\%USERPROFILE%\Downloads\spread.exe /F.
+Execution,T1053.005,LuminousMoth has created scheduled tasks to establish persistence for their tools.
+Persistence,T1053.005,LuminousMoth has created scheduled tasks to establish persistence for their tools.
+Privilege Escalation,T1053.005,LuminousMoth has created scheduled tasks to establish persistence for their tools.
+Execution,T1053.005,The different components of Machete are executed by Windows Task Scheduler.
+Persistence,T1053.005,The different components of Machete are executed by Windows Task Scheduler.
+Privilege Escalation,T1053.005,The different components of Machete are executed by Windows Task Scheduler.
+Execution,T1053.005,Machete has created scheduled tasks to maintain Machete's persistence.
+Persistence,T1053.005,Machete has created scheduled tasks to maintain Machete's persistence.
+Privilege Escalation,T1053.005,Machete has created scheduled tasks to maintain Machete's persistence.
+Execution,T1053.005,Magic Hound has used scheduled tasks to establish persistence and execution.
+Persistence,T1053.005,Magic Hound has used scheduled tasks to establish persistence and execution.
+Privilege Escalation,T1053.005,Magic Hound has used scheduled tasks to establish persistence and execution.
+Execution,T1053.005,MagicRAT can persist via scheduled tasks.
+Persistence,T1053.005,MagicRAT can persist via scheduled tasks.
+Privilege Escalation,T1053.005,MagicRAT can persist via scheduled tasks.
+Execution,T1053.005,Mango can create a scheduled task to run every 32 seconds to communicate with C2 and execute received commands.
+Persistence,T1053.005,Mango can create a scheduled task to run every 32 seconds to communicate with C2 and execute received commands.
+Privilege Escalation,T1053.005,Mango can create a scheduled task to run every 32 seconds to communicate with C2 and execute received commands.
+Execution,T1053.005,"Matryoshka can establish persistence by adding a Scheduled Task named ""Microsoft Boost Kernel Optimization""."
+Persistence,T1053.005,"Matryoshka can establish persistence by adding a Scheduled Task named ""Microsoft Boost Kernel Optimization""."
+Privilege Escalation,T1053.005,"Matryoshka can establish persistence by adding a Scheduled Task named ""Microsoft Boost Kernel Optimization""."
+Execution,T1053.005,"Maze has created scheduled tasks using name variants such as ""Windows Update Security"", ""Windows Update Security Patches"", and ""Google Chrome Security Update"", to launch Maze at a specific time."
+Persistence,T1053.005,"Maze has created scheduled tasks using name variants such as ""Windows Update Security"", ""Windows Update Security Patches"", and ""Google Chrome Security Update"", to launch Maze at a specific time."
+Privilege Escalation,T1053.005,"Maze has created scheduled tasks using name variants such as ""Windows Update Security"", ""Windows Update Security Patches"", and ""Google Chrome Security Update"", to launch Maze at a specific time."
+Execution,T1053.005,MCMD can use scheduled tasks for persistence.
+Persistence,T1053.005,MCMD can use scheduled tasks for persistence.
+Privilege Escalation,T1053.005,MCMD can use scheduled tasks for persistence.
+Execution,T1053.005,menuPass has used a script (atexec.py) to execute a command on a target machine via Task Scheduler.
+Persistence,T1053.005,menuPass has used a script (atexec.py) to execute a command on a target machine via Task Scheduler.
+Privilege Escalation,T1053.005,menuPass has used a script (atexec.py) to execute a command on a target machine via Task Scheduler.
+Execution,T1053.005,Meteor execution begins from a scheduled task named Microsoft\Windows\Power Efficiency Diagnostics\AnalyzeAll and it creates a separate scheduled task called mstask to run the wiper only once at 23:55:00.
+Persistence,T1053.005,Meteor execution begins from a scheduled task named Microsoft\Windows\Power Efficiency Diagnostics\AnalyzeAll and it creates a separate scheduled task called mstask to run the wiper only once at 23:55:00.
+Privilege Escalation,T1053.005,Meteor execution begins from a scheduled task named Microsoft\Windows\Power Efficiency Diagnostics\AnalyzeAll and it creates a separate scheduled task called mstask to run the wiper only once at 23:55:00.
+Execution,T1053.005,Milan can establish persistence on a targeted host with scheduled tasks.
+Persistence,T1053.005,Milan can establish persistence on a targeted host with scheduled tasks.
+Privilege Escalation,T1053.005,Milan can establish persistence on a targeted host with scheduled tasks.
+Execution,T1053.005,Molerats has created scheduled tasks to persistently run VBScripts.
+Persistence,T1053.005,Molerats has created scheduled tasks to persistently run VBScripts.
+Privilege Escalation,T1053.005,Molerats has created scheduled tasks to persistently run VBScripts.
+Execution,T1053.005,Moonstone Sleet used scheduled tasks for program execution during initial access to victim machines.
+Persistence,T1053.005,Moonstone Sleet used scheduled tasks for program execution during initial access to victim machines.
+Privilege Escalation,T1053.005,Moonstone Sleet used scheduled tasks for program execution during initial access to victim machines.
+Execution,T1053.005,MuddyWater has used scheduled tasks to establish persistence.
+Persistence,T1053.005,MuddyWater has used scheduled tasks to establish persistence.
+Privilege Escalation,T1053.005,MuddyWater has used scheduled tasks to establish persistence.
+Execution,T1053.005,MultiLayer Wiper creates a malicious scheduled task that launches a batch file to remove Windows Event Logs.
+Persistence,T1053.005,MultiLayer Wiper creates a malicious scheduled task that launches a batch file to remove Windows Event Logs.
+Privilege Escalation,T1053.005,MultiLayer Wiper creates a malicious scheduled task that launches a batch file to remove Windows Event Logs.
+Execution,T1053.005,"Mustang Panda has created a scheduled task to execute additional malicious software, as well as maintain persistence."
+Persistence,T1053.005,"Mustang Panda has created a scheduled task to execute additional malicious software, as well as maintain persistence."
+Privilege Escalation,T1053.005,"Mustang Panda has created a scheduled task to execute additional malicious software, as well as maintain persistence."
+Execution,T1053.005,Naikon has used schtasks.exe for lateral movement in compromised networks.
+Persistence,T1053.005,Naikon has used schtasks.exe for lateral movement in compromised networks.
+Privilege Escalation,T1053.005,Naikon has used schtasks.exe for lateral movement in compromised networks.
+Execution,T1053.005,NETWIRE can create a scheduled task to establish persistence.
+Persistence,T1053.005,NETWIRE can create a scheduled task to establish persistence.
+Privilege Escalation,T1053.005,NETWIRE can create a scheduled task to establish persistence.
+Execution,T1053.005,Nightdoor uses scheduled tasks for persistence to load the final malware payload into memory.
+Persistence,T1053.005,Nightdoor uses scheduled tasks for persistence to load the final malware payload into memory.
+Privilege Escalation,T1053.005,Nightdoor uses scheduled tasks for persistence to load the final malware payload into memory.
+Execution,T1053.005,NotPetya creates a task to reboot the system one hour after infection.
+Persistence,T1053.005,NotPetya creates a task to reboot the system one hour after infection.
+Privilege Escalation,T1053.005,NotPetya creates a task to reboot the system one hour after infection.
+Execution,T1053.005,OilRig has created scheduled tasks that run a VBScript to execute a payload on victim machines.
+Persistence,T1053.005,OilRig has created scheduled tasks that run a VBScript to execute a payload on victim machines.
+Privilege Escalation,T1053.005,OilRig has created scheduled tasks that run a VBScript to execute a payload on victim machines.
+Execution,T1053.005,Okrum's installer can attempt to achieve persistence by creating a scheduled task.
+Persistence,T1053.005,Okrum's installer can attempt to achieve persistence by creating a scheduled task.
+Privilege Escalation,T1053.005,Okrum's installer can attempt to achieve persistence by creating a scheduled task.
+Execution,T1053.005,OopsIE creates a scheduled task to run itself every three minutes.
+Persistence,T1053.005,OopsIE creates a scheduled task to run itself every three minutes.
+Privilege Escalation,T1053.005,OopsIE creates a scheduled task to run itself every three minutes.
+Execution,T1053.005,"During Operation CuckooBees, the threat actors used scheduled tasks to execute batch scripts for lateral movement with the following command: SCHTASKS /Create /S <IP Address> /U <Username> /p <Password> /SC ONCE /TN test /TR <Path to a Batch File> /ST <Time> /RU SYSTEM."
+Persistence,T1053.005,"During Operation CuckooBees, the threat actors used scheduled tasks to execute batch scripts for lateral movement with the following command: SCHTASKS /Create /S <IP Address> /U <Username> /p <Password> /SC ONCE /TN test /TR <Path to a Batch File> /ST <Time> /RU SYSTEM."
+Privilege Escalation,T1053.005,"During Operation CuckooBees, the threat actors used scheduled tasks to execute batch scripts for lateral movement with the following command: SCHTASKS /Create /S <IP Address> /U <Username> /p <Password> /SC ONCE /TN test /TR <Path to a Batch File> /ST <Time> /RU SYSTEM."
+Execution,T1053.005,"During Operation Dream Job, Lazarus Group created scheduled tasks to set a periodic execution of a remote XSL script."
+Persistence,T1053.005,"During Operation Dream Job, Lazarus Group created scheduled tasks to set a periodic execution of a remote XSL script."
+Privilege Escalation,T1053.005,"During Operation Dream Job, Lazarus Group created scheduled tasks to set a periodic execution of a remote XSL script."
+Execution,T1053.005,"During Operation Wocao, threat actors used scheduled tasks to execute malicious PowerShell code on remote systems."
+Persistence,T1053.005,"During Operation Wocao, threat actors used scheduled tasks to execute malicious PowerShell code on remote systems."
+Privilege Escalation,T1053.005,"During Operation Wocao, threat actors used scheduled tasks to execute malicious PowerShell code on remote systems."
+Execution,T1053.005,A Patchwork file stealer can run a TaskScheduler DLL to add persistence.
+Persistence,T1053.005,A Patchwork file stealer can run a TaskScheduler DLL to add persistence.
+Privilege Escalation,T1053.005,A Patchwork file stealer can run a TaskScheduler DLL to add persistence.
+Execution,T1053.005,PowerSploit's New-UserPersistenceOption Persistence argument can be used to establish via a Scheduled Task/Job.
+Persistence,T1053.005,PowerSploit's New-UserPersistenceOption Persistence argument can be used to establish via a Scheduled Task/Job.
+Privilege Escalation,T1053.005,PowerSploit's New-UserPersistenceOption Persistence argument can be used to establish via a Scheduled Task/Job.
+Execution,T1053.005,"POWERSTATS has established persistence through a scheduled task using the command ""C:\Windows\system32\schtasks.exe"" /Create /F /SC DAILY /ST 12:00 /TN MicrosoftEdge /TR ""c:\Windows\system32\wscript.exe C:\Windows\temp\Windows.vbe""."
+Persistence,T1053.005,"POWERSTATS has established persistence through a scheduled task using the command ""C:\Windows\system32\schtasks.exe"" /Create /F /SC DAILY /ST 12:00 /TN MicrosoftEdge /TR ""c:\Windows\system32\wscript.exe C:\Windows\temp\Windows.vbe""."
+Privilege Escalation,T1053.005,"POWERSTATS has established persistence through a scheduled task using the command ""C:\Windows\system32\schtasks.exe"" /Create /F /SC DAILY /ST 12:00 /TN MicrosoftEdge /TR ""c:\Windows\system32\wscript.exe C:\Windows\temp\Windows.vbe""."
+Execution,T1053.005,POWRUNER persists through a scheduled task that executes it every minute.
+Persistence,T1053.005,POWRUNER persists through a scheduled task that executes it every minute.
+Privilege Escalation,T1053.005,POWRUNER persists through a scheduled task that executes it every minute.
+Execution,T1053.005,Prestige has been executed on a target system through a scheduled task created by Sandworm Team using Impacket.
+Persistence,T1053.005,Prestige has been executed on a target system through a scheduled task created by Sandworm Team using Impacket.
+Privilege Escalation,T1053.005,Prestige has been executed on a target system through a scheduled task created by Sandworm Team using Impacket.
+Execution,T1053.005,Pteranodon schedules tasks to invoke its components in order to establish persistence.
+Persistence,T1053.005,Pteranodon schedules tasks to invoke its components in order to establish persistence.
+Privilege Escalation,T1053.005,Pteranodon schedules tasks to invoke its components in order to establish persistence.
+Execution,T1053.005,QakBot has the ability to create scheduled tasks for persistence.
+Persistence,T1053.005,QakBot has the ability to create scheduled tasks for persistence.
+Privilege Escalation,T1053.005,QakBot has the ability to create scheduled tasks for persistence.
+Execution,T1053.005,QUADAGENT creates a scheduled task to maintain persistence on the victim’s machine.
+Persistence,T1053.005,QUADAGENT creates a scheduled task to maintain persistence on the victim’s machine.
+Privilege Escalation,T1053.005,QUADAGENT creates a scheduled task to maintain persistence on the victim’s machine.
+Execution,T1053.005,QuasarRAT contains a .NET wrapper DLL for creating and managing scheduled tasks for maintaining persistence upon reboot.
+Persistence,T1053.005,QuasarRAT contains a .NET wrapper DLL for creating and managing scheduled tasks for maintaining persistence upon reboot.
+Privilege Escalation,T1053.005,QuasarRAT contains a .NET wrapper DLL for creating and managing scheduled tasks for maintaining persistence upon reboot.
+Execution,T1053.005,RainyDay can use scheduled tasks to achieve persistence.
+Persistence,T1053.005,RainyDay can use scheduled tasks to achieve persistence.
+Privilege Escalation,T1053.005,RainyDay can use scheduled tasks to achieve persistence.
+Execution,T1053.005,Ramsay can schedule tasks via the Windows COM API to maintain persistence.
+Persistence,T1053.005,Ramsay can schedule tasks via the Windows COM API to maintain persistence.
+Privilege Escalation,T1053.005,Ramsay can schedule tasks via the Windows COM API to maintain persistence.
+Execution,T1053.005,Rancor launched a scheduled task to gain persistence using the schtasks /create /sc command.
+Persistence,T1053.005,Rancor launched a scheduled task to gain persistence using the schtasks /create /sc command.
+Privilege Escalation,T1053.005,Rancor launched a scheduled task to gain persistence using the schtasks /create /sc command.
+Execution,T1053.005,RedCurl has created scheduled tasks for persistence.
+Persistence,T1053.005,RedCurl has created scheduled tasks for persistence.
+Privilege Escalation,T1053.005,RedCurl has created scheduled tasks for persistence.
+Execution,T1053.005,Remexi utilizes scheduled tasks as a persistence mechanism.
+Persistence,T1053.005,Remexi utilizes scheduled tasks as a persistence mechanism.
+Privilege Escalation,T1053.005,Remexi utilizes scheduled tasks as a persistence mechanism.
+Execution,T1053.005,RemoteCMD can execute commands remotely by creating a new schedule task on the remote system
+Persistence,T1053.005,RemoteCMD can execute commands remotely by creating a new schedule task on the remote system
+Privilege Escalation,T1053.005,RemoteCMD can execute commands remotely by creating a new schedule task on the remote system
+Execution,T1053.005,Revenge RAT schedules tasks to run malicious scripts at different intervals.
+Persistence,T1053.005,Revenge RAT schedules tasks to run malicious scripts at different intervals.
+Privilege Escalation,T1053.005,Revenge RAT schedules tasks to run malicious scripts at different intervals.
+Execution,T1053.005,RTM tries to add a scheduled task to establish persistence.
+Persistence,T1053.005,RTM tries to add a scheduled task to establish persistence.
+Privilege Escalation,T1053.005,RTM tries to add a scheduled task to establish persistence.
+Execution,T1053.005,Ryuk can remotely create a scheduled task to execute itself on a system.
+Persistence,T1053.005,Ryuk can remotely create a scheduled task to execute itself on a system.
+Privilege Escalation,T1053.005,Ryuk can remotely create a scheduled task to execute itself on a system.
+Execution,T1053.005,"Saint Bot has created a scheduled task named ""Maintenance"" to establish persistence."
+Persistence,T1053.005,"Saint Bot has created a scheduled task named ""Maintenance"" to establish persistence."
+Privilege Escalation,T1053.005,"Saint Bot has created a scheduled task named ""Maintenance"" to establish persistence."
+Execution,T1053.005,"Sandworm Team leveraged SHARPIVORY, a .NET dropper that writes embedded payload to disk and uses scheduled tasks to persist on victim machines."
+Persistence,T1053.005,"Sandworm Team leveraged SHARPIVORY, a .NET dropper that writes embedded payload to disk and uses scheduled tasks to persist on victim machines."
+Privilege Escalation,T1053.005,"Sandworm Team leveraged SHARPIVORY, a .NET dropper that writes embedded payload to disk and uses scheduled tasks to persist on victim machines."
+Execution,T1053.005,schtasks is used to schedule tasks on a Windows system to run at a specific date and time.
+Persistence,T1053.005,schtasks is used to schedule tasks on a Windows system to run at a specific date and time.
+Privilege Escalation,T1053.005,schtasks is used to schedule tasks on a Windows system to run at a specific date and time.
+Execution,T1053.005,ServHelper contains modules that will use schtasks to carry out malicious operations.
+Persistence,T1053.005,ServHelper contains modules that will use schtasks to carry out malicious operations.
+Privilege Escalation,T1053.005,ServHelper contains modules that will use schtasks to carry out malicious operations.
+Execution,T1053.005,Shamoon copies an executable payload to the target system by using SMB/Windows Admin Shares and then scheduling an unnamed task to execute the malware.
+Persistence,T1053.005,Shamoon copies an executable payload to the target system by using SMB/Windows Admin Shares and then scheduling an unnamed task to execute the malware.
+Privilege Escalation,T1053.005,Shamoon copies an executable payload to the target system by using SMB/Windows Admin Shares and then scheduling an unnamed task to execute the malware.
+Execution,T1053.005,SharpDisco can create scheduled tasks to execute reverse shells that read and write data to and from specified SMB shares.
+Persistence,T1053.005,SharpDisco can create scheduled tasks to execute reverse shells that read and write data to and from specified SMB shares.
+Privilege Escalation,T1053.005,SharpDisco can create scheduled tasks to execute reverse shells that read and write data to and from specified SMB shares.
+Execution,T1053.005,SharpStage has a persistence component to write a scheduled task for the payload.
+Persistence,T1053.005,SharpStage has a persistence component to write a scheduled task for the payload.
+Privilege Escalation,T1053.005,SharpStage has a persistence component to write a scheduled task for the payload.
+Execution,T1053.005,Sibot has been executed via a scheduled task.
+Persistence,T1053.005,Sibot has been executed via a scheduled task.
+Privilege Escalation,T1053.005,Sibot has been executed via a scheduled task.
+Execution,T1053.005,Silence has used scheduled tasks to stage its operation.
+Persistence,T1053.005,Silence has used scheduled tasks to stage its operation.
+Privilege Escalation,T1053.005,Silence has used scheduled tasks to stage its operation.
+Execution,T1053.005,Smoke Loader launches a scheduled task.
+Persistence,T1053.005,Smoke Loader launches a scheduled task.
+Privilege Escalation,T1053.005,Smoke Loader launches a scheduled task.
+Execution,T1053.005,"Solar can create scheduled tasks named Earth and Venus, which run every 30 and 40 seconds respectively, to support C2 and exfiltration."
+Persistence,T1053.005,"Solar can create scheduled tasks named Earth and Venus, which run every 30 and 40 seconds respectively, to support C2 and exfiltration."
+Privilege Escalation,T1053.005,"Solar can create scheduled tasks named Earth and Venus, which run every 30 and 40 seconds respectively, to support C2 and exfiltration."
+Execution,T1053.005,"During the SolarWinds Compromise, APT29 used scheduler and schtasks to create new tasks on remote host as part of their lateral movement. They manipulated scheduled tasks by updating an existing legitimate task to execute their tools and then returned the scheduled task to its original configuration. APT29 also created a scheduled task to maintain SUNSPOT persistence when the host booted."
+Persistence,T1053.005,"During the SolarWinds Compromise, APT29 used scheduler and schtasks to create new tasks on remote host as part of their lateral movement. They manipulated scheduled tasks by updating an existing legitimate task to execute their tools and then returned the scheduled task to its original configuration. APT29 also created a scheduled task to maintain SUNSPOT persistence when the host booted."
+Privilege Escalation,T1053.005,"During the SolarWinds Compromise, APT29 used scheduler and schtasks to create new tasks on remote host as part of their lateral movement. They manipulated scheduled tasks by updating an existing legitimate task to execute their tools and then returned the scheduled task to its original configuration. APT29 also created a scheduled task to maintain SUNSPOT persistence when the host booted."
+Execution,T1053.005,SoreFang can gain persistence through use of scheduled tasks.
+Persistence,T1053.005,SoreFang can gain persistence through use of scheduled tasks.
+Privilege Escalation,T1053.005,SoreFang can gain persistence through use of scheduled tasks.
+Execution,T1053.005,Spica has created a scheduled task named CalendarChecker to establish persistence.
+Persistence,T1053.005,Spica has created a scheduled task named CalendarChecker to establish persistence.
+Privilege Escalation,T1053.005,Spica has created a scheduled task named CalendarChecker to establish persistence.
+Execution,T1053.005,SQLRat has created scheduled tasks in %appdata%\Roaming\Microsoft\Templates\.
+Persistence,T1053.005,SQLRat has created scheduled tasks in %appdata%\Roaming\Microsoft\Templates\.
+Privilege Escalation,T1053.005,SQLRat has created scheduled tasks in %appdata%\Roaming\Microsoft\Templates\.
+Execution,T1053.005,"Stealth Falcon malware creates a scheduled task entitled ""IE Web Cache"" to execute a malicious file hourly."
+Persistence,T1053.005,"Stealth Falcon malware creates a scheduled task entitled ""IE Web Cache"" to execute a malicious file hourly."
+Privilege Escalation,T1053.005,"Stealth Falcon malware creates a scheduled task entitled ""IE Web Cache"" to execute a malicious file hourly."
+Execution,T1053.005,Stuxnet schedules a network job to execute two minutes after host infection.
+Persistence,T1053.005,Stuxnet schedules a network job to execute two minutes after host infection.
+Privilege Escalation,T1053.005,Stuxnet schedules a network job to execute two minutes after host infection.
+Execution,T1053.005,"SUGARDUMP has created scheduled tasks called MicrosoftInternetExplorerCrashRepoeterTaskMachineUA and MicrosoftEdgeCrashRepoeterTaskMachineUA, which were configured to execute CrashReporter.exe during user logon."
+Persistence,T1053.005,"SUGARDUMP has created scheduled tasks called MicrosoftInternetExplorerCrashRepoeterTaskMachineUA and MicrosoftEdgeCrashRepoeterTaskMachineUA, which were configured to execute CrashReporter.exe during user logon."
+Privilege Escalation,T1053.005,"SUGARDUMP has created scheduled tasks called MicrosoftInternetExplorerCrashRepoeterTaskMachineUA and MicrosoftEdgeCrashRepoeterTaskMachineUA, which were configured to execute CrashReporter.exe during user logon."
+Execution,T1053.005,SVCReady can create a scheduled task named RecoveryExTask to gain persistence.
+Persistence,T1053.005,SVCReady can create a scheduled task named RecoveryExTask to gain persistence.
+Privilege Escalation,T1053.005,SVCReady can create a scheduled task named RecoveryExTask to gain persistence.
+Execution,T1053.005,TA2541 has used scheduled tasks to establish persistence for installed tools.
+Persistence,T1053.005,TA2541 has used scheduled tasks to establish persistence for installed tools.
+Privilege Escalation,T1053.005,TA2541 has used scheduled tasks to establish persistence for installed tools.
+Execution,T1053.005,"Tarrask is able to create ""hidden"" scheduled tasks for persistence."
+Persistence,T1053.005,"Tarrask is able to create ""hidden"" scheduled tasks for persistence."
+Privilege Escalation,T1053.005,"Tarrask is able to create ""hidden"" scheduled tasks for persistence."
+Execution,T1053.005,ToddyCat has used scheduled tasks to execute discovery commands and scripts for collection.
+Persistence,T1053.005,ToddyCat has used scheduled tasks to execute discovery commands and scripts for collection.
+Privilege Escalation,T1053.005,ToddyCat has used scheduled tasks to execute discovery commands and scripts for collection.
+Execution,T1053.005,"Tomiris has used SCHTASKS /CREATE /SC DAILY /TN StartDVL /TR ""[path to self]"" /ST 10:00 to establish persistence."
+Persistence,T1053.005,"Tomiris has used SCHTASKS /CREATE /SC DAILY /TN StartDVL /TR ""[path to self]"" /ST 10:00 to establish persistence."
+Privilege Escalation,T1053.005,"Tomiris has used SCHTASKS /CREATE /SC DAILY /TN StartDVL /TR ""[path to self]"" /ST 10:00 to establish persistence."
+Execution,T1053.005,TrickBot creates a scheduled task on the system that provides persistence.
+Persistence,T1053.005,TrickBot creates a scheduled task on the system that provides persistence.
+Privilege Escalation,T1053.005,TrickBot creates a scheduled task on the system that provides persistence.
+Execution,T1053.005,"In the Triton Safety Instrumented System Attack, TEMP.Veles installed scheduled tasks defined in XML files."
+Persistence,T1053.005,"In the Triton Safety Instrumented System Attack, TEMP.Veles installed scheduled tasks defined in XML files."
+Privilege Escalation,T1053.005,"In the Triton Safety Instrumented System Attack, TEMP.Veles installed scheduled tasks defined in XML files."
+Execution,T1053.005,Valak has used scheduled tasks to execute additional payloads and to gain persistence on a compromised host.
+Persistence,T1053.005,Valak has used scheduled tasks to execute additional payloads and to gain persistence on a compromised host.
+Privilege Escalation,T1053.005,Valak has used scheduled tasks to execute additional payloads and to gain persistence on a compromised host.
+Execution,T1053.005,Winter Vivern executed PowerShell scripts that would subsequently attempt to establish persistence by creating scheduled tasks objects to periodically retrieve and execute remotely-hosted payloads.
+Persistence,T1053.005,Winter Vivern executed PowerShell scripts that would subsequently attempt to establish persistence by creating scheduled tasks objects to periodically retrieve and execute remotely-hosted payloads.
+Privilege Escalation,T1053.005,Winter Vivern executed PowerShell scripts that would subsequently attempt to establish persistence by creating scheduled tasks objects to periodically retrieve and execute remotely-hosted payloads.
+Execution,T1053.005,Wizard Spider has used scheduled tasks to establish persistence for TrickBot and other malware.
+Persistence,T1053.005,Wizard Spider has used scheduled tasks to establish persistence for TrickBot and other malware.
+Privilege Escalation,T1053.005,Wizard Spider has used scheduled tasks to establish persistence for TrickBot and other malware.
+Execution,T1053.005,XLoader can create scheduled tasks for persistence.
+Persistence,T1053.005,XLoader can create scheduled tasks for persistence.
+Privilege Escalation,T1053.005,XLoader can create scheduled tasks for persistence.
+Execution,T1053.005,"yty establishes persistence by creating a scheduled task with the command SchTasks /Create /SC DAILY /TN BigData /TR "" + path_file + ""/ST 09:30""."
+Persistence,T1053.005,"yty establishes persistence by creating a scheduled task with the command SchTasks /Create /SC DAILY /TN BigData /TR "" + path_file + ""/ST 09:30""."
+Privilege Escalation,T1053.005,"yty establishes persistence by creating a scheduled task with the command SchTasks /Create /SC DAILY /TN BigData /TR "" + path_file + ""/ST 09:30""."
+Execution,T1053.005,Zebrocy has a command to create a scheduled task for persistence.
+Persistence,T1053.005,Zebrocy has a command to create a scheduled task for persistence.
+Privilege Escalation,T1053.005,Zebrocy has a command to create a scheduled task for persistence.
+Execution,T1053.005,zwShell has used SchTasks for execution.
+Persistence,T1053.005,zwShell has used SchTasks for execution.
+Privilege Escalation,T1053.005,zwShell has used SchTasks for execution.
+Execution,T1053.005,ZxxZ has used scheduled tasks for persistence and execution.
+Persistence,T1053.005,ZxxZ has used scheduled tasks for persistence and execution.
+Privilege Escalation,T1053.005,ZxxZ has used scheduled tasks for persistence and execution.
+Resource Development,T1608.006,Mustard Tempest has poisoned search engine results to return fake software updates in order to distribute malware.
+Initial Access,T1566.002,"AADInternals can send ""consent phishing"" emails containing malicious links designed to steal users’ access tokens."
+Initial Access,T1566.002,AppleJeus has been distributed via spearphishing link.
+Initial Access,T1566.002,APT1 has sent spearphishing emails containing hyperlinks to malicious files.
+Initial Access,T1566.002,APT29 has used spearphishing with a link to trick victims into clicking on a link to a zip file containing malicious files.
+Initial Access,T1566.002,APT3 has sent spearphishing emails containing malicious links.
+Initial Access,T1566.002,APT32 has sent spearphishing emails containing malicious links.
+Initial Access,T1566.002,APT33 has sent spearphishing emails containing links to .hta files.
+Initial Access,T1566.002,APT39 leveraged spearphishing emails with malicious links to initially compromise victims.
+Initial Access,T1566.002,APT42 has sent spearphishing emails containing malicious links.
+Initial Access,T1566.002,Bazar has been spread via emails with embedded malicious links.
+Initial Access,T1566.002,BlackTech has used spearphishing e-mails with links to cloud services to deliver malware.
+Initial Access,T1566.002,Bumblebee has been spread through e-mail campaigns with malicious links.
+Initial Access,T1566.002,"During C0011, Transparent Tribe sent emails containing a malicious link to student targets in India."
+Initial Access,T1566.002,"During C0021, the threat actors sent phishing emails with unique malicious links, likely for tracking victim clicks."
+Initial Access,T1566.002,Cobalt Group has sent emails with URLs pointing to malicious documents.
+Initial Access,T1566.002,Confucius has sent malicious links to victims through email campaigns.
+Initial Access,T1566.002,DarkGate is distributed in phishing emails containing links to distribute malicious VBS or MSI files. DarkGate uses applications such as Microsoft Teams for distributing links to payloads.
+Initial Access,T1566.002,Earth Lusca has sent spearphishing emails to potential targets that contained a malicious link.
+Initial Access,T1566.002,Elderwood has delivered zero-day exploits and malware to victims via targeted emails containing a link to malicious content hosted on an uncommon Web server.
+Initial Access,T1566.002,Emotet has been delivered by phishing emails containing links.
+Initial Access,T1566.002,Evilnum has sent spearphishing emails containing a link to a zip file hosted on Google Drive.
+Initial Access,T1566.002,EXOTIC LILY has relied on victims to open malicious links in e-mails for execution.
+Initial Access,T1566.002,FIN4 has used spearphishing emails (often sent from compromised accounts) containing malicious links.
+Initial Access,T1566.002,FIN7 has conducted broad phishing campaigns using malicious links.
+Initial Access,T1566.002,FIN8 has distributed targeted emails containing links to malicious documents with embedded macros.
+Initial Access,T1566.002,Grandoreiro has been spread via malicious links embedded in e-mails.
+Initial Access,T1566.002,GuLoader has been spread in phishing campaigns using malicious web links.
+Initial Access,T1566.002,Hancitor has been delivered via phishing emails which contained malicious links.
+Initial Access,T1566.002,Javali has been delivered via malicious links embedded in e-mails.
+Initial Access,T1566.002,Kerrdown has been distributed via e-mails containing a malicious link.
+Initial Access,T1566.002,Kimsuky has sent spearphishing emails containing a link to a document that contained malicious macros or took the victim to an actor-controlled domain.
+Initial Access,T1566.002,KOCTOPUS has been distributed as a malicious link within an email.
+Initial Access,T1566.002,Latrodectus has been distributed to victims through emails containing malicious links.
+Initial Access,T1566.002,Lazarus Group has sent malicious links to victims via email.
+Initial Access,T1566.002,LazyScripter has used spam emails that contain a link that redirects the victim to download a malicious document.
+Initial Access,T1566.002,"Leviathan has sent spearphishing emails with links, often using a fraudulent lookalike domain and stolen branding."
+Initial Access,T1566.002,LuminousMoth has sent spearphishing emails containing a malicious Dropbox download link.
+Initial Access,T1566.002,Lumma Stealer has been delivered through phishing emails containing malicious links.
+Initial Access,T1566.002,Machete has sent phishing emails that contain a link to an external server with ZIP and RAR archives.
+Initial Access,T1566.002,Magic Hound has sent malicious URL links through email to victims. In some cases the URLs were shortened or linked to Word documents with malicious macros that executed PowerShells scripts to download Pupy.
+Initial Access,T1566.002,Melcoz has been spread through malicious links embedded in e-mails.
+Initial Access,T1566.002,Mispadu has been spread via malicious links embedded in emails.
+Initial Access,T1566.002,Mofang delivered spearphishing emails with malicious links included.
+Initial Access,T1566.002,Molerats has sent phishing emails with malicious links included.
+Initial Access,T1566.002,MuddyWater has sent targeted spearphishing e-mails with malicious links.
+Initial Access,T1566.002,Mustang Panda has delivered malicious links to their intended targets.
+Initial Access,T1566.002,Mustard Tempest has sent victims emails containing links to compromised websites.
+Initial Access,T1566.002,NETWIRE has been spread via e-mail campaigns utilizing malicious links.
+Initial Access,T1566.002,"During Night Dragon, threat actors sent spearphishing emails containing links to compromised websites where malware was downloaded."
+Initial Access,T1566.002,OilRig has sent spearphising emails with malicious links to potential victims.
+Initial Access,T1566.002,"During Operation Dream Job, Lazarus Group sent malicious OneDrive links with fictitious job offer advertisements via email."
+Initial Access,T1566.002,"During Operation Dust Storm, the threat actors sent spearphishing emails containing a malicious link."
+Initial Access,T1566.002,"During Operation Spalax, the threat actors sent phishing emails to victims that contained a malicious link."
+Initial Access,T1566.002,OutSteel has been distributed through malicious links contained within spearphishing emails.
+Initial Access,T1566.002,Patchwork has used spearphishing with links to deliver files with exploits to initial victims.
+Initial Access,T1566.002,Pikabot Distribution February 2024 utilized emails with hyperlinks leading to malicious ZIP archive files containing scripts to download and install Pikabot.
+Initial Access,T1566.002,Pony has been delivered via spearphishing emails which contained malicious links.
+Initial Access,T1566.002,QakBot has spread through emails with malicious links.
+Initial Access,T1566.002,RedCurl has used phishing emails with malicious links to gain initial access.
+Initial Access,T1566.002,Mustang Panda distributed malicious links in phishing emails leading to HTML files that would direct the victim to malicious MSC files if running Windows based on User Agent fingerprinting during RedDelta Modified PlugX Infection Chain Operations.
+Initial Access,T1566.002,Saint Bot has been distributed through malicious links contained within spearphishing emails.
+Initial Access,T1566.002,Sandworm Team has crafted phishing emails containing malicious hyperlinks.
+Initial Access,T1566.002,Sidewinder has sent e-mails with malicious links often crafted for specific targets.
+Initial Access,T1566.002,Snip3 has been delivered to victims through e-mail links to malicious files.
+Initial Access,T1566.002,SocGholish has been spread via emails containing malicious links.
+Initial Access,T1566.002,SpicyOmelette has been distributed via emails containing a malicious link that appears to be a PDF document.
+Initial Access,T1566.002,Squirrelwaffle has been distributed through phishing emails containing a malicious URL.
+Initial Access,T1566.002,Storm-1811 has distributed malicious links to victims that redirect to EvilProxy-based phishing sites to harvest credentials.
+Initial Access,T1566.002,TA2541 has used spearphishing e-mails with malicious links to deliver malware.
+Initial Access,T1566.002,TA505 has sent spearphishing emails containing malicious links.
+Initial Access,T1566.002,TA577 has sent emails containing links to malicious JavaScript files.
+Initial Access,T1566.002,Transparent Tribe has embedded links to malicious downloads in e-mails.
+Initial Access,T1566.002,TrickBot has been delivered via malicious links in phishing e-mails.
+Initial Access,T1566.002,Turla attempted to trick targets into clicking on a link featuring a seemingly legitimate domain from Adobe.com to download their malware and gain initial access.
+Initial Access,T1566.002,Valak has been delivered via malicious links in e-mail.
+Initial Access,T1566.002,Windshift has sent spearphishing emails with links to harvest credentials and deliver malware.
+Initial Access,T1566.002,Wizard Spider has sent phishing emails containing a link to an actor-controlled Google Drive document or other free online file hosting services.
+Initial Access,T1566.002,ZIRCONIUM has used malicious links in e-mails to deliver malware.
+Defense Evasion,T1562.004,"During APT28 Nearest Neighbor Campaign, APT28 added rules to a victim's Windows firewall to set up a series of port-forwards allowing traffic to target systems."
+Defense Evasion,T1562.004,"APT38 have created firewall exemptions on specific ports, including ports 443, 6443, 8443, and 9443."
+Defense Evasion,T1562.004,"The ""ZR"" variant of BACKSPACE will check to see if known host-based firewalls are installed on the infected systems. BACKSPACE will attempt to establish a C2 channel, then will examine open windows to identify a pop-up from the firewall software and will simulate a mouse-click to allow the connection to proceed."
+Defense Evasion,T1562.004,BADCALL disables the Windows firewall before binding to a port.
+Defense Evasion,T1562.004,BlackByte modified firewall rules on victim machines to enable remote system discovery.
+Defense Evasion,T1562.004,BlackByte 2.0 Ransomware modifies the Windows firewall during execution.
+Defense Evasion,T1562.004,"BPFDoor starts a shell on a high TCP port starting at 42391 up to 43391, then changes the local iptables rules to redirect all packets from the attacker to the shell port."
+Defense Evasion,T1562.004,Carbanak may use netsh to add local firewall rule exceptions.
+Defense Evasion,T1562.004,"CookieMiner has checked for the presence of ""Little Snitch"", macOS network monitoring and application firewall software, stopping and exiting if it is found."
+Defense Evasion,T1562.004,Cyclops Blink can modify the Linux iptables firewall to enable C2 communication on network devices via a stored list of port numbers.
+Defense Evasion,T1562.004,DarkComet can disable Security Center functions like the Windows Firewall.
+Defense Evasion,T1562.004,Dragonfly has disabled host-based firewalls. The group has also globally opened port 3389.
+Defense Evasion,T1562.004,Grandoreiro can block the Deibold Warsaw GAS Tecnologia security tool at the firewall level.
+Defense Evasion,T1562.004,H1N1 kills and disables services for Windows Firewall.
+Defense Evasion,T1562.004,Hannotog can modify local firewall settings via netsh commands to open a listening UDP port.
+Defense Evasion,T1562.004,HARDRAIN opens the Windows Firewall to modify incoming connections.
+Defense Evasion,T1562.004,HOPLIGHT has modified the firewall using netsh.
+Defense Evasion,T1562.004,InvisiMole has a command to disable routing and the Firewall on the victim’s machine.
+Defense Evasion,T1562.004,Kasidet has the ability to change firewall settings to allow a plug-in to be downloaded.
+Defense Evasion,T1562.004,Kimsuky has been observed disabling the system firewall.
+Defense Evasion,T1562.004,Various Lazarus Group malware modifies the Windows firewall to allow incoming connections or disable it entirely using netsh.
+Defense Evasion,T1562.004,Leviathan modified system firewalls to add two open listening ports on 9998 and 9999 during Leviathan Australian Intrusions.
+Defense Evasion,T1562.004,"Magic Hound has added the following rule to a victim's Windows firewall to allow RDP traffic - ""netsh"" advfirewall firewall add rule name=""Terminal Server"" dir=in action=allow protocol=TCP localport=3389."
+Defense Evasion,T1562.004,Moses Staff has used batch scripts that can disable the Windows firewall on specific remote machines.
+Defense Evasion,T1562.004,NanoCore can modify the victim's firewall.
+Defense Evasion,T1562.004,netsh can be used to disable local firewall settings.
+Defense Evasion,T1562.004,njRAT has modified the Windows firewall to allow itself to communicate through the firewall.
+Defense Evasion,T1562.004,OilRig has modified Windows firewall rules to enable remote access.
+Defense Evasion,T1562.004,"During Operation Wocao, threat actors used PowerShell to add and delete rules in the Windows firewall."
+Defense Evasion,T1562.004,"PlugX has modified local firewall rules on victim machines to enable a random, high-number listening port for subsequent access and C2 activity."
+Defense Evasion,T1562.004,"PyDCrypt has modified firewall rules to allow incoming SMB, NetBIOS, and RPC connections using netsh.exe on remote machines."
+Defense Evasion,T1562.004,Remsec can add or remove applications or ports on the Windows firewall or disable it entirely.
+Defense Evasion,T1562.004,Rocke used scripts which killed processes and added firewall rules to block traffic related to other cryptominers.
+Defense Evasion,T1562.004,Salt Typhoon has made changes to the Access Control List (ACL) and loopback interface address on compromised devices.
+Defense Evasion,T1562.004,ShrinkLocker turns on the system firewall and deletes all of its rules during execution.
+Defense Evasion,T1562.004,"During the SolarWinds Compromise, APT29 used netsh to configure firewall rules that limited certain UDP outbound packets."
+Defense Evasion,T1562.004,TeamTNT has disabled iptables.
+Defense Evasion,T1562.004,"Prior to executing a backdoor ToddyCat has run cmd /c start /b netsh advfirewall firewall add rule name=""SGAccessInboundRule"" dir=in protocol=udp action=allow localport=49683 to allow the targeted system to receive UDP packets on port 49683."
+Defense Evasion,T1562.004,TYPEFRAME can open the Windows Firewall on the victim’s machine to allow incoming connections.
+Defense Evasion,T1562.004,"Velvet Ant modified system firewall settings during PlugX installation using netsh.exe to open a listening, random high number port on victim devices."
+Defense Evasion,T1562.004,ZxShell can disable the firewall by modifying the registry key HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parameters\FirewallPolicy\StandardProfile.
+Execution,T1059.005,"During the 2015 Ukraine Electric Power Attack, Sandworm Team installed a VBA script called vba_macro.exe. This macro dropped FONTCACHE.DAT, the primary BlackEnergy implant; rundll32.exe, for executing the malware; NTUSER.log, an empty file; and desktop.ini, the default file used to determine folder displays on Windows machines."
+Execution,T1059.005,"During the 2016 Ukraine Electric Power Attack, Sandworm Team created VBScripts to run on an SSH server."
+Execution,T1059.005,APT-C-36 has embedded a VBScript within a malicious Word document which is executed upon the document opening.
+Execution,T1059.005,"APT32 has used macros, COM scriptlets, and VBS scripts."
+Execution,T1059.005,APT33 has used VBScript to initiate the delivery of payloads.
+Execution,T1059.005,APT37 executes shellcode and a VBA script to decode Base64 strings.
+Execution,T1059.005,APT38 has used VBScript to execute commands and other operational tasks.
+Execution,T1059.005,APT39 has utilized malicious VBS scripts in malware.
+Execution,T1059.005,APT42 has used a VBScript to query anti-virus products.
+Execution,T1059.005,Astaroth has used malicious VBS e-mail attachments for execution.
+Execution,T1059.005,BabyShark can execute additional VisualBasic content.
+Execution,T1059.005,BackConfig has used VBS to install its downloader component and malicious documents with VBA macro code.
+Execution,T1059.005,Bandook has used malicious VBA code against the target system.
+Execution,T1059.005,Bisonal's dropper creates VBS scripts on the victim’s machine.
+Execution,T1059.005,BRONZE BUTLER has used VBS and VBE scripts for execution.
+Execution,T1059.005,Bumblebee can create a Visual Basic script to enable persistence.
+Execution,T1059.005,"For C0011, Transparent Tribe used malicious VBA macros within a lure document as part of the Crimson malware installation process onto a compromised host."
+Execution,T1059.005,"During C0015, the threat actors used a malicious HTA file that contained a mix of HTML and JavaScript/VBScript code."
+Execution,T1059.005,Chaes has used VBscript to execute malicious code.
+Execution,T1059.005,CHIMNEYSWEEP has executed a script named cln.vbs on compromised hosts.
+Execution,T1059.005,Cobalt Group has sent Word OLE compound documents with malicious obfuscated VBA macros that will run upon user execution.
+Execution,T1059.005,Cobalt Strike can use VBA to perform execution.
+Execution,T1059.005,Comnie executes VBS scripts.
+Execution,T1059.005,Confucius has used VBScript to execute malicious code.
+Execution,T1059.005,DanBot can use a VBA macro embedded in an Excel file to drop the payload.
+Execution,T1059.005,DarkGate initial infection mechanisms include masquerading as pirated media that launches malicious VBScript on the victim.
+Execution,T1059.005,Donut can generate shellcode outputs that execute via VBScript.
+Execution,T1059.005,Earth Lusca used VBA scripts.
+Execution,T1059.005,Emotet has sent Microsoft Word documents with embedded macros that will invoke scripts to download additional payloads.
+Execution,T1059.005,Exaramel for Windows has a command to execute VBS scripts on the victim’s machine.
+Execution,T1059.005,Ferocious has the ability to use Visual Basic scripts for execution.
+Execution,T1059.005,FIN13 has used VBS scripts for code execution on comrpomised machines.
+Execution,T1059.005,FIN4 has used VBA macros to display a dialog box and collect victim credentials.
+Execution,T1059.005,FIN7 used VBS scripts to help perform tasks on the victim's machine.
+Execution,T1059.005,Flagpro can execute malicious VBA macros embedded in .xlsm files.
+Execution,T1059.005,"During Frankenstein, the threat actors used Word documents that prompted the victim to enable macros and run a Visual Basic script."
+Execution,T1059.005,"During FunnyDream, the threat actors used a Visual Basic script to run remote commands."
+Execution,T1059.005,"Gamaredon Group has embedded malicious macros in document templates, which executed VBScript. Gamaredon Group has also delivered Microsoft Outlook VBA projects with embedded macros."
+Execution,T1059.005,Goopy has the ability to use a Microsoft Outlook backdoor macro to communicate with its C2.
+Execution,T1059.005,Gorgon Group has used macros in Spearphishing Attachments as well as executed VBScripts on victim machines.
+Execution,T1059.005,Grandoreiro can use VBScript to execute malicious code.
+Execution,T1059.005,One version of Helminth consists of VBScript scripts.
+Execution,T1059.005,HEXANE has used a VisualBasic script named MicrosoftUpdator.vbs for execution of a PowerShell keylogger.
+Execution,T1059.005,Higaisa has used VBScript code on the victim's machine.
+Execution,T1059.005,IcedID has used obfuscated VBA string expressions.
+Execution,T1059.005,Inception has used VBScript to execute malicious commands and payloads.
+Execution,T1059.005,IPsec Helper can run arbitrary Visual Basic scripts and commands passed to it.
+Execution,T1059.005,Javali has used embedded VBScript to download malicious payloads from C2.
+Execution,T1059.005,JCry has used VBS scripts.
+Execution,T1059.005,jRAT has been distributed as HTA files with VBScript.
+Execution,T1059.005,JSS Loader can download and execute VBScript files.
+Execution,T1059.005,"During Juicy Mix, OilRig used VBS droppers to deliver and establish persistence for the Mango backdoor."
+Execution,T1059.005,Kerrdown can use a VBS base64 decoder function published by Motobit.
+Execution,T1059.005,KeyBoy uses VBS scripts for installing files and performing execution.
+Execution,T1059.005,Kimsuky has used Visual Basic to download malicious payloads. Kimsuky has also used malicious VBA macros within maldocs disguised as forms that trigger when a victim types any content into the lure.
+Execution,T1059.005,Koadic performs most of its operations using Windows Script Host (VBScript) and runs arbitrary shellcode .
+Execution,T1059.005,KOCTOPUS has used VBScript to call wscript to execute a PowerShell command.
+Execution,T1059.005,Lazarus Group has used VBA and embedded macros in Word documents to execute malicious code.
+Execution,T1059.005,LazyScripter has used VBScript to execute malicious code.
+Execution,T1059.005,Leviathan has used VBScript.
+Execution,T1059.005,Lokibot has used VBS scripts and XLS macros for execution.
+Execution,T1059.005,LookBack has used VBA macros in Microsoft Word attachments to drop additional files to the host.
+Execution,T1059.005,LunarMail has been installed using a VBA macro.
+Execution,T1059.005,Machete has embedded malicious macros within spearphishing attachments to download additional files.
+Execution,T1059.005,Magic Hound malware has used VBS scripts for execution.
+Execution,T1059.005,Malteiro has utilized a dropper containing malicious VBS scripts.
+Execution,T1059.005,Melcoz can use VBS scripts to execute malicious DLLs.
+Execution,T1059.005,Metamorfo has used VBS code on victims’ systems.
+Execution,T1059.005,Mispadu’s dropper uses VBS files to install payloads and perform execution.
+Execution,T1059.005,"Molerats used various implants, including those built with VBScript, on target machines."
+Execution,T1059.005,"MuddyWater has used VBScript files to execute its POWERSTATS payload, as well as macros."
+Execution,T1059.005,Mustang Panda has embedded VBScript components in LNK files to download additional files and automate collection.
+Execution,T1059.005,NanHaiShu executes additional VBScript code on the victim's machine.
+Execution,T1059.005,NanoCore uses VBS files.
+Execution,T1059.005,NETWIRE has been executed through use of VBScripts.
+Execution,T1059.005,OilRig has used VBScript macros for execution on compromised hosts.
+Execution,T1059.005,OopsIE creates and uses a VBScript as part of its persistent execution.
+Execution,T1059.005,"During Operation CuckooBees, the threat actors executed an encoded VBScript file using wscript and wrote the decoded output to a text file."
+Execution,T1059.005,"During Operation Dream Job, Lazarus Group executed a VBA written malicious macro after victims download malicious DOTM files; Lazarus Group also used Visual Basic macro code to extract a double Base64 encoded DLL implant."
+Execution,T1059.005,"During Operation Dust Storm, the threat actors used Visual Basic scripts."
+Execution,T1059.005,"For Operation Honeybee, the threat actors used a Visual Basic script embedded within a Word document to download an implant."
+Execution,T1059.005,"During Operation Sharpshooter, the threat actors used a VBA macro to execute a simple downloader that installed Rising Sun."
+Execution,T1059.005,"During Operation Wocao, threat actors used VBScript to conduct reconnaissance on targeted systems."
+Execution,T1059.005,OSX_OCEANLOTUS.D uses Word macros for execution.
+Execution,T1059.005,"During Outer Space, OilRig used VBS droppers to deploy malware."
+Execution,T1059.005,Patchwork used Visual Basic Scripts (VBS) on victim machines.
+Execution,T1059.005,PoetRAT has used Word documents with VBScripts to execute malicious activities.
+Execution,T1059.005,PowerShower has the ability to save and execute VBScript.
+Execution,T1059.005,POWERSTATS can use VBScript (VBE) code for execution.
+Execution,T1059.005,Pteranodon can use a malicious VBS file for execution.
+Execution,T1059.005,QakBot can use VBS to download and execute malicious files.
+Execution,T1059.005,QUADAGENT uses VBScripts.
+Execution,T1059.005,Ramsay has included embedded Visual Basic scripts in malicious documents.
+Execution,T1059.005,Rancor has used VBS scripts as well as embedded macros for execution.
+Execution,T1059.005,RedCurl has used VBScript to run malicious files.
+Execution,T1059.005,Remexi uses AutoIt and VBS scripts throughout its execution process.
+Execution,T1059.005,REvil has used obfuscated VBA macros for execution.
+Execution,T1059.005,ROKRAT has used Visual Basic for execution.
+Execution,T1059.005,Saint Bot has used .vbs scripts for execution.
+Execution,T1059.005,Sandworm Team has created VBScripts to run an SSH server.
+Execution,T1059.005,ShrinkLocker is a VisualBasic script (VBS) object that calls multiple other operating system functions during execution.
+Execution,T1059.005,Sibot executes commands using VBScript.
+Execution,T1059.005,SideCopy has sent Microsoft Office Publisher documents to victims that have embedded malicious macros that execute an hta file via calling mshta.exe.
+Execution,T1059.005,Sidewinder has used VBScript to drop and execute malware loaders.
+Execution,T1059.005,Silence has used VBS scripts.
+Execution,T1059.005,Smoke Loader adds a Visual Basic script in the Startup folder to deploy the payload.
+Execution,T1059.005,Snip3 can use visual basic scripts for first-stage execution.
+Execution,T1059.005,"For the SolarWinds Compromise, APT29 wrote malware such as Sibot in Visual Basic."
+Execution,T1059.005,Squirrelwaffle has used malicious VBA macros in Microsoft Word documents and Excel spreadsheets that execute an AutoOpen subroutine.
+Execution,T1059.005,STARWHALE can use the VBScript function GetRef as part of its persistence mechanism.
+Execution,T1059.005,StoneDrill has several VBS scripts used throughout the malware's lifecycle.
+Execution,T1059.005,SUNBURST used VBScripts to initiate the execution of payloads.
+Execution,T1059.005,SVCReady has used VBA macros to execute shellcode.
+Execution,T1059.005,"TA2541 has used VBS files to execute or establish persistence for additional payloads, often using file names consistent with email themes or mimicking system functionality."
+Execution,T1059.005,TA459 has a VBScript for execution.
+Execution,T1059.005,TA505 has used VBS for code execution.
+Execution,T1059.005,TAMECAT has used VBScript to query anti-virus products.
+Execution,T1059.005,Transparent Tribe has crafted VBS-based malicious documents.
+Execution,T1059.005,Turla has used VBS scripts throughout its operations.
+Execution,T1059.005,TYPEFRAME has used a malicious Word document for delivery with VBA macros for execution.
+Execution,T1059.005,Ursnif droppers have used VBA macros to download and execute the malware's full executable payload.
+Execution,T1059.005,VBShower has the ability to execute VBScript files.
+Execution,T1059.005,WhisperGate can use a Visual Basic script to exclude the C:\ drive from Windows Defender.
+Execution,T1059.005,Windshift has used Visual Basic 6 (VB6) payloads.
+Execution,T1059.005,WIRTE has used VBScript in its operations.
+Execution,T1059.005,Xbash can execute malicious VBScript payloads on the victim’s machine.
+Execution,T1204.002,"During the 2015 Ukraine Electric Power Attack, Sandworm Team leveraged Microsoft Office attachments which contained malicious macros that were automatically executed once the user permitted them."
+Execution,T1204.002,admin@338 has attempted to get victims to launch malicious Microsoft Word attachments delivered via spearphishing emails.
+Execution,T1204.002,Agent Tesla has been executed through malicious e-mail attachments
+Execution,T1204.002,Ajax Security Team has lured victims into executing malicious files.
+Execution,T1204.002,Andariel has attempted to lure victims into enabling malicious macros within email attachments.
+Execution,T1204.002,"Aoqin Dragon has lured victims into opening weaponized documents, fake external drives, and fake antivirus to execute malicious payloads."
+Execution,T1204.002,AppleJeus has required user execution of a malicious MSI installer.
+Execution,T1204.002,AppleSeed can achieve execution through users running malicious file attachments distributed via email.
+Execution,T1204.002,APT-C-36 has prompted victims to accept macros in order to execute the subsequent payload.
+Execution,T1204.002,APT12 has attempted to get victims to open malicious Microsoft Word and PDF attachment sent via spearphishing.
+Execution,T1204.002,APT19 attempted to get users to launch malicious attachments delivered via spearphishing emails.
+Execution,T1204.002,APT28 attempted to get users to click on Microsoft Office attachments containing malicious macro scripts.
+Execution,T1204.002,"APT29 has used various forms of spearphishing attempting to get a user to open attachments, including, but not limited to, malicious Microsoft Word documents, .pdf, and .lnk files."
+Execution,T1204.002,APT30 has relied on users to execute malicious file attachments delivered via spearphishing emails.
+Execution,T1204.002,APT32 has attempted to lure users to execute a malicious dropper delivered via a spearphishing attachment.
+Execution,T1204.002,APT33 has used malicious e-mail attachments to lure victims into executing malware.
+Execution,T1204.002,APT37 has sent spearphishing attachments attempting to get a user to open them.
+Execution,T1204.002,"APT38 has attempted to lure victims into enabling malicious macros within email attachments. Additionally, APT38 has used malicious Word documents and shortcut files."
+Execution,T1204.002,APT39 has sent spearphishing emails in an attempt to lure users to click on a malicious attachment.
+Execution,T1204.002,"Astaroth has used malicious files including VBS, LNK, and HTML for execution."
+Execution,T1204.002,Bad Rabbit has been executed through user installation of an executable disguised as a flash installer.
+Execution,T1204.002,BADFLICK has relied upon users clicking on a malicious attachment delivered through spearphishing.
+Execution,T1204.002,Bandook has used lure documents to convince the user to enable macros.
+Execution,T1204.002,Bisonal has relied on users to execute malicious file attachments delivered via spearphishing emails.
+Execution,T1204.002,BITTER has attempted to lure victims into opening malicious attachments delivered via spearphishing.
+Execution,T1204.002,Black Basta has been downloaded and executed from malicious Excel files.
+Execution,T1204.002,BlackTech has used e-mails with malicious documents to lure victims into installing malware.
+Execution,T1204.002,BLINDINGCAN has lured victims into executing malicious macros embedded within Microsoft Office documents.
+Execution,T1204.002,BoomBox has gained execution through user interaction with a malicious file.
+Execution,T1204.002,BRONZE BUTLER has attempted to get users to launch malicious Microsoft Word attachments delivered via spearphishing emails.
+Execution,T1204.002,Brute Ratel C4 has gained execution through users opening malicious documents.
+Execution,T1204.002,Bumblebee has relied upon a user opening an ISO file to enable execution of malicious shortcut files and DLLs.
+Execution,T1204.002,Bundlore has attempted to get users to execute a malicious .app file that looks like a Flash Player update.
+Execution,T1204.002,"During C0011, Transparent Tribe relied on a student target to open a malicious document delivered via email."
+Execution,T1204.002,"During C0015, the threat actors relied on users to enable macros within a malicious Microsoft Word document."
+Execution,T1204.002,Cardinal RAT lures victims into executing malicious macros embedded within Microsoft Excel documents.
+Execution,T1204.002,CARROTBALL has been executed through users being lured into opening malicious e-mail attachments.
+Execution,T1204.002,Chaes requires the user to click on the malicious Word document to execute the next part of the attack.
+Execution,T1204.002,Clambling has gained execution through luring victims into opening malicious files.
+Execution,T1204.002,Cobalt Group has sent emails containing malicious attachments that require users to execute a file or macro to infect the victim machine.
+Execution,T1204.002,Confucius has lured victims to execute malicious attachments included in crafted spearphishing emails related to current topics.
+Execution,T1204.002,CSPY Downloader has been delivered via malicious documents with embedded macros.
+Execution,T1204.002,CURIUM has lured users into opening malicious files delivered via social media.
+Execution,T1204.002,DanBot has relied on victims' opening a malicious file for initial execution.
+Execution,T1204.002,"Dark Caracal makes their malware look like Flash Player, Office, or PDF documents in order to entice a user to click on it."
+Execution,T1204.002,DarkGate initial infection payloads can masquerade as pirated media content requiring user interaction for code execution. DarkGate is distributed through phishing links to VBS or MSI objects requiring user interaction for execution.
+Execution,T1204.002,Darkhotel has sent spearphishing emails in an attempt to lure users into clicking on a malicious attachments.
+Execution,T1204.002,DarkHydrus has sent malware that required users to hit the enable button in Microsoft Excel to allow an .iqy file to be downloaded.
+Execution,T1204.002,DarkTortilla has relied on a user to open a malicious document or archived file delivered via email for initial execution.
+Execution,T1204.002,Disco has been executed through inducing user interaction with malicious .zip and .msi files.
+Execution,T1204.002,DnsSystem has lured victims into opening macro-enabled Word documents for execution.
+Execution,T1204.002,Dragonfly has used various forms of spearphishing in attempts to get users to open malicious attachments.
+Execution,T1204.002,Dridex has relied upon users clicking on a malicious attachment delivered through spearphishing.
+Execution,T1204.002,Earth Lusca required users to click on a malicious file for the loader to activate.
+Execution,T1204.002,Elderwood has leveraged multiple types of spearphishing in order to attempt to get a user to open attachments.
+Execution,T1204.002,Emotet has relied upon users clicking on a malicious attachment delivered through spearphishing.
+Execution,T1204.002,EnvyScout has been executed through malicious files attached to e-mails.
+Execution,T1204.002,"EXOTIC LILY has gained execution through victims clicking on malicious LNK files contained within ISO files, which can execute hidden DLLs within the ISO."
+Execution,T1204.002,Ferocious Kitten has attempted to convince victims to enable malicious content within a spearphishing email by including an odd decoy message.
+Execution,T1204.002,FIN4 has lured victims to launch malicious attachments delivered via spearphishing emails (often sent from compromised accounts).
+Execution,T1204.002,FIN6 has used malicious documents to lure victims into allowing execution of PowerShell scripts.
+Execution,T1204.002,FIN7 lured victims to double-click on images in the attachments they sent which would then execute the hidden LNK file.
+Execution,T1204.002,FIN8 has used malicious e-mail attachments to lure victims into executing malware.
+Execution,T1204.002,Flagpro has relied on users clicking a malicious attachment delivered through spearphishing.
+Execution,T1204.002,"During Frankenstein, the threat actors relied on a victim to enable macros within a malicious Microsoft Word document likely sent via email."
+Execution,T1204.002,"Gallmaker sent victims a lure document with a warning that asked victims to ""enable content"" for execution."
+Execution,T1204.002,Gamaredon Group has attempted to get users to click on Office attachments with malicious macros embedded.
+Execution,T1204.002,Gorgon Group attempted to get users to launch malicious Microsoft Office attachments delivered via spearphishing emails.
+Execution,T1204.002,Grandoreiro has infected victims via malicious attachments.
+Execution,T1204.002,The GuLoader executable has been retrieved via embedded macros in malicious Word documents.
+Execution,T1204.002,"Hancitor has used malicious Microsoft Word documents, sent via email, which prompted the victim to enable macros."
+Execution,T1204.002,HEXANE has relied on victim's executing malicious file attachments delivered via email or embedded within actor-controlled websites to deliver malware.
+Execution,T1204.002,Heyoka Backdoor has been spread through malicious document lures.
+Execution,T1204.002,Higaisa used malicious e-mail attachments to lure victims into executing LNK files.
+Execution,T1204.002,IcedID has been executed through Word and Excel files with malicious embedded macros and through ISO and LNK files that execute the malicious DLL.
+Execution,T1204.002,Inception lured victims into clicking malicious files for machine reconnaissance and to execute malware.
+Execution,T1204.002,IndigoZebra sent spearphishing emails containing malicious attachments that urged recipients to review modifications in the file which would trigger the attack.
+Execution,T1204.002,Indrik Spider has attempted to get users to click on a malicious zipped file.
+Execution,T1204.002,"InvisiMole can deliver trojanized versions of software and documents, relying on user execution."
+Execution,T1204.002,"Javali has achieved execution through victims opening malicious attachments, including MSI files with embedded VBScript."
+Execution,T1204.002,JCry has achieved execution by luring users to click on a file that appeared to be an Adobe Flash Player update installer.
+Execution,T1204.002,JSS Loader has been executed through malicious attachments contained in spearphishing emails.
+Execution,T1204.002,Kerrdown has gained execution through victims opening malicious files.
+Execution,T1204.002,KGH_SPY has been spread through Word documents containing malicious macros.
+Execution,T1204.002,Kimsuky has used attempted to lure victims into opening malicious e-mail attachments.
+Execution,T1204.002,KOCTOPUS has relied on victims clicking a malicious document for execution.
+Execution,T1204.002,KONNI has relied on a victim to enable malicious macros within an attachment delivered via email.
+Execution,T1204.002,KOPILUWAK has gained execution through malicious attachments.
+Execution,T1204.002,Latrodectus has lured users into opening malicious email attachments for execution.
+Execution,T1204.002,Lazarus Group has attempted to get users to launch a malicious Microsoft Word attachment delivered via a spearphishing email.
+Execution,T1204.002,LazyScripter has lured users to open malicious email attachments.
+Execution,T1204.002,Leviathan has sent spearphishing attachments attempting to get a user to click.
+Execution,T1204.002,"Lokibot has tricked recipients into enabling malicious macros by getting victims to click ""enable content"" in email attachments."
+Execution,T1204.002,"Lumma Stealer has gained initial execution through victims opening malicious executable files embedded in zip archives, and MSI files within RAR files."
+Execution,T1204.002,LunarMail has been installed through a malicious macro in a Microsoft Word document.
+Execution,T1204.002,Machete has relied on users opening malicious attachments delivered through spearphishing to execute malware.
+Execution,T1204.002,Magic Hound has attempted to lure victims into opening malicious email attachments.
+Execution,T1204.002,Malteiro has relied on users to execute .zip file attachments containing malicious URLs.
+Execution,T1204.002,Mango has been executed through a Microsoft Word document with a malicious macro.
+Execution,T1204.002,"menuPass has attempted to get victims to open malicious files such as Windows Shortcuts (.lnk) and/or Microsoft Office documents, sent via email as part of spearphishing campaigns."
+Execution,T1204.002,Metamorfo requires the user to double-click the executable to run the malicious HTA file or to download a malicious installer.
+Execution,T1204.002,Mispadu has relied on users to execute malicious files in order to gain execution on victim machines.
+Execution,T1204.002,Mofang's malicious spearphishing attachments required a user to open the file after receiving.
+Execution,T1204.002,Molerats has sent malicious files via email that tricked users into clicking Enable Content to run an embedded macro and to download malicious archives.
+Execution,T1204.002,Mongall has relied on a user opening a malicious document for execution.
+Execution,T1204.002,"Moonstone Sleet relied on users interacting with malicious files, such as a trojanized PuTTY installer, for initial execution."
+Execution,T1204.002,MuddyWater has attempted to get users to open malicious PDF attachment and to enable macros and launch malicious Microsoft Word documents delivered via spearphishing emails.
+Execution,T1204.002,Mustang Panda has sent malicious files requiring direct victim interaction to execute.
+Execution,T1204.002,Naikon has convinced victims to open malicious attachments to execute malware.
+Execution,T1204.002,NativeZone can display an RTF document to the user to enable execution of Cobalt Strike stage shellcode.
+Execution,T1204.002,NETWIRE has been executed through luring victims into opening malicious documents.
+Execution,T1204.002,Ninja has gained execution through victims opening malicious executable files embedded in zip archives.
+Execution,T1204.002,Nomadic Octopus as attempted to lure victims into clicking on malicious attachments within spearphishing emails.
+Execution,T1204.002,Octopus has relied upon users clicking on a malicious attachment delivered through spearphishing.
+Execution,T1204.002,"OilRig has delivered macro-enabled documents that required targets to click the ""enable content"" button to execute the payload on the system."
+Execution,T1204.002,"During Operation Dream Job, Lazarus Group lured victims into executing malicious documents that contained ""dream job"" descriptions from defense, aerospace, and other sectors."
+Execution,T1204.002,"During Operation Dust Storm, the threat actors relied on potential victims to open a malicious Microsoft Word document sent via email."
+Execution,T1204.002,"During Operation Honeybee, threat actors relied on a victim to enable macros within a malicious Word document."
+Execution,T1204.002,"During Operation Sharpshooter, the threat actors relied on victims executing malicious Microsoft Word or PDF files."
+Execution,T1204.002,"During Operation Spalax, the threat actors relied on a victim to open a PDF document and click on an embedded malicious link to download malware."
+Execution,T1204.002,OSX/Shlayer has relied on users mounting and executing a malicious DMG file.
+Execution,T1204.002,OutSteel has relied on a user to execute a malicious attachment delivered via spearphishing.
+Execution,T1204.002,Patchwork embedded a malicious macro in a Word document and lured the victim to click on an icon to execute the malware.
+Execution,T1204.002,PLATINUM has attempted to get users to open malicious files by sending spearphishing emails with attachments to victims.
+Execution,T1204.002,PLEAD has been executed via malicious e-mail attachments.
+Execution,T1204.002,PoetRAT has used spearphishing attachments to infect victims.
+Execution,T1204.002,"Pony has attempted to lure targets into downloading an attached executable (ZIP, RAR, or CAB archives) or document (PDF or other MS Office format)."
+Execution,T1204.002,"PROMETHIUM has attempted to get users to execute compromised installation files for legitimate software including compression applications, security software, browsers, file recovery applications, and other tools and utilities."
+Execution,T1204.002,QakBot has gained execution through users opening malicious attachments.
+Execution,T1204.002,Ramsay has been executed through malicious e-mail attachments.
+Execution,T1204.002,Rancor attempted to get users to click on an embedded macro within a Microsoft Office Excel document to launch their malware.
+Execution,T1204.002,RedCurl has used malicious files to infect the victim machines.
+Execution,T1204.002,Mustang Panda distributed malicious LNK objects for user execution during RedDelta Modified PlugX Infection Chain Operations.
+Execution,T1204.002,REvil has been executed via malicious MS Word e-mail attachments.
+Execution,T1204.002,Rifdoor has been executed from malicious Excel or Word documents containing macros.
+Execution,T1204.002,ROKRAT has relied upon users clicking on a malicious attachment delivered through spearphishing.
+Execution,T1204.002,"RTM has relied on users opening malicious email attachments, decompressing the attached archive, and double-clicking the executable within."
+Execution,T1204.002,RTM has attempted to lure victims into opening e-mail attachments to execute malicious code.
+Execution,T1204.002,Saint Bear relies on user interaction and execution of malicious attachments and similar for initial execution on victim systems.
+Execution,T1204.002,Saint Bot has relied on users to execute a malicious attachment delivered via spearphishing.
+Execution,T1204.002,Sandworm Team has tricked unwitting recipients into clicking on spearphishing attachments and enabling malicious macros embedded within files.
+Execution,T1204.002,SideCopy has attempted to lure victims into clicking on malicious embedded archive files sent via spearphishing campaigns.
+Execution,T1204.002,Sidewinder has lured targets to click on malicious files to gain execution in the target environment.
+Execution,T1204.002,Silence attempts to get users to launch malicious attachments delivered via spearphishing emails.
+Execution,T1204.002,Snip3 can gain execution through the download of visual basic files.
+Execution,T1204.002,SQLRat relies on users clicking on an embedded image to execute the scripts.
+Execution,T1204.002,Squirrelwaffle has relied on users enabling malicious macros within Microsoft Excel and Word attachments.
+Execution,T1204.002,Star Blizzard has lured targets into opening malicious .pdf files to deliver malware.
+Execution,T1204.002,STARWHALE has relied on victims opening a malicious Excel file for execution.
+Execution,T1204.002,Storm-1811 has prompted users to execute downloaded software and payloads as the result of social engineering activity.
+Execution,T1204.002,StrelaStealer relies on user execution of a malicious file for installation.
+Execution,T1204.002,"StrongPity has been executed via compromised installation files for legitimate software including compression applications, security software, browsers, file recovery applications, and other tools and utilities."
+Execution,T1204.002,Some SUGARDUMP variants required a user to enable a macro within a malicious .xls file for execution.
+Execution,T1204.002,SVCReady has relied on users clicking a malicious attachment delivered through spearphishing.
+Execution,T1204.002,SYSCON has been executed by luring victims to open malicious e-mail attachments.
+Execution,T1204.002,TA2541 has used macro-enabled MS Word documents to lure victims into executing malicious payloads.
+Execution,T1204.002,TA459 has attempted to get victims to open malicious Microsoft Word attachment sent via spearphishing.
+Execution,T1204.002,"TA505 has used lures to get users to enable content in malicious attachments and execute malicious files contained in archives. For example, TA505 makes their malware look like legitimate Microsoft Word documents, .pdf and/or .lnk files."
+Execution,T1204.002,TA551 has prompted users to enable macros within spearphishing attachments to install malware.
+Execution,T1204.002,Taidoor has relied upon a victim to click on a malicious email attachment.
+Execution,T1204.002,The White Company has used phishing lure documents that trick users into opening them and infecting their computers.
+Execution,T1204.002,Threat Group-3390 has lured victims into opening malicious files containing malware.
+Execution,T1204.002,ThreatNeedle relies on a victim to click on a malicious document for initial execution.
+Execution,T1204.002,Tonto Team has relied on user interaction to open their malicious RTF documents.
+Execution,T1204.002,Transparent Tribe has used weaponized documents in e-mail to compromise targeted systems.
+Execution,T1204.002,TrickBot has attempted to get users to launch malicious documents to deliver its payload.
+Execution,T1204.002,Tropic Trooper has lured victims into executing malware via malicious e-mail attachments.
+Execution,T1204.002,A Word document delivering TYPEFRAME prompts the user to enable macro execution.
+Execution,T1204.002,Valak has been executed via Microsoft Word documents containing malicious macros.
+Execution,T1204.002,WarzoneRAT has relied on a victim to open a malicious attachment within an email for execution.
+Execution,T1204.002,"Water Curupira Pikabot Distribution delivered Pikabot installers as password-protected ZIP files containing heavily obfuscated JavaScript, or IMG files containing an LNK mimicking a Word document and a malicious DLL."
+Execution,T1204.002,Whitefly has used malicious .exe or .dll files disguised as documents or images.
+Execution,T1204.002,Windshift has used e-mail attachments to lure victims into executing malicious code.
+Execution,T1204.002,WIRTE has attempted to lure users into opening malicious MS Word and Excel files to execute malicious payloads.
+Execution,T1204.002,"Wizard Spider has lured victims to execute malware with spearphishing attachments containing macros to download either Emotet, Bokbot, TrickBot, or Bazar."
+Execution,T1204.002,Woody RAT has relied on users opening a malicious email attachment for execution.
+Execution,T1204.002,ZxxZ has relied on victims to open a malicious attachment delivered via email.
