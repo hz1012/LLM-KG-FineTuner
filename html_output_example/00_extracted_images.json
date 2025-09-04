@@ -1,0 +1,535 @@
+[
+  {
+    "id": "image_1",
+    "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig1New_VoidArachne.png",
+    "alt": "Figure 1. The Void Arachne campaign attack diagram",
+    "title": "",
+    "width": "",
+    "height": "",
+    "placement": null,
+    "attributes": {
+      "alt": "Figure 1. The Void Arachne campaign attack diagram",
+      "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig1New_VoidArachne.png"
+    }
+  },
+  {
+    "id": "image_2",
+    "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%202_Void%20Arachne.png",
+    "alt": "Figure 2. An attacker-controlled website that hosts a malicious payload",
+    "title": "",
+    "width": "",
+    "height": "",
+    "placement": null,
+    "attributes": {
+      "alt": "Figure 2. An attacker-controlled website that hosts a malicious payload",
+      "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%202_Void%20Arachne.png"
+    }
+  },
+  {
+    "id": "image_3",
+    "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%203_Void%20Arachne.png",
+    "alt": "Figure 3. VPN advertising services that can “overcome” the Great Firewall of China",
+    "title": "",
+    "width": "",
+    "height": "",
+    "placement": null,
+    "attributes": {
+      "alt": "Figure 3. VPN advertising services that can “overcome” the Great Firewall of China",
+      "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%203_Void%20Arachne.png"
+    }
+  },
+  {
+    "id": "image_4",
+    "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig4New_VoidArachne.png",
+    "alt": "Figure 4. A pinned Telegram message containing a malicious MSI file embedded in a zip file",
+    "title": "",
+    "width": "",
+    "height": "",
+    "placement": null,
+    "attributes": {
+      "alt": "Figure 4. A pinned Telegram message containing a malicious MSI file embedded in a zip file",
+      "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig4New_VoidArachne.png"
+    }
+  },
+  {
+    "id": "image_5",
+    "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%205_Void%20Arachne.png",
+    "alt": "Figure 5. A malicious MSI file masquerading as a Simplified Chinese language pack for Telegram",
+    "title": "",
+    "width": "",
+    "height": "",
+    "placement": null,
+    "attributes": {
+      "alt": "Figure 5. A malicious MSI file masquerading as a Simplified Chinese language pack for Telegram",
+      "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%205_Void%20Arachne.png"
+    }
+  },
+  {
+    "id": "image_6",
+    "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%206_Void%20Arachne.png",
+    "alt": "Figure 6.  A deepfake pornographic video sample shared on the threat actor’s Telegram channel",
+    "title": "",
+    "width": "",
+    "height": "",
+    "placement": null,
+    "attributes": {
+      "alt": "Figure 6.  A deepfake pornographic video sample shared on the threat actor’s Telegram channel",
+      "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%206_Void%20Arachne.png"
+    }
+  },
+  {
+    "id": "image_7",
+    "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%207_Void%20Arachne.png",
+    "alt": "Figure 7.  An infected nudifier application shared on the Void Arachne Telegram channel",
+    "title": "",
+    "width": "",
+    "height": "",
+    "placement": null,
+    "attributes": {
+      "alt": "Figure 7.  An infected nudifier application shared on the Void Arachne Telegram channel",
+      "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%207_Void%20Arachne.png"
+    }
+  },
+  {
+    "id": "image_8",
+    "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%208_Void%20Arachne.png",
+    "alt": "Figure 8. A pinned message on Void Arachne’s Telegram channel featuring a malicious MSI file for an AI-powered app",
+    "title": "",
+    "width": "",
+    "height": "",
+    "placement": null,
+    "attributes": {
+      "alt": "Figure 8. A pinned message on Void Arachne’s Telegram channel featuring a malicious MSI file for an AI-powered app",
+      "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%208_Void%20Arachne.png"
+    }
+  },
+  {
+    "id": "image_9",
+    "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%209_Void%20Arachne.png",
+    "alt": "Figure 9. A screenshot of the Void Arachne Telegram channel advertising face-swapping applications",
+    "title": "",
+    "width": "",
+    "height": "",
+    "placement": null,
+    "attributes": {
+      "alt": "Figure 9. A screenshot of the Void Arachne Telegram channel advertising face-swapping applications",
+      "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%209_Void%20Arachne.png"
+    }
+  },
+  {
+    "id": "image_10",
+    "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%2010_Void%20Arachne.png",
+    "alt": "Figure 10. A screen capture of a video posted on a Telegram channel wherein the threat actor uses AI face- and voice-cloning technology on a WhatsApp call ",
+    "title": "",
+    "width": "",
+    "height": "",
+    "placement": null,
+    "attributes": {
+      "alt": "Figure 10. A screen capture of a video posted on a Telegram channel wherein the threat actor uses AI face- and voice-cloning technology on a WhatsApp call ",
+      "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%2010_Void%20Arachne.png"
+    }
+  },
+  {
+    "id": "image_11",
+    "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%2011%20B_Void%20Arachne.png",
+    "alt": "Figure 11. An infected voice-changing and face-swapping AI app installer on Telegram",
+    "title": "",
+    "width": "",
+    "height": "",
+    "placement": null,
+    "attributes": {
+      "alt": "Figure 11. An infected voice-changing and face-swapping AI app installer on Telegram",
+      "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%2011%20B_Void%20Arachne.png"
+    }
+  },
+  {
+    "id": "image_12",
+    "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%2012_Void%20Arachne.png",
+    "alt": "Figure 12. MSI binary table that shows embedded DLLs",
+    "title": "",
+    "width": "",
+    "height": "",
+    "placement": null,
+    "attributes": {
+      "alt": "Figure 12. MSI binary table that shows embedded DLLs",
+      "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%2012_Void%20Arachne.png"
+    }
+  },
+  {
+    "id": "image_13",
+    "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%2013_Void%20Arachne.png",
+    "alt": "Figure 13. MSI action table",
+    "title": "",
+    "width": "",
+    "height": "",
+    "placement": null,
+    "attributes": {
+      "alt": "Figure 13. MSI action table",
+      "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%2013_Void%20Arachne.png"
+    }
+  },
+  {
+    "id": "image_14",
+    "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%2014_Void%20Arachne.png",
+    "alt": "Figure 14. Firewall rule addition",
+    "title": "",
+    "width": "",
+    "height": "",
+    "placement": null,
+    "attributes": {
+      "alt": "Figure 14. Firewall rule addition",
+      "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%2014_Void%20Arachne.png"
+    }
+  },
+  {
+    "id": "image_15",
+    "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%2015_Void%20Arachne.png",
+    "alt": "Figure 15. Firewall rule creation",
+    "title": "",
+    "width": "",
+    "height": "",
+    "placement": null,
+    "attributes": {
+      "alt": "Figure 15. Firewall rule creation",
+      "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%2015_Void%20Arachne.png"
+    }
+  },
+  {
+    "id": "image_16",
+    "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%2016_Void%20Arachne.png",
+    "alt": "Figure 16. Inbound firewall rule configuration",
+    "title": "",
+    "width": "",
+    "height": "",
+    "placement": null,
+    "attributes": {
+      "alt": "Figure 16. Inbound firewall rule configuration",
+      "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%2016_Void%20Arachne.png"
+    }
+  },
+  {
+    "id": "image_17",
+    "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%2017_Void%20Arachne.png",
+    "alt": "Figure 17. File 1 content structure",
+    "title": "",
+    "width": "",
+    "height": "",
+    "placement": null,
+    "attributes": {
+      "alt": "Figure 17. File 1 content structure",
+      "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%2017_Void%20Arachne.png"
+    }
+  },
+  {
+    "id": "image_18",
+    "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%2018_Void%20Arachne.png",
+    "alt": "Figure 18. LetsPro.exe core logic",
+    "title": "",
+    "width": "",
+    "height": "",
+    "placement": null,
+    "attributes": {
+      "alt": "Figure 18. LetsPro.exe core logic",
+      "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%2018_Void%20Arachne.png"
+    }
+  },
+  {
+    "id": "image_19",
+    "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%2019_Void%20Arachne.png",
+    "alt": "Figure 19. File 1 decrypted content structure in memory",
+    "title": "",
+    "width": "",
+    "height": "",
+    "placement": null,
+    "attributes": {
+      "alt": "Figure 19. File 1 decrypted content structure in memory",
+      "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%2019_Void%20Arachne.png"
+    }
+  },
+  {
+    "id": "image_20",
+    "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%2020_Void%20Arachne.png",
+    "alt": "Figure 20. VBScript sets up a scheduled task and configures properties",
+    "title": "",
+    "width": "",
+    "height": "",
+    "placement": null,
+    "attributes": {
+      "alt": "Figure 20. VBScript sets up a scheduled task and configures properties",
+      "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%2020_Void%20Arachne.png"
+    }
+  },
+  {
+    "id": "image_21",
+    "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%2021_Void%20Arachne.png",
+    "alt": "Figure 21. VBScript adds an action to the scheduled task to execute a BAT file",
+    "title": "",
+    "width": "",
+    "height": "",
+    "placement": null,
+    "attributes": {
+      "alt": "Figure 21. VBScript adds an action to the scheduled task to execute a BAT file",
+      "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%2021_Void%20Arachne.png"
+    }
+  },
+  {
+    "id": "image_22",
+    "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%2022_Void%20Arachne.png",
+    "alt": "Figure 22. Scheduled task for executing the BAT file",
+    "title": "",
+    "width": "",
+    "height": "",
+    "placement": null,
+    "attributes": {
+      "alt": "Figure 22. Scheduled task for executing the BAT file",
+      "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%2022_Void%20Arachne.png"
+    }
+  },
+  {
+    "id": "image_23",
+    "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%2023_Void%20Arachne.png",
+    "alt": "Figure 23. Service creation for VBScript execution",
+    "title": "",
+    "width": "",
+    "height": "",
+    "placement": null,
+    "attributes": {
+      "alt": "Figure 23. Service creation for VBScript execution",
+      "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%2023_Void%20Arachne.png"
+    }
+  },
+  {
+    "id": "image_24",
+    "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%2024_Void%20Arachne.png",
+    "alt": "Figure 24. Configuring port forwarding",
+    "title": "",
+    "width": "",
+    "height": "",
+    "placement": null,
+    "attributes": {
+      "alt": "Figure 24. Configuring port forwarding",
+      "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%2024_Void%20Arachne.png"
+    }
+  },
+  {
+    "id": "image_25",
+    "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%2025_Void%20Arachne.png",
+    "alt": "Figure 25. Configuring firewall rule",
+    "title": "",
+    "width": "",
+    "height": "",
+    "placement": null,
+    "attributes": {
+      "alt": "Figure 25. Configuring firewall rule",
+      "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%2025_Void%20Arachne.png"
+    }
+  },
+  {
+    "id": "image_26",
+    "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%2026_Void%20Arachne.png",
+    "alt": "Figure 26. List of created firewall rules",
+    "title": "",
+    "width": "",
+    "height": "",
+    "placement": null,
+    "attributes": {
+      "alt": "Figure 26. List of created firewall rules",
+      "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%2026_Void%20Arachne.png"
+    }
+  },
+  {
+    "id": "image_27",
+    "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%2027_Void%20Arachne.png",
+    "alt": "Figure 27. Winos 4.0 operator panel",
+    "title": "",
+    "width": "",
+    "height": "",
+    "placement": null,
+    "attributes": {
+      "alt": "Figure 27. Winos 4.0 operator panel",
+      "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%2027_Void%20Arachne.png"
+    }
+  },
+  {
+    "id": "image_28",
+    "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%2028_Void%20Arachne.png",
+    "alt": "Figure 28. Winos 4.0 stager initial packet–encryption key exchange",
+    "title": "",
+    "width": "",
+    "height": "",
+    "placement": null,
+    "attributes": {
+      "alt": "Figure 28. Winos 4.0 stager initial packet–encryption key exchange",
+      "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig%2028_Void%20Arachne.png"
+    }
+  },
+  {
+    "id": "image_29",
+    "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig29_Void%20Arachne.png",
+    "alt": "Figure 29. Winos 4.0 stager data encryption",
+    "title": "",
+    "width": "",
+    "height": "",
+    "placement": null,
+    "attributes": {
+      "alt": "Figure 29. Winos 4.0 stager data encryption",
+      "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig29_Void%20Arachne.png"
+    }
+  },
+  {
+    "id": "image_30",
+    "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig30_Void%20Arachne.png",
+    "alt": "Figure 30. C&C server response with a unique identifier to the initial packet",
+    "title": "",
+    "width": "",
+    "height": "",
+    "placement": null,
+    "attributes": {
+      "alt": "Figure 30. C&C server response with a unique identifier to the initial packet",
+      "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig30_Void%20Arachne.png"
+    }
+  },
+  {
+    "id": "image_31",
+    "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig31_Void%20Arachne.png",
+    "alt": "Figure 31. Decrypted C&C response with a unique identifier to the initial packet",
+    "title": "",
+    "width": "",
+    "height": "",
+    "placement": null,
+    "attributes": {
+      "alt": "Figure 31. Decrypted C&C response with a unique identifier to the initial packet",
+      "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig31_Void%20Arachne.png"
+    }
+  },
+  {
+    "id": "image_32",
+    "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig32_Void%20Arachne.png",
+    "alt": "Figure 32. The Winos 4.0 stager sends the next stager module name to the C&C server (encrypted packet)",
+    "title": "",
+    "width": "",
+    "height": "",
+    "placement": null,
+    "attributes": {
+      "alt": "Figure 32. The Winos 4.0 stager sends the next stager module name to the C&C server (encrypted packet)",
+      "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig32_Void%20Arachne.png"
+    }
+  },
+  {
+    "id": "image_33",
+    "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig33_Void%20Arachne.png",
+    "alt": "Figure 33. The Winos  stager sends the next stager module name to the C&C (cleartext)",
+    "title": "",
+    "width": "",
+    "height": "",
+    "placement": null,
+    "attributes": {
+      "alt": "Figure 33. The Winos  stager sends the next stager module name to the C&C (cleartext)",
+      "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig33_Void%20Arachne.png"
+    }
+  },
+  {
+    "id": "image_34",
+    "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig34_Void%20Arachne.png",
+    "alt": "Figure 34. The Winos  stager store module is sent by the C&C server to the registry.",
+    "title": "",
+    "width": "",
+    "height": "",
+    "placement": null,
+    "attributes": {
+      "alt": "Figure 34. The Winos  stager store module is sent by the C&C server to the registry.",
+      "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig34_Void%20Arachne.png"
+    }
+  },
+  {
+    "id": "image_35",
+    "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig35_Void%20Arachne.png",
+    "alt": "Figure 35. Module shellcode DLL loader",
+    "title": "",
+    "width": "",
+    "height": "",
+    "placement": null,
+    "attributes": {
+      "alt": "Figure 35. Module shellcode DLL loader",
+      "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig35_Void%20Arachne.png"
+    }
+  },
+  {
+    "id": "image_36",
+    "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig36_Void%20Arachne.png",
+    "alt": "Figure 36. Code that shows mutex creation and clipboard data retrieval",
+    "title": "",
+    "width": "",
+    "height": "",
+    "placement": null,
+    "attributes": {
+      "alt": "Figure 36. Code that shows mutex creation and clipboard data retrieval",
+      "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig36_Void%20Arachne.png"
+    }
+  },
+  {
+    "id": "image_37",
+    "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig37_Void%20Arachne.png",
+    "alt": "Figure 37. Initializing socket with the C&C server",
+    "title": "",
+    "width": "",
+    "height": "",
+    "placement": null,
+    "attributes": {
+      "alt": "Figure 37. Initializing socket with the C&C server",
+      "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig37_Void%20Arachne.png"
+    }
+  },
+  {
+    "id": "image_38",
+    "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig38_Void%20Arachne.png",
+    "alt": "Figure 38. System information-gathering code snippet",
+    "title": "",
+    "width": "",
+    "height": "",
+    "placement": null,
+    "attributes": {
+      "alt": "Figure 38. System information-gathering code snippet",
+      "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig38_Void%20Arachne.png"
+    }
+  },
+  {
+    "id": "image_39",
+    "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig39_Void%20Arachne.png",
+    "alt": "Figure 39. Code snippet showing the encryption and transmission of collected information to the C&C server",
+    "title": "",
+    "width": "",
+    "height": "",
+    "placement": null,
+    "attributes": {
+      "alt": "Figure 39. Code snippet showing the encryption and transmission of collected information to the C&C server",
+      "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig39_Void%20Arachne.png"
+    }
+  },
+  {
+    "id": "image_40",
+    "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig40_Void%20Arachne.png",
+    "alt": "Figure 40. Initial packet sent by登录模块.dll (LoginModule.dll)",
+    "title": "",
+    "width": "",
+    "height": "",
+    "placement": null,
+    "attributes": {
+      "alt": "Figure 40. Initial packet sent by登录模块.dll (LoginModule.dll)",
+      "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig40_Void%20Arachne.png"
+    }
+  },
+  {
+    "id": "image_41",
+    "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig41_Void%20Arachne.png",
+    "alt": "Figure 41.登录模块.dll (LoginModule.dll) decrypted initial traffic",
+    "title": "",
+    "width": "",
+    "height": "",
+    "placement": null,
+    "attributes": {
+      "alt": "Figure 41.登录模块.dll (LoginModule.dll) decrypted initial traffic",
+      "src": "/content/dam/trendmicro/global/en/research/24/f/behind-the-great-wall--void-arachne-targets-chinese-speaking-users-with-the-winos-4-0-c-c-framework/Fig41_Void%20Arachne.png"
+    }
+  }
+]

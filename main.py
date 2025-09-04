@@ -241,31 +241,45 @@ class Document2KnowledgeGraphPipeline:  #
             full_kg_data, simple_kg_data = self.graph_processor.extract_pure_graph_data(
                 kg_results)
 
+            # 🔥 紧跟在步骤7后保存完整记录数据
+            if save_intermediate:
+                full_kg_path = os.path.join(
+                    output_dir, "05_knowledge_graph_full.json")
+                self.file_manager.save_json(full_kg_data, full_kg_path)
+
+                # 保存简化图数据
+                simple_kg_path = os.path.join(
+                    output_dir, "06_knowledge_graph_simple.json")
+                self.file_manager.save_json(simple_kg_data, simple_kg_path)
+
             # 8. 图谱增强
-            progress.update("图谱ES增强")
-            enhanced_kg_data, enhancement_stats = self.graph_enhancer.enhance_knowledge_graph(
-                simple_kg_data)
+            # 🔥 添加可控参数enable_graph_enhancement
+            enable_graph_enhancement = self.config.get(
+                'graph_enhancer', {}).get('enable', True)
+            enhanced_kg_data = None
+            enhancement_stats = None
 
-            # 保存完整记录数据
-            full_kg_path = os.path.join(
-                output_dir, "05_knowledge_graph_full.json")
-            self.file_manager.save_json(full_kg_data, full_kg_path)
+            if enable_graph_enhancement:
+                progress.update("图谱ES增强")
+                enhanced_kg_data, enhancement_stats = self.graph_enhancer.enhance_knowledge_graph(
+                    simple_kg_data)
 
-            # 保存简化图数据
-            simple_kg_path = os.path.join(
-                output_dir, "06_knowledge_graph_simple.json")
-            self.file_manager.save_json(simple_kg_data, simple_kg_path)
+                # 🔥 紧跟在步骤8后保存增强后的图数据
+                if save_intermediate:
+                    enhanced_kg_path = os.path.join(
+                        output_dir, "07_enhanced_knowledge_graph.json")
+                    self.file_manager.save_json(
+                        enhanced_kg_data, enhanced_kg_path)
 
-            # 保存增强后的图数据
-            enhanced_kg_path = os.path.join(
-                output_dir, "07_enhanced_knowledge_graph.json")
-            self.file_manager.save_json(enhanced_kg_data, enhanced_kg_path)
-
-            # 保存增强统计信息
-            enhancement_stats_path = os.path.join(
-                output_dir, "08_enhancement_stats.json")
-            self.file_manager.save_json(
-                enhancement_stats, enhancement_stats_path)
+                    # 保存增强统计信息
+                    enhancement_stats_path = os.path.join(
+                        output_dir, "08_enhancement_stats.json")
+                    self.file_manager.save_json(
+                        enhancement_stats, enhancement_stats_path)
+            else:
+                logger.info("⏭️  跳过图谱增强步骤")
+                enhanced_kg_data = simple_kg_data
+                enhancement_stats = {}
 
             # 9. 生成统计报告
             progress.update("生成统计报告")

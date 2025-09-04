@@ -95,6 +95,7 @@
     }
   },
   "graph_enhancer": {
+    "enable": false,
     "elasticsearch": {
       "hosts": [
         "https://localhost:9200"

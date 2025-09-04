@@ -22,30 +22,8 @@ def timeout_handler(func):
     """超时装饰器"""
     @wraps(func)
     def wrapper(*args, **kwargs):
-        timeout = kwargs.pop('timeout', 90)  # 默认60秒超时
-
-        result = [None]
-        exception = [None]
-
-        def target():
-            try:
-                result[0] = func(*args, **kwargs)
-            except Exception as e:
-                exception[0] = e
-
-        thread = threading.Thread(target=target)
-        thread.daemon = True
-        thread.start()
-        thread.join(timeout)
-
-        if thread.is_alive():
-            logger.error(f"函数 {func.__name__} 执行超时 ({timeout}秒)")
-            raise TimeoutError(f"API调用超时: {timeout}秒")
-
-        if exception[0]:
-            raise exception[0]
-
-        return result[0]
+        # 允许函数自己处理超时，不额外添加超时控制
+        return func(*args, **kwargs)
 
     return wrapper
 
@@ -66,6 +44,10 @@ class OpenAIAPIManager:
         self.frequency_penalty = config.get('frequency_penalty', 0)
         self.presence_penalty = config.get('presence_penalty', 0)
 
+        # 初始化retry_delays属性，实现指数退避算法
+        self.retry_delays = [
+            min(2 ** i * 1000, 60000) / 1000.0 for i in range(self.max_retries)]
+
         self.client = OpenAI(
             api_key=self.api_key,
             base_url=self.base_url
@@ -74,29 +56,27 @@ class OpenAIAPIManager:
     def fix_json_call_api(self, broken_json: str) -> str:
         """使用GPT修复损坏的JSON格式"""
         try:
-            prompt = """你是JSON修复专家。
+            system_prompt = """你是JSON语法修复专家。严格遵守JSON规范，只输出修复后的JSON。确保实体结构扁平化，不使用properties嵌套。
 
-    任务：修复损坏的JSON，确保语法完全正确。
+任务：修复损坏的JSON，确保语法完全正确。
 
-    输出格式：{"entities":[],"relationships":[]}
+输出格式：{"entities":[],"relationships":[]}
 
-    实体格式：{"labels":"EntityType","id":"entity-id","name":"Entity Name","description":"描述"}
-    关系格式：{"type":"RELATION_TYPE","source":"source-id","target":"target-id","confidence":0.95,"evidence":"证据"}
+实体格式：{"labels":"EntityType","id":"entity-id","name":"Entity Name","description":"描述"}
+关系格式：{"type":"RELATION_TYPE","source":"source-id","target":"target-id","confidence":0.95,"evidence":"证据"}
 
-    核心要求：
-    1. 所有属性名和字符串值必须用双引号包围
-    2. 移除多余空格和隐藏字符
-    3. 确保括号匹配和逗号正确，json结尾必须是"}]}"
-    4. 必须包含entities和relationships字段
-    5. 实体结构扁平化：直接包含labels,id,name,description字段，不使用properties嵌套
+核心要求：
+1. 所有属性名和字符串值必须用双引号包围
+2. 移除多余空格和隐藏字符
+3. 确保括号匹配和逗号正确，json结尾必须是"}]}"
+4. 必须包含entities和relationships字段
+5. 实体结构扁平化：直接包含labels,id,name,description字段，不使用properties嵌套
 
-    直接输出修复后的JSON，无其他内容。
-
-    待修复JSON："""
+直接输出修复后的JSON，无其他内容。"""
 
             messages = [
-                {"role": "system", "content": "你是JSON语法修复专家。严格遵守JSON规范，只输出修复后的JSON。确保实体结构扁平化，不使用properties嵌套。"},
-                {"role": "user", "content": f"{prompt}\n\n{broken_json}"}
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": broken_json}
             ]
 
             response = self.call_api(
@@ -167,9 +147,11 @@ class OpenAIAPIManager:
 
     def _get_retry_delay(self, retry_count: int) -> float:
         """获取重试延迟时间（指数退避）"""
-        if retry_count < len(self.retry_delays):
+        # 增加对retry_delays属性存在性的检查
+        if hasattr(self, 'retry_delays') and retry_count < len(self.retry_delays):
             return self.retry_delays[retry_count]
-        return self.retry_delays[-1]
+        # 提供默认的指数退避算法
+        return min(2 ** retry_count * 1000, 60000) / 1000.0  # 最大延迟60秒
 
     @timeout_handler
     def call_api(
@@ -822,6 +804,12 @@ class ConfigManager:
                 "max_chunk_size": 2000,
                 "chunk_overlap": 200,
                 "separators": ["\n\n", "\n", " ", ""]
+            },
+            # 🔥 添加graph_enhancer配置项
+            "graph_enhancer": {
+                "enable": True,
+                "elasticsearch_host": "localhost:9200",
+                "index_name": "knowledge_graph_enhancement"
             },
             "graph_processor": {
                 "entity_alignment": {
