@@ -53,11 +53,6 @@ es_handle_data/ttp_train_data.csv
 es_handle_data/attck_procedures/
 es_handle_data/*.csv
 
-# Keep only safe example files
-!es_handle_data/*_example.py
-!es_handle_data/example_*.csv
-!es_handle_data/es_handle_data_sensitive_info.md
-
 # Fine-tune sensitive data files
 fine_tune_demo/fine_tune_input/raw_graph_chinese.json
 fine_tune_demo/fine_tune_input/raw_graph_english.json
