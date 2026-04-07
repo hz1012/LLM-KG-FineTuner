@@ -11,57 +11,29 @@ from openai import OpenAI
 
 logger = logging.getLogger(__name__)
 
-# 初始化OpenAI客户端用于计算token长度
-embedding_client = OpenAI(
-    api_key="sk-d8626ac601d843d1800a0e349f7c3c8b",
-    base_url="https://dashscope.aliyuncs.com/compatible-mode/v1"
-)
-
-
-def get_token_length(text: str) -> int:
-    """
-    使用OpenAI embedding模型计算文本的token长度
-
-    Args:
-        text: 输入文本
-
-    Returns:
-        int: 文本的token数量
-    """
-    try:
-        # 使用OpenAI的embedding接口计算token数量
-        response = embedding_client.embeddings.create(
-            input=text,
-            model="text-embedding-v2"
-        )
-        # 从response中获取token使用情况
-        if hasattr(response, 'usage') and hasattr(response.usage, 'prompt_tokens'):
-            return response.usage.prompt_tokens
-        else:
-            # 如果无法获取usage信息，则使用一个估算方法
-            # 根据DashScope文档，text-embedding-v2模型的token计算方法
-            logger.warning("无法获取usage信息，使用粗略的估算方法")
-            return len(text) // 4  # 一个粗略的估算，一般中文每个token约4个字符
-    except Exception as e:
-        logger.warning(f"无法使用OpenAI模型计算token长度，使用字符长度估算: {e}")
-        # 出错时回退到字符长度估算
-        return len(text) // 4
-
 
 class ChunkSplitter:
     """文档分块器"""
 
-    def __init__(self, max_chunk_size: int = 2000, chunk_overlap: int = 200, document_title: str = None):
+    def __init__(self, max_chunk_size: int = 2000, chunk_overlap: int = 200, document_title: str = None, config: Dict[str, Any] = None):
         """
         初始化分块器
 
         Args:
             max_chunk_size: 最大块大小
             chunk_overlap: 块重叠大小
+            config: 配置信息
         """
         self.max_chunk_size = max_chunk_size
         self.chunk_overlap = chunk_overlap
         self.document_title = document_title
+        self.config = config or {}
+
+        # 初始化OpenAI客户端用于计算token长度
+        self.embedding_client = OpenAI(
+            api_key="your_openai_api_key_here",
+            base_url="your_url"
+        )
 
         # 设置标题层级，包含到4级标题
         self.headers_to_split_on = [
@@ -79,9 +51,46 @@ class ChunkSplitter:
         self.text_splitter = RecursiveCharacterTextSplitter(
             chunk_size=max_chunk_size,
             chunk_overlap=chunk_overlap,
-            length_function=get_token_length,
+            length_function=self.get_token_length,
             separators=["\n\n", "\n", " ", ""]
         )
+
+    def get_token_length(self, text: str) -> int:
+        """
+        使用OpenAI embedding模型计算文本的token长度
+
+        Args:
+            text: 输入文本
+
+        Returns:
+            int: 文本的token数量
+        """
+        # 获取配置中的token计算方式，默认使用api方式
+        token_calculation_method = self.config.get('token_calculation_method', 'api')
+
+        if token_calculation_method == 'length':
+            # 使用字符长度估算
+            return len(text) // 4  # 一个粗略的估算，一般中文每个token约4个字符
+        else:
+            # 默认使用API方式计算token长度
+            try:
+                # 使用OpenAI的embedding接口计算token数量
+                response = self.embedding_client.embeddings.create(
+                    input=text,
+                    model="text-embedding-v2"
+                )
+                # 从response中获取token使用情况
+                if hasattr(response, 'usage') and hasattr(response.usage, 'prompt_tokens'):
+                    return response.usage.prompt_tokens
+                else:
+                    # 如果无法获取usage信息，则使用一个估算方法
+                    # 根据DashScope文档，text-embedding-v2模型的token计算方法
+                    logger.warning("无法获取usage信息，使用粗略的估算方法")
+                    return len(text) // 4  # 一个粗略的估算，一般中文每个token约4个字符
+            except Exception as e:
+                logger.warning(f"无法使用OpenAI模型计算token长度，使用字符长度估算: {e}")
+                # 出错时回退到字符长度估算
+                return len(text) // 4
 
     def split_markdown_by_headers(self, markdown_content: str) -> List[Document]:
         """使用标题分割markdown文档"""
@@ -199,7 +208,7 @@ class ChunkSplitter:
                             line_stripped.count('|') >= 2)
 
                 # 判断是否为标题行
-                is_header = (line_stripped.startswith('#') and 
+                is_header = (line_stripped.startswith('#') and
                            not line_stripped.startswith('#####'))
 
                 if is_table:
@@ -252,29 +261,29 @@ class ChunkSplitter:
     def _is_only_headers_and_empty_lines(self, lines: List[str]) -> bool:
         """
         🔥 新增：判断文本段是否只包含标题和空行，没有实质性内容
-        
+
         Args:
             lines: 文本行列表
-            
+
         Returns:
             bool: 如果只包含标题和空行返回True，否则返回False
         """
         substantive_content_count = 0
-        
+
         for line in lines:
             line_stripped = line.strip()
-            
+
             # 跳过空行和标题行
             if not line_stripped or (line_stripped.startswith('#') and not line_stripped.startswith('#####')):
                 continue
-                
+
             # 检查是否为分隔符行（如 ---）
             if re.match(r'^\s*[-=]{3,}\s*$', line_stripped):
                 continue
-                
+
             # 其他行都算作实质性内容
             substantive_content_count += 1
-            
+
         # 如果没有实质性内容，返回True
         return substantive_content_count == 0
 
@@ -332,6 +341,16 @@ class ChunkSplitter:
                     title = line_stripped
                     logger.info(f"📋 提取到文档主标题（=格式）: {title}")
                     return title
+
+        # 🔥 新增：如果标准方法无法提取标题，则尝试从文档的前几行中提取
+        # PDF文档可能将一级标题解析为二级标题，我们需要处理这种情况
+        for line in lines[:10]:  # 检查文档前10行
+            line_stripped = line.strip()
+            # 如果文档中只有二级标题，将第一个二级标题提升为一级标题
+            if line_stripped.startswith('## ') and not line_stripped.startswith('### '):
+                title = line_stripped[3:].strip()
+                logger.info(f"📋 检测到PDF文档标题，将二级标题提升为一级标题: {title}")
+                return title
 
         logger.error("未解析出主标题，在config.json里面添加document_title")
         raise ValueError("未解析出主标题，在config.json里面添加document_title")
@@ -471,7 +490,7 @@ class ChunkSplitter:
         for doc in docs:
             # 在metadata中添加token_length字段，避免后续重复计算
             if 'token_length' not in doc.metadata:
-                doc.metadata['token_length'] = get_token_length(
+                doc.metadata['token_length'] = self.get_token_length(
                     doc.page_content)
 
             if doc.metadata['token_length'] > self.max_chunk_size:
@@ -620,7 +639,7 @@ class ChunkSplitter:
 
         # 计算标题部分的大小（使用token长度）
         header_content = '\n'.join(header_lines + [separator_line])
-        header_size = get_token_length(header_content)
+        header_size = self.get_token_length(header_content)
 
         # 计算每个子chunk可以容纳多少数据行
         available_size = self.max_chunk_size - header_size - 20  # 预留20 token缓冲
@@ -636,7 +655,7 @@ class ChunkSplitter:
         current_size = 0
 
         for data_line in data_lines:
-            line_size = get_token_length(data_line) + 1  # +1 for newline
+            line_size = self.get_token_length(data_line) + 1  # +1 for newline
 
             if current_size + line_size > available_size and chunk_data_lines:
                 # 当前chunk已满，创建新的chunk
@@ -651,7 +670,7 @@ class ChunkSplitter:
                         'has_header': True,
                         'chunk_data_rows': len(chunk_data_lines),
                         # 添加token_length到metadata
-                        'token_length': get_token_length(chunk_content)
+                        'token_length': self.get_token_length(chunk_content)
                     }
                 )
                 result_docs.append(chunk_doc)
@@ -668,7 +687,7 @@ class ChunkSplitter:
             chunk_content = '# ' + self.document_title + '\n' + \
                 header_content + '\n' + '\n'.join(chunk_data_lines)
             # 计算chunk的token长度并添加到metadata
-            chunk_token_length = get_token_length(chunk_content)
+            chunk_token_length = self.get_token_length(chunk_content)
             chunk_doc = Document(
                 page_content=chunk_content,
                 metadata={
@@ -707,7 +726,7 @@ class ChunkSplitter:
             doc.metadata['total_chunks'] = len(docs)
             # 确保每个chunk都有token_length字段
             if 'token_length' not in doc.metadata:
-                doc.metadata['token_length'] = get_token_length(
+                doc.metadata['token_length'] = self.get_token_length(
                     doc.page_content)
 
         return docs
