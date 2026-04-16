@@ -1,4 +1,4 @@
-# LLM-KG-FineTuner
+﻿# LLM-KG-FineTuner
 
 **从非结构化文档到知识图谱的端到端自动化系统**
 
@@ -282,12 +282,7 @@ A: **可以！** 基础模式完全在 CPU 上运行。只有模型微调需要 
 
 ---
 
-## 🔒 安全说明
-
-- ⚠️ **绝对不要** 将真实的 API Key 提交到 Git 仓库
-- ⚠️ `config.json` 已在 `.gitignore` 中，不会被意外提交
-- ✅ 所有密钥必须由用户自行填写
-- ✅ 示例配置文件使用占位符（如 `YOUR_API_KEY_HERE`）
+## 🔒 隐私保护\n\n`config.json` 已加入 `.gitignore`，你的 API Key 不会被提交到仓库。请放心填写配置！
 
 ---
 
