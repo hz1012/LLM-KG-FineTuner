@@ -53,7 +53,8 @@ cp config.minimal.example.json config.json
 ```
 
 > 💡 **支持任何 OpenAI 兼容 API**：OpenAI、Azure、阿里云通义千问、Ollama 等
-### 3. 运行 Demo
+
+### 4. 运行 Demo
 
 ```bash
 # 基础运行（使用配置文件中的默认标题）
@@ -71,7 +72,7 @@ python main.py --input test_samples/apt-report.pdf --output demo_output --title 
 
 | 能力 | 说明 | 必需依赖 |
 |------|------|---------|
-| 📄 **文档解析** | PDF/HTML → Markdown（基于 Docling） | 无 |
+| 📄 **文档解析** | PDF/HTML → Markdown（基于 Docling，需要下载模型） | 无（可选：ModelScope） |
 | 🔍 **智能分块** | 基于语义连贯性的动态分块 | LLM API |
 | 🧠 **知识抽取** | 实体 + 关系联合抽取 | LLM API |
 | 🔗 **实体对齐** | 跨 chunk 实体消歧与合并 | 无（默认开启） |
@@ -153,7 +154,7 @@ python main.py --input your_document.pdf --mode enhanced
 
 ```bash
 # 1. 克隆仓库
-git clone https://github.com/your-org/LLM-KG-FineTuner.git
+git clone https://github.com/hz1012/LLM-KG-FineTuner.git
 cd LLM-KG-FineTuner
 
 # 2. 创建虚拟环境（推荐）
@@ -340,4 +341,4 @@ python es_handle_data/populate_ttp_index.py
 
 ---
 
-**快速开始** | [5分钟快速开始](#-5分钟快速开始) | **问题反馈** | [GitHub Issues](https://github.com/your-org/LLM-KG-FineTuner/issues)
+**快速开始** | [5分钟快速开始](#-5分钟快速开始) | **问题反馈** | [GitHub Issues](https://github.com/hz1012/LLM-KG-FineTuner/issues)
