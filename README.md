@@ -31,8 +31,10 @@ python docling_download.py
 > - 如果只处理 HTML 文件，可以跳过此步骤
 > - 模型下载一次后会缓存在本地，无需重复下载
 
-> ⚠️ **如果下载失败**：
-### 2. 配置 API Key
+
+### 3. 配置 API Key
+
+复制配置文件并填写你的 API Key：
 
 ```bash
 cp config.minimal.example.json config.json
@@ -46,11 +48,11 @@ cp config.minimal.example.json config.json
     "api_key": "你的API密钥",
     "base_url": "https://api.openai.com/v1",
     "model": "gpt-4"
-然后编辑 config.json：
+  }
+}
 ```
 
 > 💡 **支持任何 OpenAI 兼容 API**：OpenAI、Azure、阿里云通义千问、Ollama 等
-
 ### 3. 运行 Demo
 
 ```bash
