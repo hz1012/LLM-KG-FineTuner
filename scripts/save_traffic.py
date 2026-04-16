@@ -17,13 +17,25 @@ CLONES_FILE = OUT_DIR / "clones_history.json"
 SNAPSHOT_FILE = OUT_DIR / "latest_snapshot.json"
 
 
+from urllib.error import HTTPError
+
 def github_get(url: str):
     req = Request(url)
     req.add_header("Authorization", f"Bearer {TOKEN}")
     req.add_header("Accept", "application/vnd.github+json")
     req.add_header("X-GitHub-Api-Version", "2022-11-28")
-    with urlopen(req) as resp:
-        return json.loads(resp.read().decode("utf-8"))
+    try:
+        with urlopen(req) as resp:
+            return json.loads(resp.read().decode("utf-8"))
+    except HTTPError as e:
+        print("HTTP ERROR:", e.code, e.reason)
+        print("URL:", url)
+        print("X-Accepted-GitHub-Permissions:", e.headers.get("X-Accepted-GitHub-Permissions"))
+        print("X-OAuth-Scopes:", e.headers.get("X-OAuth-Scopes"))
+        print("X-Accepted-OAuth-Scopes:", e.headers.get("X-Accepted-OAuth-Scopes"))
+        body = e.read().decode("utf-8", errors="ignore")
+        print("Response body:", body)
+        raise
 
 
 def load_json(path: Path):
