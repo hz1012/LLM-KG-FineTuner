@@ -4,7 +4,7 @@
 
 LLM-KG-FineTuner 能够将 PDF/HTML 文档自动转换为结构化知识图谱，支持实体抽取、关系识别、图谱增强和模型微调。适用于威胁情报分析、技术文档结构化、知识管理等场景。
 
-![系统架构](assets/image/image-1.png)
+![系统架构](assets/image/系统架构.png)
 ![知识图谱示例](assets/image/image-2.png)
 
 ---
