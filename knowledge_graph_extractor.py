@@ -37,6 +37,7 @@ _BASE_PROMPT_TMPL = """\
 3. **实体ID唯一性**：每个实体的id必须唯一，不能重复
 4. **关系完整性**：如果提取了关系，必须同时提取关系两端的实体
 5. **报告实体统一性**：若chunk开头为"# 报告\n"，则提取成report
+6. **禁止额外报告实体**：不要基于内容中的"报告"、"分析"等词汇提取额外的报告实体
 
 ## 输出格式
 严格按此JSON格式输出，不要添加代码块标记：
@@ -56,8 +57,8 @@ _FEW_SHOT = {
 Behind the Great Wall: Void Arachne Targets Chinese-Speaking Users. Void Arachne group launched a campaign targeting Chinese users using SEO poisoning techniques.
 
 **输出：**
-{{"entities":[{{"labels":"Report","id":"report--great-wall","name":"Behind the Great Wall: Void Arachne Targets Chinese-Speaking Users","description":"威胁情报报告"}},{{"labels":"ThreatOrganization","id":"threat-org--void-arachne","name":"Void Arachne","description":"威胁组织"}},{{"labels":"AttackEvent","id":"attack-event--seo-campaign","name":"SEO Poisoning Campaign","description":"针对中文用户的SEO投毒攻击活动"}},{{"labels":"Target","id":"target--chinese-users","name":"Chinese-Speaking Users","description":"中文用户"}},{{"labels":"Technique","id":"technique--seo-poisoning","name":"SEO Poisoning","description":"搜索引擎优化投毒技术"}}],
-    "relationships":[{{"type":"BELONG","source":"report--great-wall","target":"attack-event--seo-campaign","confidence":0.95,"evidence":"报告记录了SEO投毒攻击活动"}},{{"type":"LAUNCH","source":"threat-org--void-arachne","target":"attack-event--seo-campaign","confidence":0.95,"evidence":"Void Arachne组织发起了攻击活动"}},{{"type":"ATTACK","source":"attack-event--seo-campaign","target":"target--chinese-users","confidence":0.95,"evidence":"攻击活动针对中文用户"}},{{"type":"ATTACK","source":"attack-event--seo-campaign","target":"technique--seo-poisoning","confidence":0.9,"evidence":"攻击活动使用SEO投毒技术"}}]}}
+{{"entities":[{{"labels":"Report","id":"report--great-wall","name":"Behind the Great Wall: Void Arachne Targets Chinese-Speaking Users","description":"威胁情报报告"}},{{"labels":"ThreatOrganization","id":"threat-org--void-arachne","name":"Void Arachne","description":"威胁组织"}},{{"labels":"AttackEvent","id":"attackevent--seo-campaign","name":"SEO Poisoning Campaign","description":"针对中文用户的SEO投毒攻击活动"}},{{"labels":"Target","id":"target--chinese-users","name":"Chinese-Speaking Users","description":"中文用户"}},{{"labels":"Technique","id":"technique--seo-poisoning","name":"SEO Poisoning","description":"搜索引擎优化投毒技术"}}],
+    "relationships":[{{"type":"BELONG","source":"report--great-wall","target":"attackevent--seo-campaign","confidence":0.95,"evidence":"报告记录了SEO投毒攻击活动"}},{{"type":"LAUNCH","source":"threat-org--void-arachne","target":"attackevent--seo-campaign","confidence":0.95,"evidence":"Void Arachne组织发起了攻击活动"}},{{"type":"ATTACK","source":"attackevent--seo-campaign","target":"target--chinese-users","confidence":0.95,"evidence":"攻击活动针对中文用户"}},{{"type":"ATTACK","source":"attackevent--seo-campaign","target":"technique--seo-poisoning","confidence":0.9,"evidence":"攻击活动使用SEO投毒技术"}}]}}
 
 ### 示例2：工具和程序关系
 **输入文本：**
@@ -96,7 +97,7 @@ The system was running normally without any suspicious activities detected durin
 海莲花组织是由奇安信威胁情报中心最早披露并命名的一个APT组织，该组织针对中国政府、科研院所、海事机构展开了有组织、有计划、有针对性的长时间不间断攻击。
 
 **输出：**
-{{"entities":[{{"labels":"Report","id":"report--qianxin-apt","name":"奇安信威胁情报报告","description":"威胁情报报告"}},{{"labels":"ThreatOrganization","id":"threat-org--ocean-lotus","name":"海莲花组织","description":"APT威胁组织"}},{{"labels":"AttackEvent","id":"attack-event--targeted-campaign","name":"针对性攻击活动","description":"有组织有计划的攻击活动"}},{{"labels":"Target","id":"target--cn-gov","name":"中国政府机构","description":"攻击目标"}},{{"labels":"Target","id":"target--research-inst","name":"科研院所","description":"攻击目标"}},{{"labels":"Target","id":"target--maritime","name":"海事机构","description":"攻击目标"}}],"relationships":[{{"type":"BELONG","source":"report--qianxin-apt","target":"attack-event--targeted-campaign","confidence":0.95,"evidence":"报告披露了针对性攻击活动"}},{{"type":"LAUNCH","source":"threat-org--ocean-lotus","target":"attack-event--targeted-campaign","confidence":0.95,"evidence":"海莲花组织发起攻击活动"}},{{"type":"ATTACK","source":"attack-event--targeted-campaign","target":"target--cn-gov","confidence":0.9,"evidence":"攻击活动针对中国政府"}},{{"type":"ATTACK","source":"attack-event--targeted-campaign","target":"target--research-inst","confidence":0.9,"evidence":"攻击活动针对科研院所"}},{{"type":"ATTACK","source":"attack-event--targeted-campaign","target":"target--maritime","confidence":0.9,"evidence":"攻击活动针对海事机构"}}]}}
+{{"entities":[{{"labels":"Report","id":"report--qianxin-apt","name":"奇安信威胁情报报告","description":"威胁情报报告"}},{{"labels":"ThreatOrganization","id":"threat-org--ocean-lotus","name":"海莲花组织","description":"APT威胁组织"}},{{"labels":"AttackEvent","id":"attackevent--targeted-campaign","name":"针对性攻击活动","description":"有组织有计划的攻击活动"}},{{"labels":"Target","id":"target--cn-gov","name":"中国政府机构","description":"攻击目标"}},{{"labels":"Target","id":"target--research-inst","name":"科研院所","description":"攻击目标"}},{{"labels":"Target","id":"target--maritime","name":"海事机构","description":"攻击目标"}}],"relationships":[{{"type":"BELONG","source":"report--qianxin-apt","target":"attackevent--targeted-campaign","confidence":0.95,"evidence":"报告披露了针对性攻击活动"}},{{"type":"LAUNCH","source":"threat-org--ocean-lotus","target":"attackevent--targeted-campaign","confidence":0.95,"evidence":"海莲花组织发起攻击活动"}},{{"type":"ATTACK","source":"attackevent--targeted-campaign","target":"target--cn-gov","confidence":0.9,"evidence":"攻击活动针对中国政府"}},{{"type":"ATTACK","source":"attackevent--targeted-campaign","target":"target--research-inst","confidence":0.9,"evidence":"攻击活动针对科研院所"}},{{"type":"ATTACK","source":"attackevent--targeted-campaign","target":"target--maritime","confidence":0.9,"evidence":"攻击活动针对海事机构"}}]}}
 
 ### 示例2：中文攻击技术和工具
 **输入文本：**
@@ -277,16 +278,17 @@ class KnowledgeGraphExtractor:
             if entity_type in valid_entity_types:
                 filtered_entities.append(entity)
             else:
-                logger.debug(
+                logger.info(
                     f"过滤无效实体类型: {entity_type} (实体: {entity.get('name', 'Unknown')})")
 
         # 过滤关系
         for relationship in kg_data.get('relationships', []):
             rel_type = relationship.get('type', '')
+            # 添加对关系类型的有效性检查，只保留配置中定义的关系类型
             if rel_type in valid_relationship_types:
                 filtered_relationships.append(relationship)
             else:
-                logger.debug(f"过滤无效关系类型: {rel_type}")
+                logger.info(f"过滤无效关系类型: {rel_type}")
 
         # 统计过滤结果
         original_entity_count = len(kg_data.get('entities', []))

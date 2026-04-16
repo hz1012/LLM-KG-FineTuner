@@ -71,6 +71,7 @@ class OpenAIAPIManager:
 3. 确保括号匹配和逗号正确，json结尾必须是"}]}"
 4. 必须包含entities和relationships字段
 5. 实体结构扁平化：直接包含labels,id,name,description字段，不使用properties嵌套
+6. 修复非法转义字符，特别是路径中的反斜杠，如"HKEY_CURRENT_USER\\Console\\0"应正确转义为"HKEY_CURRENT_USER\\\\Console\\\\0"
 
 直接输出修复后的JSON，无其他内容。"""
 
@@ -338,6 +339,9 @@ class GPTResponseParser:
             # 🔥 步骤5：基础语法检查和修复
             response = GPTResponseParser._basic_syntax_fix(response)
 
+            # 🔥 新增步骤6：修复转义序列问题
+            response = GPTResponseParser._fix_escape_sequences(response)
+
             return response
 
         except Exception as e:
@@ -360,6 +364,22 @@ class GPTResponseParser:
             return json_str
         except Exception as e:
             logger.warning(f"⚠️ 引号修复失败: {e}")
+            return json_str
+
+    @staticmethod
+    def _fix_escape_sequences(json_str: str) -> str:
+        """修复JSON中的非法转义序列"""
+        try:
+            # 修复常见的非法转义字符，特别是路径中的反斜杠
+            # 查找并修复类似 HKEY_CURRENT_USER\Console\0 这样的路径
+
+            # 使用正则表达式匹配可能存在问题的转义序列
+            # 匹配那些不是合法JSON转义字符的反斜杠
+            json_str = re.sub(r'(?<!\\)\\(?![\\/bfnrt"])(?![0-9]{3})', r'\\\\', json_str)
+
+            return json_str
+        except Exception as e:
+            logger.warning(f"⚠️ 转义序列修复失败: {e}")
             return json_str
 
     @staticmethod
@@ -448,7 +468,7 @@ class GPTResponseParser:
                         # 验证修复结果
                         try:
                             result = json.loads(fixed_response)
-                            logger.info("✅ GPT修复JSON成功")
+                            logger.info("✅ 基于规则的修复JSON成功")
                             if expected_key and expected_key in result:
                                 return {expected_key: result[expected_key]}
                             return result
@@ -721,20 +741,18 @@ class ConfigManager:
 
         config_path = Path(config_path)
 
-        # 如果配置文件不存在，创建默认配置
+        # 如果配置文件不存在，则报错
         if not config_path.exists():
-            logger.warning(f"配置文件不存在: {config_path}，创建默认配置...")
-            default_config = cls._get_default_config()
-            cls._save_config(default_config, config_path)
-            cls._config = default_config
-            return default_config
+            logger.error(f"配置文件不存在: {config_path}")
+            raise FileNotFoundError(f"配置文件不存在: {config_path}")
 
         try:
             with open(config_path, 'r', encoding='utf-8') as f:
                 config = json.load(f)
 
-            # 验证和补充配置
-            config = cls._validate_and_complete_config(config)
+            # 验证关键配置
+            cls._validate_critical_settings(config)
+
             cls._config = config
 
             logger.info(f"✅ 配置文件加载成功: {config_path}")
@@ -742,119 +760,11 @@ class ConfigManager:
 
         except json.JSONDecodeError as e:
             logger.error(f"❌ 配置文件JSON格式错误: {e}")
-            logger.info("使用默认配置...")
-            default_config = cls._get_default_config()
-            cls._config = default_config
-            return default_config
+            raise e
 
         except Exception as e:
             logger.error(f"❌ 配置文件加载失败: {e}")
-            logger.info("使用默认配置...")
-            default_config = cls._get_default_config()
-            cls._config = default_config
-            return default_config
-
-    @classmethod
-    def _get_default_config(cls) -> Dict[str, Any]:
-        """获取默认配置"""
-        return {
-            "openai": {
-                "api_key": "",
-                "base_url": "https://api.openai.com/v1",
-                "model": "gpt-3.5-turbo",
-                "timeout": 90,
-                "max_retries": 5
-            },
-            "knowledge_extractor": {
-                "min_quality_score": 65,
-                "batch_size": 5,
-                "enable_api_health_check": True,
-                "entity_types": {
-                    "ThreatActor": "威胁行为者/攻击组织/APT组织",
-                    "Tactics": "战术层面的攻击策略",
-                    "Techniques": "具体的攻击技术方法",
-                    "Procedures": "详细的执行步骤过程",
-                    "Tools": "使用的工具软件"
-                },
-                "relationship_types": {
-                    "USE": "威胁行为者使用战术",
-                    "IMPLEMENT": "战术实现技术",
-                    "EXECUTE": "技术执行过程",
-                    "APPLY": "过程应用工具",
-                    "ABSTRACT": "将过程抽象为技术/战术"
-                },
-                "entity_examples": {
-                    "ThreatActor": "APT29, Lazarus Group",
-                    "Tactics": "Initial Access, Defense Evasion",
-                    "Techniques": "Spear Phishing, DLL Injection",
-                    "Procedures": "Create scheduled task, Execute PowerShell",
-                    "Tools": "Cobalt Strike, Mimikatz"
-                }
-            },
-            "pdf_converter": {
-                "artifacts_path": "./docling-models",
-                "do_ocr": False
-            },
-            "html_converter": {
-                "extract_images": True,
-                "timeout": 30,
-                "max_image_size": 5242880
-            },
-            "chunk_splitter": {
-                "max_chunk_size": 2000,
-                "chunk_overlap": 200,
-                "separators": ["\n\n", "\n", " ", ""]
-            },
-            # 🔥 添加graph_enhancer配置项
-            "graph_enhancer": {
-                "enable": True,
-                "elasticsearch_host": "localhost:9200",
-                "index_name": "knowledge_graph_enhancement"
-            },
-            "graph_processor": {
-                "entity_alignment": {
-                    "similarity_threshold": 0.75,
-                    "enable_acronym_match": True,
-                    "enable_contains_match": True
-                },
-                "quality_filters": {
-                    "min_entity_name_length": 2,
-                    "min_relationship_confidence": 0.6
-                }
-            },
-            "output": {
-                "save_intermediate": True,
-                "create_timestamp_dirs": False,
-                "compression": False
-            },
-            "logging": {
-                "level": "INFO",
-                "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-                "file_output": False
-            }
-        }
-
-    @classmethod
-    def _validate_and_complete_config(cls, config: Dict[str, Any]) -> Dict[str, Any]:
-        """验证和补充配置"""
-        default_config = cls._get_default_config()
-
-        # 递归合并配置，确保所有必需的键都存在
-        def merge_configs(default: Dict[str, Any], user: Dict[str, Any]) -> Dict[str, Any]:
-            merged = default.copy()
-            for key, value in user.items():
-                if key in merged and isinstance(merged[key], dict) and isinstance(value, dict):
-                    merged[key] = merge_configs(merged[key], value)
-                else:
-                    merged[key] = value
-            return merged
-
-        complete_config = merge_configs(default_config, config)
-
-        # 验证关键配置
-        cls._validate_critical_settings(complete_config)
-
-        return complete_config
+            raise e
 
     @classmethod
     def _validate_critical_settings(cls, config: Dict[str, Any]):
@@ -879,9 +789,6 @@ class ConfigManager:
 
         # 检查质量评分设置
         kg_config = config.get('knowledge_extractor', {})
-        min_quality_score = kg_config.get('min_quality_score', 65)
-        if min_quality_score < 30:
-            logger.warning(f"⚠️ 质量评分阈值过低: {min_quality_score}，可能包含低质量数据")
 
     @classmethod
     def _save_config(cls, config: Dict[str, Any], config_path: Path):
@@ -1007,100 +914,190 @@ class APICallError(Exception):
 
 
 class TokenCounter:
-    """Token计数器"""
+    """Token计数器（已废弃，使用 OpenAI API 代替）"""
 
     @staticmethod
     def get_tokens_num(text_list: List[str]) -> int:
         """
-        直接调用EAS接口，基于LLM模型分词，计算token数量
-        注意：此函数不支持批量处理，批量需自己改造为异步模式
+        [已废弃] 直接调用EAS接口，基于LLM模型分词，计算token数量
+
+        注意：
+        - 此函数已不再使用，当前使用 OpenAI API 计算 token
+        - 原接口为阿里云内网服务，外网无法访问
+        - 保留仅供参考
         """
-        api_key = "MTM0NWE3NDBhYzEyZjE4YmUwNTU3OTg3MjM5ZGIyOGJkMTAzOTM0YQ=="
-        api_base = "http://jianyu.aliyun-inc.com/agent/pai/api/predict/yundun_prehost"
+        # ⚠️ 已废弃：使用内部 EAS 服务
+        # api_key = "MTM0NWE3NDBhYzEyZjE4YmUwNTU3OTg3MjM5ZGIyOGJkMTAzOTM0YQ=="
+        # api_base = "http://jianyu.aliyun-inc.com/agent/pai/api/predict/yundun_prehost"
 
-        def _headers(api_key: str) -> dict:
-            return {"Authorization": f"Bearer {api_key}"}
-
-        try:
-            response = requests.post(
-                url=api_base + '/count_token',
-                headers=_headers(api_key),
-                json={"prompt": text_list[0]}
-            )
-
-            if response.text.strip():
-                time.sleep(0.1)
-                rst = response.json()
-                logger.info("token_num: %d", rst['count'])
-                return rst['count']
-            else:
-                logger.info("Empty or whitespace-only response received.")
-                return 0
-
-        except json.JSONDecodeError as e:
-            logger.exception("Invalid JSON format: %s", e)
-            logger.exception("text_list: %s", text_list)
-            logger.exception("response: %s", response.text)
-            return 0
-        except Exception as e:
-            logger.error(f"Token计算请求失败: {e}")
-            return 0
+        logger.warning("⚠️ TokenCounter.get_tokens_num 已废弃，请使用 OpenAI API")
+        return 0
 
     @staticmethod
     def count_tokens(text: str) -> int:
-        """计算文本的token数量 - 适配函数"""
-        try:
-            return TokenCounter.get_tokens_num([text])
-        except Exception as e:
-            logger.error(f"Token计算失败: {e}")
-            # 简单估算作为备选方案
-            chinese_chars = len(re.findall(r'[\u4e00-\u9fff]', text))
-            english_words = len(re.findall(r'[a-zA-Z]+', text))
-            return chinese_chars + english_words
+        """[已废弃] 计算文本的token数量"""
+        logger.warning("⚠️ TokenCounter.count_tokens 已废弃，请使用 OpenAI API")
+        # 简单估算作为备选方案
+        chinese_chars = len(re.findall(r'[\u4e00-\u9fff]', text))
+        english_words = len(re.findall(r'[a-zA-Z]+', text))
+        return chinese_chars + english_words
 
 
 class FileManager:
-    """文件管理器"""
+    """文件管理器 - 处理文件读写操作"""
 
     @staticmethod
-    def ensure_directory(file_path: str):
-        """确保目录存在"""
-        Path(file_path).parent.mkdir(parents=True, exist_ok=True)
-
-    @staticmethod
-    def save_json(data: Dict[str, Any], file_path: str):
-        """保存JSON数据到文件"""
+    def save_text(content: str, file_path: str) -> None:
+        """保存文本内容到文件"""
         try:
-            FileManager.ensure_directory(file_path)
             with open(file_path, 'w', encoding='utf-8') as f:
-                json.dump(data, f, ensure_ascii=False, indent=2)
-            logger.info(f"数据已保存到: {file_path}")
+                f.write(content)
+            logger.debug(f"✅ 文本已保存: {file_path}")
         except Exception as e:
-            logger.error(f"保存JSON文件失败: {e}")
+            logger.error(f"❌ 保存文本失败: {file_path}, 错误: {e}")
             raise
 
     @staticmethod
-    def load_json(file_path: str) -> Dict[str, Any]:
+    def save_json(data: Any, file_path: str, ensure_ascii: bool = False) -> None:
+        """保存JSON数据到文件"""
+        try:
+            with open(file_path, 'w', encoding='utf-8') as f:
+                json.dump(data, f, ensure_ascii=ensure_ascii, indent=2)
+            logger.debug(f"✅ JSON已保存: {file_path}")
+        except Exception as e:
+            logger.error(f"❌ 保存JSON失败: {file_path}, 错误: {e}")
+            raise
+
+    @staticmethod
+    def load_json(file_path: str) -> Any:
         """从文件加载JSON数据"""
         try:
             with open(file_path, 'r', encoding='utf-8') as f:
                 return json.load(f)
         except Exception as e:
-            logger.error(f"加载JSON文件失败: {e}")
+            logger.error(f"❌ 加载JSON失败: {file_path}, 错误: {e}")
             raise
 
     @staticmethod
-    def save_text(content: str, file_path: str):
-        """保存文本内容到文件"""
+    def convert_graph_format(graph_data: Dict[str, Any]) -> Dict[str, Any]:
+        """转换图数据格式"""
         try:
-            FileManager.ensure_directory(file_path)
-            with open(file_path, 'w', encoding='utf-8') as f:
-                f.write(content)
-            logger.info(f"文本已保存到: {file_path}")
-        except Exception as e:
-            logger.error(f"保存文本文件失败: {e}")
-            raise
+            # 初始化转换后的数据结构
+            converted_data = {
+                "nodes": [],
+                "links": []
+            }
 
+            # 如果传入的是列表，取第一个元素
+            if isinstance(graph_data, list) and len(graph_data) > 0:
+                graph_data = graph_data[0]
+
+            # 确保graph_data是字典类型
+            if not isinstance(graph_data, dict):
+                logger.error(f"❌ 图数据格式不正确: 期望dict类型，实际{type(graph_data)}")
+                return {"nodes": [], "links": []}
+
+            # 创建节点名称到数字ID的映射
+            node_name_to_id = {}
+            node_id_counter = 0
+
+            # 处理节点数据
+            nodes_data = graph_data.get("nodes", {})
+            if isinstance(nodes_data, dict):
+                for node_key, count in nodes_data.items():
+                    try:
+                        # 解析节点JSON字符串
+                        node_obj = json.loads(node_key) if isinstance(node_key, str) else node_key
+
+                        # 提取节点属性
+                        node_name = node_obj.get("pkey", "")
+                        if not node_name:
+                            node_name = node_obj.get("name", "")
+
+                        # 如果节点名称还未映射，则分配新的数字ID
+                        if node_name not in node_name_to_id:
+                            node_name_to_id[node_name] = node_id_counter
+                            node_id_counter += 1
+
+                        # 构建新节点
+                        new_node = {
+                            "id": node_name_to_id[node_name],
+                            "name": node_name,
+                        }
+
+                        # 保留其他属性
+                        if "label" in node_obj:
+                            new_node["label"] = node_obj["label"]
+                        if "entity_type" in node_obj:
+                            new_node["entity_type"] = node_obj["entity_type"]
+                        if "image" in node_obj:
+                            new_node["image"] = node_obj["image"]
+
+                        converted_data["nodes"].append(new_node)
+                    except json.JSONDecodeError:
+                        # 如果不是JSON字符串，直接使用
+                        if node_key not in node_name_to_id:
+                            node_name_to_id[node_key] = node_id_counter
+                            node_id_counter += 1
+
+                        new_node = {
+                            "id": node_name_to_id[node_key],
+                            "name": node_key,
+                        }
+                        converted_data["nodes"].append(new_node)
+
+            # 处理关系数据
+            edges_data = graph_data.get("edges", {})
+            if isinstance(edges_data, dict):
+                for edge_key, count in edges_data.items():
+                    try:
+                        # 解析关系JSON字符串
+                        edge_obj = json.loads(edge_key) if isinstance(edge_key, str) else edge_key
+
+                        # 提取源节点和目标节点 - 根据用户要求修改映射关系
+                        # source_name 对应原始的 pkey
+                        # target_name 对应原始的 skey
+                        source_name = edge_obj.get("pkey", "")
+                        target_name = edge_obj.get("skey", "")
+
+                        # 确保节点存在，如果不存在则创建
+                        if source_name not in node_name_to_id:
+                            node_name_to_id[source_name] = node_id_counter
+                            # 添加缺失的节点
+                            converted_data["nodes"].append({
+                                "id": node_id_counter,
+                                "name": source_name
+                            })
+                            node_id_counter += 1
+
+                        if target_name not in node_name_to_id:
+                            node_name_to_id[target_name] = node_id_counter
+                            # 添加缺失的节点
+                            converted_data["nodes"].append({
+                                "id": node_id_counter,
+                                "name": target_name
+                            })
+                            node_id_counter += 1
+
+                        # 构建新关系 - 确保方向正确
+                        new_link = {
+                            "source": node_name_to_id[source_name],
+                            "target": node_name_to_id[target_name],
+                            "relation": edge_obj.get("label", "")
+                        }
+
+                        converted_data["links"].append(new_link)
+                    except json.JSONDecodeError:
+                        # 如果解析失败，跳过该关系
+                        continue
+
+            logger.info(f"✅ 图数据格式转换完成: {len(converted_data['nodes'])}个节点, {len(converted_data['links'])}个关系")
+            return converted_data
+
+        except Exception as e:
+            logger.error(f"❌ 图数据格式转换失败: {e}")
+            # 返回空的转换结果而不是抛出异常
+            return {"nodes": [], "links": []}
 
 class StatisticsReporter:
     """统计报告器 - 支持聚合统计格式的图数据"""

@@ -28,14 +28,17 @@ class GraphEnhancer:
         self.config = config
         self.api_manager = api_manager
 
+        # 检查是否启用图谱增强
+        self.enable = config.get('enable', True)
+        if not self.enable:
+            logger.info("⏭️  图谱增强器已被禁用，跳过初始化")
+            return
+
         # ES配置
         es_config = config.get('elasticsearch', {})
-        self.es_hosts = es_config.get(
-            'hosts', ["https://121.43.228.183:19200"])
-        self.es_auth = es_config.get(
-            'auth', ('elastic', '1E79E697-7AFB-4018-9016-1775AD245B1F'))
-        self.index_name = es_config.get(
-            'index_name', 'test_ttp_embedding_index')
+        self.es_hosts = es_config.get('hosts', ["http://localhost:9200"])
+        self.es_auth = es_config.get('auth', None)  # 从配置文件读取，不提供默认值
+        self.index_name = es_config.get('index_name', 'test_ttp_embedding_index')
 
         # 增强配置
         self.top_k = config.get('top_k', 3)
@@ -51,10 +54,13 @@ class GraphEnhancer:
         self._init_es_client()
 
         # 初始化OpenAI客户端（用于生成embedding）
-        self.openai_client = OpenAI(
-            api_key="sk-d8626ac601d843d1800a0e349f7c3c8b",
-            base_url="https://dashscope.aliyuncs.com/compatible-mode/v1"
-        )
+        # 从 api_manager 获取配置，如果没有则从 config 中查找
+        if self.api_manager:
+            self.openai_client = self.api_manager.client
+        else:
+            # 备用方案：尝试从全局配置读取（不推荐）
+            logger.warning("⚠️ 未提供 api_manager，图谱增强可能无法正常工作")
+            self.openai_client = None
 
         logger.info(f"🔧 图谱增强器初始化完成")
         logger.info(f"   ES索引: {self.index_name}")
@@ -85,7 +91,11 @@ class GraphEnhancer:
             self.es_client = None
 
     def get_embedding(self, text: str) -> Optional[List[float]]:
-        """生成文本向量（简单限流版）"""
+        """生成文本向量"""
+        if not self.openai_client:
+            logger.error("❌ OpenAI客户端未初始化，无法生成embedding")
+            return None
+
         max_retries = 2
         base_wait_time = 1200  # 基础等待时间：20min
 
@@ -291,6 +301,9 @@ class GraphEnhancer:
             # 收集similar procedures信息
             similar_procedures_info = []
 
+            # 收集所有相关的节点键用于关系创建
+            all_new_node_keys = []
+
             for i, ttp in enumerate(similar_ttps):
                 procedure_text = ttp["procedure"]
                 tactics_text = ttp["tactics"]
@@ -305,8 +318,6 @@ class GraphEnhancer:
                         "source": "ES_enhancement"
                     })
 
-                new_node_keys = []
-
                 # 🔥 对于procedure，直接增强原有实体（因为原节点肯定是procedure类型）
                 if procedure_text and procedure_text.strip():
                     # 增强原有procedure实体，增加计数和相似信息
@@ -315,13 +326,13 @@ class GraphEnhancer:
                         original_node_key)  # 记录被增强的原始实体
 
                     # 将原procedure节点加入关系创建列表
-                    new_node_keys.append(original_node_key)
+                    all_new_node_keys.append(original_node_key)
 
                 # 创建新的Tactics实体（保持原逻辑，因为tactics可能确实不同）
                 if tactics_text and tactics_text.strip():
-                    pkey = self._generate_simple_pkey("tactics", tactics_text)
+                    pkey = self._generate_simple_pkey("tactic", tactics_text)
                     new_tactic_key = json.dumps({
-                        "entity_type": "tactics",
+                        "entity_type": "tactic",
                         "label": tactics_text,
                         "pkey": pkey,
                         "source": "ES_enhancement",
@@ -329,21 +340,21 @@ class GraphEnhancer:
                         "enhanced_from": original_node_key
                     }, ensure_ascii=False)
 
-                    # 即使是重复节点也要添加到new_node_keys列表中用于关系创建
+                    # 即使是重复节点也要添加到all_new_node_keys列表中用于关系创建
                     if not self._is_duplicate_node_key(nodes, new_tactic_key):
                         nodes[new_tactic_key] = 1
                         stats["new_entities_added"] += 1
                         actually_enhanced = True  # 标记为真正增强
 
-                    # 无论是否是重复节点，都要添加到new_node_keys用于关系创建
-                    new_node_keys.append(new_tactic_key)
+                    # 无论是否是重复节点，都要添加到all_new_node_keys用于关系创建
+                    all_new_node_keys.append(new_tactic_key)
 
                 # 创建新的Techniques实体（保持原逻辑，因为techniques可能确实不同）
                 if techniques_text and techniques_text.strip():
                     pkey = self._generate_simple_pkey(
-                        "techniques", techniques_text)
+                        "technique", techniques_text)
                     new_technique_key = json.dumps({
-                        "entity_type": "techniques",
+                        "entity_type": "technique",
                         "label": techniques_text,
                         "pkey": pkey,
                         "source": "ES_enhancement",
@@ -351,23 +362,23 @@ class GraphEnhancer:
                         "enhanced_from": original_node_key
                     }, ensure_ascii=False)
 
-                    # 即使是重复节点也要添加到new_node_keys列表中用于关系创建
+                    # 即使是重复节点也要添加到all_new_node_keys列表中用于关系创建
                     if not self._is_duplicate_node_key(nodes, new_technique_key):
                         nodes[new_technique_key] = 1
                         stats["new_entities_added"] += 1
                         actually_enhanced = True  # 标记为真正增强
 
-                    # 无论是否是重复节点，都要添加到new_node_keys用于关系创建
-                    new_node_keys.append(new_technique_key)
+                    # 无论是否是重复节点，都要添加到all_new_node_keys用于关系创建
+                    all_new_node_keys.append(new_technique_key)
 
-                # 创建实体间的关系
-                relationships_added = self._create_ttp_relationships(
-                    new_node_keys, original_node_key, edges, similarity_score, stats
-                )
+            # 创建实体间的关系
+            relationships_added = self._create_ttp_relationships(
+                all_new_node_keys, original_node_key, edges, max([ttp.get("score", 0) for ttp in similar_ttps], default=0), stats
+            )
 
-                # 如果添加了关系，则标记为真正增强
-                if relationships_added > 0:
-                    actually_enhanced = True
+            # 如果添加了关系，则标记为真正增强
+            if relationships_added > 0:
+                actually_enhanced = True
 
             # 更新原始节点信息，添加similar_procedures字段
             if similar_procedures_info:
@@ -431,18 +442,19 @@ class GraphEnhancer:
             original_pkey = original_node_info.get("pkey", "")
 
             # 收集新增节点的pkey信息
-            tactics_pkey = None
-            techniques_pkey = None
+            tactics_pkeys = []  # 支持多个tactic
+            techniques_pkeys = []  # 支持多个technique
 
+            # 从当前new_node_keys中收集tactic和technique
             for new_node_key in new_node_keys:
                 try:
                     new_node_info = json.loads(new_node_key)
                     entity_type = new_node_info.get("entity_type", "")
 
-                    if entity_type == "tactics":
-                        tactics_pkey = new_node_info.get("pkey", "")
-                    elif entity_type == "techniques":
-                        techniques_pkey = new_node_info.get("pkey", "")
+                    if entity_type == "tactic":
+                        tactics_pkeys.append(new_node_info.get("pkey", ""))
+                    elif entity_type == "technique":
+                        techniques_pkeys.append(new_node_info.get("pkey", ""))
                 except json.JSONDecodeError:
                     continue
 
@@ -450,35 +462,37 @@ class GraphEnhancer:
             # 1. tactics HAS techniques：战术包含技术
             # 2. techniques LAUNCH procedure：技术启动具体的过程
 
-            # 创建 tactics HAS techniques 关系
-            if tactics_pkey and techniques_pkey:
-                rel_key = json.dumps({
-                    "label": "HAS",
-                    "pkey": tactics_pkey,      # tactics作为主体
-                    "skey": techniques_pkey,   # techniques作为客体
-                    "confidence": similarity_score,
-                    "source": "ES_enhancement"
-                }, ensure_ascii=False)
+            # 创建 tactics HAS techniques 关系 - 支持多个tactic和technique的组合
+            for tactic_pkey in tactics_pkeys:
+                for technique_pkey in techniques_pkeys:
+                    rel_key = json.dumps({
+                        "label": "HAS",
+                        "pkey": tactic_pkey,      # tactics作为主体
+                        "skey": technique_pkey,   # techniques作为客体
+                        "confidence": similarity_score,
+                        "source": "ES_enhancement"
+                    }, ensure_ascii=False)
 
-                if rel_key not in edges:
-                    edges[rel_key] = 1
-                    stats["new_relationships_added"] += 1
-                    relationships_added += 1
+                    if rel_key not in edges:
+                        edges[rel_key] = 1
+                        stats["new_relationships_added"] += 1
+                        relationships_added += 1
 
-            # 创建 techniques LAUNCH procedure 关系
-            if techniques_pkey:
-                rel_key = json.dumps({
-                    "label": "LAUNCH",
-                    "pkey": techniques_pkey,   # techniques作为主体
-                    "skey": original_pkey,     # procedure作为客体
-                    "confidence": similarity_score,
-                    "source": "ES_enhancement"
-                }, ensure_ascii=False)
+            # 创建 techniques LAUNCH procedure 关系 - 支持多个technique
+            for technique_pkey in techniques_pkeys:
+                if technique_pkey and original_pkey:
+                    rel_key = json.dumps({
+                        "label": "LAUNCH",
+                        "pkey": technique_pkey,   # techniques作为主体
+                        "skey": original_pkey,     # procedure作为客体
+                        "confidence": similarity_score,
+                        "source": "ES_enhancement"
+                    }, ensure_ascii=False)
 
-                if rel_key not in edges:
-                    edges[rel_key] = 1
-                    stats["new_relationships_added"] += 1
-                    relationships_added += 1
+                    if rel_key not in edges:
+                        edges[rel_key] = 1
+                        stats["new_relationships_added"] += 1
+                        relationships_added += 1
 
         except Exception as e:
             logger.error(f"❌ 创建TTP关系失败: {e}")

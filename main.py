@@ -29,14 +29,45 @@ log_cfg = config.get("logging", {})
 log_dir = Path("logs")
 log_dir.mkdir(exist_ok=True)
 
+# 添加日志初始化验证
+logger = logging.getLogger(__name__)
+logger.info("🔍 日志系统初始化验证 - 控制台输出正常")
+try:
+    # 尝试写入测试日志
+    test_log_path = log_dir / "test.log"
+    with open(test_log_path, 'w', encoding='utf-8') as f:
+        f.write("测试文件写入权限\n")
+    os.remove(test_log_path)
+    logger.info("✅ 日志目录写入权限验证通过")
+except Exception as e:
+    logger.error(f"❌ 日志目录写入权限验证失败: {e}")
+
+# 先清除可能存在的旧配置
+for handler in logging.root.handlers[:]:
+    logging.root.removeHandler(handler)
+    handler.close()
+
+# 重新配置日志系统
+log_handlers = [
+    logging.StreamHandler()
+]
+
+if log_cfg.get("file_output") and log_cfg.get("filename"):
+    file_handler = logging.FileHandler(
+        log_dir / log_cfg["filename"],
+        mode='w',  # 明确设置模式
+        encoding='utf-8',  # 添加编码设置
+        delay=False
+    )
+    # 关键：设置文件处理器级别与根日志器一致
+    file_handler.setLevel(getattr(logging, log_cfg.get("level", "INFO").upper()))
+    file_handler.setFormatter(logging.Formatter(log_cfg.get(
+        "format", "%(asctime)s - %(name)s - %(levelname)s - %(message)s")))
+    log_handlers.append(file_handler)
+
 logging.basicConfig(
     level=getattr(logging, log_cfg.get("level", "INFO").upper(), logging.INFO),
-    format=log_cfg.get(
-        "format", "%(asctime)s - %(name)s - %(levelname)s - %(message)s"),
-    handlers=[
-        logging.StreamHandler(),
-        *([logging.FileHandler(log_dir/log_cfg["filename"])] if log_cfg.get("file_output") and log_cfg.get("filename") else [])
-    ]
+    handlers=log_handlers
 )
 logger = logging.getLogger(__name__)
 
@@ -64,14 +95,17 @@ class Document2KnowledgeGraphPipeline:  #
         self.markdown_processor = MarkdownProcessor()
 
         chunk_config = self.config.get('chunk_splitter', {})
-        # 处理document_title，如果是"None"字符串则转换为None
+        # 处理document_title，如果是“None”字符串则转换为None
         document_title = chunk_config.get('document_title', None)
         if document_title == "None":
             document_title = None
+
+        # 传递完整配置，包括 openai 配置
         self.chunk_splitter = ChunkSplitter(
             max_chunk_size=chunk_config.get('max_chunk_size', 2000),
             chunk_overlap=chunk_config.get('chunk_overlap', 200),
-            document_title=document_title
+            document_title=document_title,
+            config=self.config  # 🔥 传递完整配置
         )
 
         openai_config = self.config.get('openai', {})
@@ -111,7 +145,8 @@ class Document2KnowledgeGraphPipeline:  #
         save_intermediate: bool = True,
         max_chunks: int = None,
         chunk_selection_strategy: str = "quality",
-        enable_qa_generation: bool = False  # 是否生成qa对
+        enable_qa_generation: bool = False,  # 是否生成qa对
+        document_title: Optional[str] = None  # 🔥 新增：文档标题（覆盖配置文件设置）
     ) -> Dict[str, Any]:
         """
         处理文档文件的完整流程（支持PDF和HTML）
@@ -123,6 +158,7 @@ class Document2KnowledgeGraphPipeline:  #
             max_chunks: 最大处理chunk数，None表示处理所有chunk
             chunk_selection_strategy: chunk选择策略
             enable_qa_generation： 是否生成qa对
+            document_title: 文档标题（可选），如果提供则覆盖配置文件中的设置
 
         Returns:
             包含最终结果和统计信息的字典
@@ -169,9 +205,21 @@ class Document2KnowledgeGraphPipeline:  #
                 self.file_manager.save_text(
                     processed_markdown, processed_md_path)
 
-            # 3. 文档分块 chunk选择逻辑
+            # 3. 文档分块 chunk质量过滤
             progress.update("文档分块")
+
+            # 🔥 动态设置文档标题（优先使用函数参数，其次使用配置文件）
+            if document_title is not None:
+                # 如果传入了标题参数，临时覆盖配置
+                original_title = self.chunk_splitter.document_title
+                self.chunk_splitter.document_title = document_title
+                logger.info(f"📝 使用自定义文档标题: {document_title}")
+
             docs = self.chunk_splitter.process_document(processed_markdown)
+
+            # 恢复原始配置（如果有修改）
+            if document_title is not None:
+                self.chunk_splitter.document_title = original_title
             if save_intermediate:
                 total_chunks_path = os.path.join(
                     output_dir, "02.5_total_chunks.json")
@@ -252,6 +300,13 @@ class Document2KnowledgeGraphPipeline:  #
                     output_dir, "06_knowledge_graph_simple.json")
                 self.file_manager.save_json(simple_kg_data, simple_kg_path)
 
+                # 转换06文件格式并保存
+                converted_simple_kg_data = self.file_manager.convert_graph_format(simple_kg_data)
+                converted_simple_kg_path = os.path.join(
+                    output_dir, "06_knowledge_graph_simple_converted.json")
+                # 保存时不使用数组包装
+                self.file_manager.save_json(converted_simple_kg_data, converted_simple_kg_path)
+
             # 8. 图谱增强
             # 🔥 添加可控参数enable_graph_enhancement
             enable_graph_enhancement = self.config.get(
@@ -270,6 +325,13 @@ class Document2KnowledgeGraphPipeline:  #
                         output_dir, "07_enhanced_knowledge_graph.json")
                     self.file_manager.save_json(
                         enhanced_kg_data, enhanced_kg_path)
+
+                    # 转换07文件格式并保存
+                    converted_enhanced_kg_data = self.file_manager.convert_graph_format(enhanced_kg_data)
+                    converted_enhanced_kg_path = os.path.join(
+                        output_dir, "07_enhanced_knowledge_graph_converted.json")
+                    # 保存时不使用数组包装
+                    self.file_manager.save_json(converted_enhanced_kg_data, converted_enhanced_kg_path, ensure_ascii=False)
 
                     # 保存增强统计信息
                     enhancement_stats_path = os.path.join(
@@ -301,6 +363,14 @@ class Document2KnowledgeGraphPipeline:  #
 
             # 10. 保存最终结果
             progress.update("保存结果")
+
+            # 转换简化图数据格式并保存
+            converted_simple_kg_data = self.file_manager.convert_graph_format(simple_kg_data)
+            converted_simple_kg_path = os.path.join(
+                output_dir, "06_knowledge_graph_simple_converted.json")
+            # 保存时不使用数组包装
+            self.file_manager.save_json(converted_simple_kg_data, converted_simple_kg_path, ensure_ascii=False)
+
             final_results = {
                 'source_file': file_path,
                 'file_type': file_type,
@@ -436,17 +506,20 @@ def main():
         {
             'path': "test_samples/sample_1.html",
             'type': 'HTML',
-            'output_dir': "html_output"
+            'output_dir': "html_output",
+            'title': None  # 🔥 使用配置文件中的设置
         },
         {
-            'path': "https://www.example.com/research/sample-report.html",
+            'path': "https://www.trendmicro.com/en_us/research/24/f/behind-the-great-wall-void-arachne-targets-chinese-speaking-user.html",
             'type': 'HTML',
-            'output_dir': "html_output_2"
+            'output_dir': "html_output_2",
+            'title': "Behind the Great Wall: Void Arachne Targets Chinese"  # 🔥 显式指定标题
         },
         {
-            'path': "test_samples/sample_document.pdf",
+            'path': "test_samples/apt-report.pdf",
             'type': 'PDF',
-            'output_dir': "pdf_output"
+            'output_dir': "pdf_output",
+            'title': None  # 🔥 使用配置文件中的设置
         }
     ]
 
@@ -471,7 +544,8 @@ def main():
             save_intermediate=True,
             max_chunks=None,
             chunk_selection_strategy="quality",
-            enable_qa_generation=False  # 禁用QA生成
+            enable_qa_generation=False,  # 禁用QA生成
+            document_title=test_file.get('title')  # 🔥 传递文档标题
         )
 
         # 打印QA生成摘要
@@ -526,6 +600,15 @@ def main():
                 logger.warning(f"图片下载失败: {e}")
 
         logger.info(f"📁 详细结果请查看: {test_file['output_dir']}")
+        # 强制刷新所有日志处理器
+        for handler in logging.root.handlers:
+            try:
+                handler.flush()
+            except Exception as e:
+                print(f"日志刷新失败: {e}")
+
+        # 正确的关闭调用
+        logging.shutdown()
 
     except Exception as e:
         logger.error(f"❌ 处理失败: {e}")

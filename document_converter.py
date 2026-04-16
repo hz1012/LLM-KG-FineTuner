@@ -10,7 +10,7 @@ from docling.datamodel.pipeline_options import PdfPipelineOptions
 import logging
 from pathlib import Path
 from typing import Dict, List, Tuple, Any
-import re
+import re, os
 
 # 新增HTML转换相关导入
 from markdownify import MarkdownConverter
@@ -138,9 +138,33 @@ class PDFConverter:
             artifacts_path: 模型路径
             do_ocr: 是否启用OCR
         """
-        self.artifacts_path = artifacts_path
+        import os
+        # 使用项目目录中的模型路径
+        layout_model_path = os.path.join(artifacts_path, "ds4sd--docling-layout-heron")
+        table_model_path = os.path.join(artifacts_path, "ds4sd--docling-models", "model_artifacts", "tableformer")
+
+        # 确保layout模型目录下有accurate子目录
+        accurate_dir = os.path.join(layout_model_path, "accurate")
+        os.makedirs(accurate_dir, exist_ok=True)
+
+        # 将tableformer模型的配置文件和权重文件复制或链接到layout模型的accurate目录下
+        source_tm_config = os.path.join(table_model_path, "accurate", "tm_config.json")
+        source_model = os.path.join(table_model_path, "accurate", "tableformer_accurate.safetensors")
+
+        target_tm_config = os.path.join(accurate_dir, "tm_config.json")
+        target_model = os.path.join(accurate_dir, "tableformer_accurate.safetensors")
+
+        # 复制文件（如果目标文件不存在）
+        if not os.path.exists(target_tm_config) and os.path.exists(source_tm_config):
+            import shutil
+            shutil.copy2(source_tm_config, target_tm_config)
+
+        if not os.path.exists(target_model) and os.path.exists(source_model):
+            import shutil
+            shutil.copy2(source_model, target_model)
+
         self.pipeline_options = PdfPipelineOptions(
-            artifacts_path=artifacts_path,
+            artifacts_path=layout_model_path,
             do_ocr=do_ocr
         )
 
@@ -568,8 +592,17 @@ class HTMLConverter:
                     # 如果是布局表格，转换为普通文本
                     return self.process_tag(el, convert_children_only=True)
 
-                # 对于有效的数据表格，使用默认转换
+                # 【新增：DOM 树清洗与表头语义强制修正】
+                # 应对某些前端 HTML 缺失 <th> 标签导致 markdownify 渲染分割线错位的 Bug
+                first_row = el.find('tr')
+                if first_row:
+                    # 将第一行的所有 <td> 强行重置为 <th>
+                    for td in first_row.find_all('td'):
+                        td.name = 'th'
+
+                # 对于修正后的有效数据表格，使用默认转换
                 return super().convert_table(el, text, parent_tags)
+
 
         return CustomMarkdownConverter(self, **options)
 

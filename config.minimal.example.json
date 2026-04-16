@@ -1,8 +1,8 @@
 {
   "openai": {
-    "api_key": "your_openai_api_key_here",
-    "base_url": "https://api.openai.com/v1",
-    "model": "qwen-max",
+    "api_key": "YOUR_API_KEY_HERE",
+    "base_url": "YOUR_BASE_URL_HERE",
+    "model": "gpt-4",
     "timeout": 90,
     "max_tokens": 6000,
     "max_retries": 3,
@@ -100,10 +100,7 @@
       "hosts": [
         "http://localhost:9200"
       ],
-      "auth": [
-        "elastic",
-        "your_elastic_password"
-      ],
+      "auth": null,
       "index_name": "test_ttp_embedding_index"
     },
     "embedding_model": "text-embedding-v2",

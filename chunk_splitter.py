@@ -22,6 +22,7 @@ class ChunkSplitter:
         Args:
             max_chunk_size: 最大块大小
             chunk_overlap: 块重叠大小
+            document_title: 文档标题
             config: 配置信息
         """
         self.max_chunk_size = max_chunk_size
@@ -29,11 +30,20 @@ class ChunkSplitter:
         self.document_title = document_title
         self.config = config or {}
 
-        # 初始化OpenAI客户端用于计算token长度
-        self.embedding_client = OpenAI(
-            api_key="your_openai_api_key_here",
-            base_url="your_url"
-        )
+        # 初始化OpenAI客户端用于计算token长度（从配置读取）
+        openai_config = self.config.get('openai', {})
+        api_key = openai_config.get('api_key')
+        base_url = openai_config.get('base_url')
+
+        if api_key and base_url:
+            self.embedding_client = OpenAI(
+                api_key=api_key,
+                base_url=base_url
+            )
+        else:
+            # 如果没有配置，设置为 None，后续使用备用方案
+            self.embedding_client = None
+            logger.warning("⚠️ 未配置 OpenAI API，将使用备用 token 计算方法")
 
         # 设置标题层级，包含到4级标题
         self.headers_to_split_on = [
@@ -57,7 +67,7 @@ class ChunkSplitter:
 
     def get_token_length(self, text: str) -> int:
         """
-        使用OpenAI embedding模型计算文本的token长度
+        计算文本的token长度
 
         Args:
             text: 输入文本
@@ -72,7 +82,11 @@ class ChunkSplitter:
             # 使用字符长度估算
             return len(text) // 4  # 一个粗略的估算，一般中文每个token约4个字符
         else:
-            # 默认使用API方式计算token长度
+            # 使用API方式计算token长度
+            if not self.embedding_client:
+                # 备用方案：使用字符长度估算
+                return len(text) // 4
+
             try:
                 # 使用OpenAI的embedding接口计算token数量
                 response = self.embedding_client.embeddings.create(
@@ -83,10 +97,9 @@ class ChunkSplitter:
                 if hasattr(response, 'usage') and hasattr(response.usage, 'prompt_tokens'):
                     return response.usage.prompt_tokens
                 else:
-                    # 如果无法获取usage信息，则使用一个估算方法
-                    # 根据DashScope文档，text-embedding-v2模型的token计算方法
+                    # 如果无法获取usage信息，则使用估算方法
                     logger.warning("无法获取usage信息，使用粗略的估算方法")
-                    return len(text) // 4  # 一个粗略的估算，一般中文每个token约4个字符
+                    return len(text) // 4
             except Exception as e:
                 logger.warning(f"无法使用OpenAI模型计算token长度，使用字符长度估算: {e}")
                 # 出错时回退到字符长度估算

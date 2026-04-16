@@ -19,6 +19,9 @@ pdf_output/
 html_output/
 html_output_2/
 
+# Paper comparison experiments (local only)
+html_compare/
+
 # Model files (usually large)
 docling-models/
 
@@ -28,14 +31,25 @@ fine_tune_demo/fine_tune_output/
 # Logs directory
 logs/
 
-# Test directory
+# Test scripts and test data (local only)
 test/
+test_samples/
+
+# ES handle data - raw TTP data (keep example code and scripts)
+es_handle_data/attck_procedures/
+es_handle_data/ttp_data_handle.py
 
 # IDE specific files
 .vscode/
 .idea/
 *.swp
 *.swo
+
+# AI assistant cache (Qoder)
+.qoder/
+
+# VS Code Counter (code statistics)
+.VSCodeCounter/
 
 # OS generated files
 .DS_Store

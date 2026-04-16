@@ -51,14 +51,25 @@ class MarkdownProcessor:
                     i += 1
                     continue
 
-            # 5. 处理误识别为标题的正文
+            # 5. 处理误识别为标题的正文 - 改进逻辑，避免删除真正的标题
             if line.startswith('## '):
                 content = line[3:].strip()
                 has_chinese_numbers = bool(re.search(r'[一二三四五六七八九十]', content))
                 has_arabic_numbers = bool(re.search(r'[0-9]', content))
                 ends_with_period = content.endswith('。')
+                
+                # 判断是否可能是真正的标题而不是误识别的正文
+                # 真正的标题通常不会以句号结尾，且可能包含特定关键词
+                is_likely_title = (
+                    not ends_with_period and  # 不以句号结尾
+                    (has_chinese_numbers or has_arabic_numbers or  # 包含数字
+                     '前言' in content or '结语' in content or '摘要' in content or  # 常见章节词
+                     '介绍' in content or '结论' in content or '方法' in content or
+                     '分析' in content or '总结' in content or '附录' in content or
+                     len(content) < 20)  # 较短的标题更可能是真实标题
+                )
 
-                if not (has_chinese_numbers or has_arabic_numbers) or ends_with_period:
+                if not is_likely_title:
                     processed_lines.append(content)
                     i += 1
                     continue
