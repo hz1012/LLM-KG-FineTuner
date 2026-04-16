@@ -341,15 +341,11 @@ python es_handle_data/populate_ttp_index.py
 > - 确保已配置 Embedding API（如 text-embedding-v2）
 > - 参考 `es_handle_data/` 目录中的完整脚本
 
-### 基线对比实验
 
-参见 `html_compare/` 目录，包含多种基线方法的对比实验代码。
-
----
 
 ## 📄 许可证
 
-[添加你的许可证信息]
+本项目采用 MIT 许可证。详见 [LICENSE](LICENSE) 文件。
 
 ---
 
