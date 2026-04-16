@@ -30,6 +30,7 @@ jobs:
             exit 1
           else
             echo "GH_TRAFFIC_TOKEN is present"
+            echo "Token length: ${#GH_TRAFFIC_TOKEN}"
           fi
 
       - name: Fetch and save traffic data
