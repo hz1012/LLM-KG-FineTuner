@@ -21,6 +21,17 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Check token is present
+        env:
+          GH_TRAFFIC_TOKEN: ${{ secrets.GH_TRAFFIC_TOKEN }}
+        run: |
+          if [ -z "$GH_TRAFFIC_TOKEN" ]; then
+            echo "GH_TRAFFIC_TOKEN is empty"
+            exit 1
+          else
+            echo "GH_TRAFFIC_TOKEN is present"
+          fi
+
       - name: Fetch and save traffic data
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TRAFFIC_TOKEN }}
