@@ -6,7 +6,7 @@ from urllib.request import Request, urlopen
 
 OWNER = os.environ["REPO_OWNER"]
 REPO = os.environ["REPO_NAME"]
-TOKEN = os.environ["GITHUB_TOKEN"]
+TOKEN = os.environ["GH_TRAFFIC_TOKEN"]
 
 API_BASE = f"https://api.github.com/repos/{OWNER}/{REPO}/traffic"
 OUT_DIR = Path("traffic_history")
