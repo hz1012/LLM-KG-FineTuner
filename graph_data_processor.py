@@ -548,6 +548,8 @@ class EnhancedGraphDataProcessor:
 
     def __init__(self, config: Optional[Dict[str, Any]] = None):
         self.config = config or {}
+        # 🔥 从 config 动态构建 valid schema
+        self.valid_relation_schema = self._build_valid_schema_from_config()
 
     @property
     def entity_aligner(self):
@@ -569,6 +571,28 @@ class EnhancedGraphDataProcessor:
                 self._entity_aligner = None
                 logger.info("📋 实体对齐器已禁用")
         return self._entity_aligner
+
+    def _build_valid_schema_from_config(self) -> set:
+        """从 config 动态构建合法关系 schema: {(source_type, target_type, rel_type)}"""
+        schema = set()
+        kg_config = self.config.get('knowledge_extractor', {})
+        relationship_types = kg_config.get('relationship_types', {})
+
+        for rel_name, rel_config in relationship_types.items():
+            if isinstance(rel_config, dict):
+                sources = rel_config.get('source', [])
+                targets = rel_config.get('target', [])
+
+                if isinstance(sources, str):
+                    sources = [sources]
+                if isinstance(targets, str):
+                    targets = [targets]
+
+                for src in sources:
+                    for tgt in targets:
+                        schema.add((src, tgt, rel_name))
+
+        return schema
 
     def extract_raw_graph_data(self, kg_results: List[Dict]) -> Dict[str, Any]:
         """提取原始图数据（对齐前）"""
@@ -650,6 +674,10 @@ class EnhancedGraphDataProcessor:
         processed_relationships = self._process_relationships_with_mapping(
             all_relationships, id_mapping)
 
+        # 🔥 实体对齐后的二次过滤：自环 + schema + 孤立点清理
+        aligned_entities, processed_relationships = self._post_alignment_filter(
+            aligned_entities, processed_relationships)
+
         # 5-8. 生成结果数据（使用新的抽象函数）
         full_result = self._build_full_graph_data(
             aligned_entities, processed_relationships)
@@ -688,6 +716,96 @@ class EnhancedGraphDataProcessor:
         for variant in variants:
             if variant not in id_mapping:
                 id_mapping[variant] = entity_id
+
+    def _post_alignment_filter(self, entities: List[Dict], relationships: List[Dict]) -> Tuple[List[Dict], List[Dict]]:
+        """
+        实体对齐后的二次过滤：
+        1. source/target 存在性检查
+        2. 自环过滤（对齐后可能产生新自环）
+        3. schema 合法性过滤（对齐后 type 可能变化）
+        4. 二次孤立节点清理
+        """
+        logger.info(f"🔍 开始实体对齐后的二次过滤: {len(entities)}个实体, {len(relationships)}个关系")
+
+        # 构建 entity_id -> entity_type 映射
+        entity_id_map = {}
+        for entity in entities:
+            eid = entity.get('id', '')
+            etype = entity.get('type', '') or entity.get('labels', '')
+            if eid:
+                entity_id_map[eid] = etype
+
+        # 第一步：过滤关系
+        valid_relationships = []
+        skipped_ids = set()
+        self_loop_count = 0
+        schema_violation_count = 0
+
+        for rel in relationships:
+            source_id = rel.get('source', '')
+            target_id = rel.get('target', '')
+            rel_type = rel.get('type', '')
+
+            # 1. 检查 source/target 是否存在
+            if source_id not in entity_id_map or target_id not in entity_id_map:
+                skipped_ids.add(source_id)
+                skipped_ids.add(target_id)
+                logger.debug(f"过滤关系（实体不存在）: {source_id} -> {target_id}")
+                continue
+
+            # 2. 过滤自环
+            if source_id == target_id:
+                self_loop_count += 1
+                logger.debug(f"过滤自环关系: {source_id} -> {target_id} ({rel_type})")
+                continue
+
+            # 3. Schema 合法性校验（使用从 config 动态构建的 schema）
+            if self.valid_relation_schema:
+                source_type = entity_id_map.get(source_id, '')
+                target_type = entity_id_map.get(target_id, '')
+                schema_key = (source_type, target_type, rel_type)
+
+                if schema_key not in self.valid_relation_schema:
+                    schema_violation_count += 1
+                    logger.debug(
+                        f"过滤违反 schema 的关系: {source_id}({source_type}) -> {target_id}({target_type}) [{rel_type}]"
+                    )
+                    continue
+
+            valid_relationships.append(rel)
+
+        if self_loop_count > 0:
+            logger.info(f"🔁 过滤自环关系: {self_loop_count}个")
+        if schema_violation_count > 0:
+            logger.info(f"🚫 过滤违反 schema 的关系: {schema_violation_count}个")
+        if skipped_ids:
+            logger.info(f"⚠️ 过滤悬挂关系（实体不存在）: {len(skipped_ids)}个实体引用")
+
+        # 第二步：收集关系中引用的实体 ID
+        connected_entity_ids = set()
+        for rel in valid_relationships:
+            connected_entity_ids.add(rel.get('source', ''))
+            connected_entity_ids.add(rel.get('target', ''))
+
+        # 第三步：过滤孤立节点（二次清理）
+        connected_entities = []
+        isolated_count = 0
+
+        for entity in entities:
+            eid = entity.get('id', '')
+            if eid in connected_entity_ids:
+                connected_entities.append(entity)
+            else:
+                isolated_count += 1
+
+        if isolated_count > 0:
+            logger.info(f"🗑️  二次清理孤立节点: {isolated_count}个")
+
+        logger.info(
+            f"✅ 对齐后过滤完成: 实体 {len(entities)}→{len(connected_entities)}, 关系 {len(relationships)}→{len(valid_relationships)}"
+        )
+
+        return connected_entities, valid_relationships
 
     def _process_relationships_with_mapping(self, relationships: List[Dict], id_mapping: Dict[str, str]) -> List[Dict]:
         """使用ID映射处理关系"""

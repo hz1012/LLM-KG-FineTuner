@@ -304,8 +304,7 @@ class Document2KnowledgeGraphPipeline:  #
                 converted_simple_kg_data = self.file_manager.convert_graph_format(simple_kg_data)
                 converted_simple_kg_path = os.path.join(
                     output_dir, "06_knowledge_graph_simple_converted.json")
-                # 保存时不使用数组包装
-                self.file_manager.save_json(converted_simple_kg_data, converted_simple_kg_path)
+                self.file_manager.save_json(converted_simple_kg_data, converted_simple_kg_path, ensure_ascii=False)
 
             # 8. 图谱增强
             # 🔥 添加可控参数enable_graph_enhancement
@@ -362,14 +361,6 @@ class Document2KnowledgeGraphPipeline:  #
                 logger.info("=" * 60)
 
             # 10. 保存最终结果
-            progress.update("保存结果")
-
-            # 转换简化图数据格式并保存
-            converted_simple_kg_data = self.file_manager.convert_graph_format(simple_kg_data)
-            converted_simple_kg_path = os.path.join(
-                output_dir, "06_knowledge_graph_simple_converted.json")
-            # 保存时不使用数组包装
-            self.file_manager.save_json(converted_simple_kg_data, converted_simple_kg_path, ensure_ascii=False)
 
             final_results = {
                 'source_file': file_path,
@@ -512,7 +503,7 @@ def main():
         {
             'path': "https://www.trendmicro.com/en_us/research/24/f/behind-the-great-wall-void-arachne-targets-chinese-speaking-user.html",
             'type': 'HTML',
-            'output_dir': "html_output_2",
+            'output_dir': "html_output_latest   ",
             'title': "Behind the Great Wall: Void Arachne Targets Chinese"  # 🔥 显式指定标题
         },
         {

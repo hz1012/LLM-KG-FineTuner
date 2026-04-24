@@ -20,8 +20,18 @@ _BASE_PROMPT_TMPL = """\
 ## 实体类型
 {entity_desc}
 
-## 关系类型
+## 关系类型（严格按以下 schema 使用）
 {rel_desc}
+
+🚨 关系端点类型限制（必须遵守）：
+- Report → AttackEvent : BELONG
+- ThreatOrganization → AttackEvent : LAUNCH
+- Technique → Procedure : LAUNCH
+- AttackEvent → Target/Tactic/Procedure : ATTACK
+- Tactic → Technique : HAS
+- Procedure → Tool : USE
+- Asset → Procedure : USE
+禁止创建以上未定义的关系！
 
 
 ## 提取要求
@@ -104,7 +114,7 @@ The system was running normally without any suspicious activities detected durin
 攻击者使用鱼叉式钓鱼邮件作为初始访问手段，邮件中包含恶意附件，利用0day漏洞执行恶意代码。
 
 **输出：**
-{{"entities":[{{"labels":"Technique","id":"technique--spearphishing","name":"鱼叉式钓鱼邮件","description":"钓鱼攻击技术"}},{{"labels":"Tool","id":"tool--malicious-attachment","name":"恶意附件","description":"攻击工具"}},{{"labels":"Tool","id":"tool--zero-day","name":"0day漏洞","description":"零日漏洞利用工具"}},{{"labels":"Procedure","id":"procedure--code-execution","name":"恶意代码执行","description":"代码执行程序"}}],"relationships":[{{"type":"USE","source":"technique--spearphishing","target":"tool--malicious-attachment","confidence":0.95,"evidence":"钓鱼邮件使用恶意附件"}},{{"type":"USE","source":"procedure--code-execution","target":"tool--zero-day","confidence":0.9,"evidence":"代码执行利用0day漏洞"}},{{"type":"LAUNCH","source":"technique--spearphishing","target":"procedure--code-execution","confidence":0.85,"evidence":"钓鱼技术启动代码执行"}}]}}
+{{"entities":[{{"labels":"Tactic","id":"tactic--initial-access","name":"初始访问","description":"TA0001: 初始访问战术"}},{{"labels":"Technique","id":"technique--spearphishing","name":"鱼叉式钓鱼邮件","description":"钓鱼攻击技术"}},{{"labels":"Procedure","id":"procedure--code-execution","name":"恶意代码执行","description":"代码执行程序"}},{{"labels":"Tool","id":"tool--malicious-attachment","name":"恶意附件","description":"攻击工具"}},{{"labels":"Tool","id":"tool--zero-day","name":"0day漏洞","description":"零日漏洞利用工具"}}],"relationships":[{{"type":"HAS","source":"tactic--initial-access","target":"technique--spearphishing","confidence":0.95,"evidence":"初始访问战术包含钓鱼技术"}},{{"type":"LAUNCH","source":"technique--spearphishing","target":"procedure--code-execution","confidence":0.85,"evidence":"钓鱼技术启动代码执行程序"}},{{"type":"USE","source":"procedure--code-execution","target":"tool--malicious-attachment","confidence":0.95,"evidence":"代码执行使用恶意附件"}},{{"type":"USE","source":"procedure--code-execution","target":"tool--zero-day","confidence":0.9,"evidence":"代码执行利用0day漏洞"}}]}}
 """
 }
 
@@ -180,6 +190,9 @@ class KnowledgeGraphExtractor:
         self.entity_types = kg_config.get('entity_types', {})
         self.relationship_types = kg_config.get('relationship_types', {})
 
+        # 🔥 从 config 动态构建 valid schema
+        self.valid_relation_schema = self._build_valid_schema()
+
         # 其他配置参数
         self.batch_size = kg_config.get('batch_size', 5)
         self.max_workers = kg_config.get('max_workers', 3)
@@ -193,9 +206,35 @@ class KnowledgeGraphExtractor:
         logger.info(f"🔧 知识图谱提取器初始化完成")
         logger.info(f"   实体类型: {list(self.entity_types.keys())}")
         logger.info(f"   关系类型: {list(self.relationship_types.keys())}")
+        logger.info(f"   有效 schema 规则: {len(self.valid_relation_schema)}条")
         logger.info(f"   批处理大小: {self.batch_size}")
         logger.info(f"   最大工作线程: {self.max_workers}")
         logger.info(f"   多线程处理: {self.enable_threading}")
+
+    def _build_valid_schema(self) -> set:
+        """从 config 动态构建合法关系 schema: {(source_type, target_type, rel_type)}"""
+        schema = set()
+        for rel_name, rel_config in self.relationship_types.items():
+            # 兼容旧格式（string）和新格式（dict）
+            if isinstance(rel_config, str):
+                continue  # 旧格式不支持 schema 校验
+
+            if isinstance(rel_config, dict):
+                sources = rel_config.get('source', [])
+                targets = rel_config.get('target', [])
+
+                # 统一转为列表
+                if isinstance(sources, str):
+                    sources = [sources]
+                if isinstance(targets, str):
+                    targets = [targets]
+
+                # 构建笛卡尔积
+                for src in sources:
+                    for tgt in targets:
+                        schema.add((src, tgt, rel_name))
+
+        return schema
 
     def get_entity_description(self, entity_type: str) -> str:
         """获取实体类型的描述"""
@@ -258,13 +297,26 @@ class KnowledgeGraphExtractor:
 
         return _BASE_PROMPT_TMPL.format(
             entity_desc=self.entity_types,
-            rel_desc=self.relationship_types,
+            rel_desc=self._format_relationship_desc(),
             few_shot_examples=few_shot_examples,
             guidance_text=guidance_text
         )
 
+    def _format_relationship_desc(self) -> str:
+        """将 relationship_types 格式化为 LLM 可读的字符串描述"""
+        descriptions = []
+        for rel_name, rel_config in self.relationship_types.items():
+            if isinstance(rel_config, dict):
+                # 新格式：提取 description 字段
+                desc = rel_config.get('description', '')
+                descriptions.append(f"- {rel_name}: {desc}")
+            else:
+                # 旧格式：直接使用字符串
+                descriptions.append(f"- {rel_name}: {rel_config}")
+        return '\n'.join(descriptions)
+
     def _filter_invalid_types(self, kg_data: Dict[str, Any]) -> Dict[str, Any]:
-        """🔥 修改：使用配置的dict格式类型进行过滤"""
+        """🔥 修改：使用配置的dict格式类型进行过滤 + schema 校验 + 自环过滤"""
         filtered_entities = []
         filtered_relationships = []
 
@@ -281,14 +333,52 @@ class KnowledgeGraphExtractor:
                 logger.info(
                     f"过滤无效实体类型: {entity_type} (实体: {entity.get('name', 'Unknown')})")
 
-        # 过滤关系
+        # 构建实体 ID → 类型映射（用于 schema 校验）
+        entity_id_to_type = {}
+        for entity in filtered_entities:
+            entity_id = entity.get('id', '')
+            entity_type = entity.get('labels', '')
+            if entity_id:
+                entity_id_to_type[entity_id] = entity_type
+
+        # 过滤关系：类型 + schema + 自环
+        self_loop_count = 0
+        schema_violation_count = 0
         for relationship in kg_data.get('relationships', []):
             rel_type = relationship.get('type', '')
-            # 添加对关系类型的有效性检查，只保留配置中定义的关系类型
-            if rel_type in valid_relationship_types:
-                filtered_relationships.append(relationship)
-            else:
+            source_id = relationship.get('source', '')
+            target_id = relationship.get('target', '')
+
+            # 1. 检查关系类型是否有效
+            if rel_type not in valid_relationship_types:
                 logger.info(f"过滤无效关系类型: {rel_type}")
+                continue
+
+            # 2. 过滤自环边
+            if source_id == target_id:
+                self_loop_count += 1
+                logger.debug(f"过滤自环关系: {source_id} -> {target_id} ({rel_type})")
+                continue
+
+            # 3. Schema 合法性校验（检查端点类型）
+            if self.valid_relation_schema:  # 只有新格式 config 才启用
+                source_type = entity_id_to_type.get(source_id, '')
+                target_type = entity_id_to_type.get(target_id, '')
+                schema_key = (source_type, target_type, rel_type)
+
+                if schema_key not in self.valid_relation_schema:
+                    schema_violation_count += 1
+                    logger.debug(
+                        f"过滤违反 schema 的关系: {source_id}({source_type}) -> {target_id}({target_type}) [{rel_type}]"
+                    )
+                    continue
+
+            filtered_relationships.append(relationship)
+
+        if self_loop_count > 0:
+            logger.info(f"🔁 过滤自环关系: {self_loop_count}个")
+        if schema_violation_count > 0:
+            logger.info(f"🚫 过滤违反 schema 的关系: {schema_violation_count}个")
 
         # 统计过滤结果
         original_entity_count = len(kg_data.get('entities', []))
