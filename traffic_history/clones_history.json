@@ -158,5 +158,15 @@
     "timestamp": "2026-05-03T00:00:00Z",
     "count": 22,
     "uniques": 10
+  },
+  {
+    "timestamp": "2026-05-04T00:00:00Z",
+    "count": 17,
+    "uniques": 8
+  },
+  {
+    "timestamp": "2026-05-05T00:00:00Z",
+    "count": 29,
+    "uniques": 14
   }
 ]

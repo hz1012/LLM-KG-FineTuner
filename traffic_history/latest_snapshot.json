@@ -1,12 +1,12 @@
 {
-  "saved_at_utc": "2026-05-05T05:24:18.220898+00:00",
+  "saved_at_utc": "2026-05-06T05:38:54.157210+00:00",
   "repo": "hz1012/LLM-KG-FineTuner",
-  "latest_14d_views_count": 24,
+  "latest_14d_views_count": 17,
   "latest_14d_views_uniques": 8,
-  "latest_14d_clones_count": 386,
-  "latest_14d_clones_uniques": 139,
+  "latest_14d_clones_count": 401,
+  "latest_14d_clones_uniques": 147,
   "historical_views_total": 237,
   "historical_views_uniques_naive_sum": 28,
-  "historical_clones_total": 655,
-  "historical_clones_uniques_naive_sum": 283
+  "historical_clones_total": 701,
+  "historical_clones_uniques_naive_sum": 305
 }
