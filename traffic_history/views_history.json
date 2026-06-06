@@ -313,5 +313,15 @@
     "timestamp": "2026-06-03T00:00:00Z",
     "count": 0,
     "uniques": 0
+  },
+  {
+    "timestamp": "2026-06-04T00:00:00Z",
+    "count": 0,
+    "uniques": 0
+  },
+  {
+    "timestamp": "2026-06-05T00:00:00Z",
+    "count": 7,
+    "uniques": 2
   }
 ]
