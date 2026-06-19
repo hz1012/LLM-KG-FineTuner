@@ -7,7 +7,7 @@ import json
 import time
 from typing import List, Dict, Any, Optional
 from langchain.docstore.document import Document
-from utils import OpenAIAPIManager, GPTResponseParser
+from api_manager import OpenAIAPIManager, GPTResponseParser
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 logger = logging.getLogger(__name__)

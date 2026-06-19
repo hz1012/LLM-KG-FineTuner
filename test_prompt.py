@@ -7,7 +7,8 @@
 
 from langchain.docstore.document import Document
 from knowledge_graph_extractor import KnowledgeGraphExtractor
-from utils import OpenAIAPIManager, ConfigManager
+from api_manager import OpenAIAPIManager
+from config_manager import ConfigManager
 import os
 import json
 from typing import Dict, Any, List

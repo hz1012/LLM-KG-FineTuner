@@ -14,7 +14,11 @@ from markdown_processor import MarkdownProcessor
 
 from chunk_splitter import ChunkSplitter
 from knowledge_graph_extractor import KnowledgeGraphExtractor
-from utils import FileManager, StatisticsReporter, ContentAnalyzer, ConfigManager, ProgressTracker, OpenAIAPIManager
+from api_manager import OpenAIAPIManager
+from config_manager import ConfigManager
+from file_manager import FileManager
+from stats_reporter import StatisticsReporter
+from utils import ContentAnalyzer, ProgressTracker
 from graph_data_processor import EnhancedGraphDataProcessor
 from quality_filter import QualityFilter
 from qa_generator import QAGenerator

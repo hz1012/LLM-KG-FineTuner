@@ -2,7 +2,7 @@ import json
 import logging
 import os
 from typing import Dict, Any, List, Tuple, Optional, Set
-from utils import OpenAIAPIManager, GPTResponseParser
+from api_manager import OpenAIAPIManager, GPTResponseParser
 
 logger = logging.getLogger(__name__)
 # ---------- 实体对齐提示词模板 ----------
@@ -558,7 +558,7 @@ class EnhancedGraphDataProcessor:
             graph_config = self.config.get('graph_processor', {})
             if graph_config.get('enable_entity_alignment', False):
                 try:
-                    from utils import OpenAIAPIManager
+                    from api_manager import OpenAIAPIManager
                     openai_config = self.config.get('openai', {})
                     api_manager = OpenAIAPIManager(openai_config)
                     self._entity_aligner = EntityAligner(

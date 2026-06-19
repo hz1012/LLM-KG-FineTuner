@@ -7,9 +7,9 @@ import json
 from typing import List, Dict, Any, Tuple, Optional
 from langchain.docstore.document import Document
 import logging
-from utils import OpenAIAPIManager
+from api_manager import OpenAIAPIManager
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from utils import GPTResponseParser
+from api_manager import GPTResponseParser
 import threading
 logger = logging.getLogger(__name__)
 

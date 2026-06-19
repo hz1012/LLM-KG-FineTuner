@@ -9,7 +9,7 @@ import re
 from typing import List, Dict, Any, Optional, Tuple
 from elasticsearch import Elasticsearch
 from openai import OpenAI
-from utils import OpenAIAPIManager
+from api_manager import OpenAIAPIManager
 
 logger = logging.getLogger(__name__)
 
