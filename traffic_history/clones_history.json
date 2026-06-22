@@ -393,5 +393,15 @@
     "timestamp": "2026-06-19T00:00:00Z",
     "count": 30,
     "uniques": 15
+  },
+  {
+    "timestamp": "2026-06-20T00:00:00Z",
+    "count": 33,
+    "uniques": 16
+  },
+  {
+    "timestamp": "2026-06-21T00:00:00Z",
+    "count": 31,
+    "uniques": 12
   }
 ]
