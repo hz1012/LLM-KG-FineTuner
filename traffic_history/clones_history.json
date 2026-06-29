@@ -428,5 +428,10 @@
     "timestamp": "2026-06-26T00:00:00Z",
     "count": 7,
     "uniques": 6
+  },
+  {
+    "timestamp": "2026-06-27T00:00:00Z",
+    "count": 11,
+    "uniques": 7
   }
 ]
